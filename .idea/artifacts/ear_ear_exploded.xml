@@ -1,0 +1,85 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-ear" name="ear:ear exploded">
+    <output-path>$PROJECT_DIR$/jeeapp/ear/target/ear</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <exploded>true</exploded>
+        <module>ear</module>
+        <packaging>ear</packaging>
+        <unpackNestedArchives>false</unpackNestedArchives>
+      </options>
+    </properties>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="ear/javaeeApplication/JavaEE" />
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/jeeapp/ear/target/ear/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="directory" name="lib">
+        <element id="archive" name="jpa.jar">
+          <element id="module-output" name="jpa" />
+        </element>
+        <element id="file-copy" path="$MAVEN_REPOSITORY$/org/wildfly/core/wildfly-cli/9.0.1.Final/wildfly-cli-9.0.1.Final.jar" output-file-name="wildfly-cli.jar" />
+        <element id="file-copy" path="$MAVEN_REPOSITORY$/org/aesh/aesh-readline/1.17/aesh-readline-1.17.jar" output-file-name="aesh-readline.jar" />
+        <element id="file-copy" path="$MAVEN_REPOSITORY$/org/fusesource/jansi/jansi/1.18/jansi-1.18.jar" output-file-name="jansi.jar" />
+        <element id="file-copy" path="$MAVEN_REPOSITORY$/org/aesh/aesh/2.3/aesh-2.3.jar" output-file-name="aesh.jar" />
+        <element id="file-copy" path="$MAVEN_REPOSITORY$/org/aesh/aesh-extensions/1.7/aesh-extensions-1.7.jar" output-file-name="aesh-extensions.jar" />
+        <element id="file-copy" path="$MAVEN_REPOSITORY$/org/jboss/staxmapper/1.3.0.Final/staxmapper-1.3.0.Final.jar" output-file-name="staxmapper.jar" />
+        <element id="file-copy" path="$MAVEN_REPOSITORY$/org/jboss/modules/jboss-modules/1.9.1.Final/jboss-modules-1.9.1.Final.jar" output-file-name="jboss-modules.jar" />
+        <element id="file-copy" path="$MAVEN_REPOSITORY$/org/wildfly/common/wildfly-common/1.5.1.Final/wildfly-common-1.5.1.Final.jar" output-file-name="wildfly-common.jar" />
+        <element id="file-copy" path="$MAVEN_REPOSITORY$/org/wildfly/core/wildfly-controller-client/9.0.1.Final/wildfly-controller-client-9.0.1.Final.jar" output-file-name="wildfly-controller-client.jar" />
+        <element id="file-copy" path="$MAVEN_REPOSITORY$/org/wildfly/core/wildfly-protocol/9.0.1.Final/wildfly-protocol-9.0.1.Final.jar" output-file-name="wildfly-protocol.jar" />
+        <element id="file-copy" path="$MAVEN_REPOSITORY$/org/jboss/jboss-dmr/1.5.0.Final/jboss-dmr-1.5.0.Final.jar" output-file-name="jboss-dmr.jar" />
+        <element id="file-copy" path="$MAVEN_REPOSITORY$/org/jboss/threads/jboss-threads/2.3.3.Final/jboss-threads-2.3.3.Final.jar" output-file-name="jboss-threads.jar" />
+        <element id="file-copy" path="$MAVEN_REPOSITORY$/org/wildfly/core/wildfly-embedded/9.0.1.Final/wildfly-embedded-9.0.1.Final.jar" output-file-name="wildfly-embedded.jar" />
+        <element id="file-copy" path="$MAVEN_REPOSITORY$/org/wildfly/security/wildfly-elytron/1.9.1.Final/wildfly-elytron-1.9.1.Final.jar" output-file-name="wildfly-elytron.jar" />
+        <element id="file-copy" path="$MAVEN_REPOSITORY$/org/jboss/logging/jboss-logging/3.4.0.Final/jboss-logging-3.4.0.Final.jar" output-file-name="jboss-logging.jar" />
+        <element id="file-copy" path="$MAVEN_REPOSITORY$/org/jboss/logmanager/jboss-logmanager/2.1.11.Final/jboss-logmanager-2.1.11.Final.jar" output-file-name="jboss-logmanager.jar" />
+        <element id="file-copy" path="$MAVEN_REPOSITORY$/org/jboss/remoting/jboss-remoting/5.0.12.Final/jboss-remoting-5.0.12.Final.jar" output-file-name="jboss-remoting.jar" />
+        <element id="file-copy" path="$MAVEN_REPOSITORY$/org/jboss/xnio/xnio-api/3.7.2.Final/xnio-api-3.7.2.Final.jar" output-file-name="xnio-api.jar" />
+        <element id="file-copy" path="$MAVEN_REPOSITORY$/org/wildfly/client/wildfly-client-config/1.0.0.CR2/wildfly-client-config-1.0.0.CR2.jar" output-file-name="wildfly-client-config.jar" />
+        <element id="file-copy" path="$MAVEN_REPOSITORY$/org/jboss/remotingjmx/remoting-jmx/3.0.3.Final/remoting-jmx-3.0.3.Final.jar" output-file-name="remoting-jmx.jar" />
+        <element id="file-copy" path="$MAVEN_REPOSITORY$/org/jboss/marshalling/jboss-marshalling/2.0.0.Final/jboss-marshalling-2.0.0.Final.jar" output-file-name="jboss-marshalling.jar" />
+        <element id="file-copy" path="$MAVEN_REPOSITORY$/org/jboss/marshalling/jboss-marshalling-river/2.0.0.Final/jboss-marshalling-river-2.0.0.Final.jar" output-file-name="jboss-marshalling-river.jar" />
+        <element id="file-copy" path="$MAVEN_REPOSITORY$/org/jboss/xnio/xnio-nio/3.5.1.Final/xnio-nio-3.5.1.Final.jar" output-file-name="xnio-nio.jar" />
+        <element id="file-copy" path="$MAVEN_REPOSITORY$/org/jboss/jboss-vfs/3.2.14.Final/jboss-vfs-3.2.14.Final.jar" output-file-name="jboss-vfs.jar" />
+        <element id="file-copy" path="$MAVEN_REPOSITORY$/org/jboss/stdio/jboss-stdio/1.1.0.Final/jboss-stdio-1.1.0.Final.jar" output-file-name="jboss-stdio.jar" />
+        <element id="file-copy" path="$MAVEN_REPOSITORY$/org/apache/maven/maven-core/3.3.1/maven-core-3.3.1.jar" output-file-name="maven-core.jar" />
+        <element id="file-copy" path="$MAVEN_REPOSITORY$/org/apache/maven/maven-model/3.3.1/maven-model-3.3.1.jar" output-file-name="maven-model.jar" />
+        <element id="file-copy" path="$MAVEN_REPOSITORY$/org/apache/maven/maven-settings/3.3.1/maven-settings-3.3.1.jar" output-file-name="maven-settings.jar" />
+        <element id="file-copy" path="$MAVEN_REPOSITORY$/org/apache/maven/maven-settings-builder/3.3.1/maven-settings-builder-3.3.1.jar" output-file-name="maven-settings-builder.jar" />
+        <element id="file-copy" path="$MAVEN_REPOSITORY$/org/apache/maven/maven-builder-support/3.3.1/maven-builder-support-3.3.1.jar" output-file-name="maven-builder-support.jar" />
+        <element id="file-copy" path="$MAVEN_REPOSITORY$/org/apache/maven/maven-repository-metadata/3.3.1/maven-repository-metadata-3.3.1.jar" output-file-name="maven-repository-metadata.jar" />
+        <element id="file-copy" path="$MAVEN_REPOSITORY$/org/apache/maven/maven-artifact/3.3.1/maven-artifact-3.3.1.jar" output-file-name="maven-artifact.jar" />
+        <element id="file-copy" path="$MAVEN_REPOSITORY$/org/apache/maven/maven-plugin-api/3.3.1/maven-plugin-api-3.3.1.jar" output-file-name="maven-plugin-api.jar" />
+        <element id="file-copy" path="$MAVEN_REPOSITORY$/org/apache/maven/maven-model-builder/3.3.1/maven-model-builder-3.3.1.jar" output-file-name="maven-model-builder.jar" />
+        <element id="file-copy" path="$MAVEN_REPOSITORY$/com/google/guava/guava/18.0/guava-18.0.jar" output-file-name="guava.jar" />
+        <element id="file-copy" path="$MAVEN_REPOSITORY$/org/apache/maven/maven-aether-provider/3.3.1/maven-aether-provider-3.3.1.jar" output-file-name="maven-aether-provider.jar" />
+        <element id="file-copy" path="$MAVEN_REPOSITORY$/org/eclipse/aether/aether-spi/1.0.2.v20150114/aether-spi-1.0.2.v20150114.jar" output-file-name="aether-spi.jar" />
+        <element id="file-copy" path="$MAVEN_REPOSITORY$/org/eclipse/aether/aether-impl/1.0.2.v20150114/aether-impl-1.0.2.v20150114.jar" output-file-name="aether-impl.jar" />
+        <element id="file-copy" path="$MAVEN_REPOSITORY$/org/eclipse/aether/aether-api/1.0.2.v20150114/aether-api-1.0.2.v20150114.jar" output-file-name="aether-api.jar" />
+        <element id="file-copy" path="$MAVEN_REPOSITORY$/org/eclipse/aether/aether-util/1.0.2.v20150114/aether-util-1.0.2.v20150114.jar" output-file-name="aether-util.jar" />
+        <element id="file-copy" path="$MAVEN_REPOSITORY$/org/eclipse/sisu/org.eclipse.sisu.plexus/0.3.0/org.eclipse.sisu.plexus-0.3.0.jar" output-file-name="org.eclipse.sisu.plexus.jar" />
+        <element id="file-copy" path="$MAVEN_REPOSITORY$/javax/enterprise/cdi-api/1.0/cdi-api-1.0.jar" output-file-name="cdi-api.jar" />
+        <element id="file-copy" path="$MAVEN_REPOSITORY$/javax/annotation/jsr250-api/1.0/jsr250-api-1.0.jar" output-file-name="jsr250-api.jar" />
+        <element id="file-copy" path="$MAVEN_REPOSITORY$/org/eclipse/sisu/org.eclipse.sisu.inject/0.3.0/org.eclipse.sisu.inject-0.3.0.jar" output-file-name="org.eclipse.sisu.inject.jar" />
+        <element id="file-copy" path="$MAVEN_REPOSITORY$/org/sonatype/sisu/sisu-guice/3.2.5/sisu-guice-3.2.5-no_aop.jar" output-file-name="sisu-guice.jar" />
+        <element id="file-copy" path="$MAVEN_REPOSITORY$/javax/inject/javax.inject/1/javax.inject-1.jar" output-file-name="javax.inject.jar" />
+        <element id="file-copy" path="$MAVEN_REPOSITORY$/aopalliance/aopalliance/1.0/aopalliance-1.0.jar" output-file-name="aopalliance.jar" />
+        <element id="file-copy" path="$MAVEN_REPOSITORY$/org/codehaus/plexus/plexus-interpolation/1.21/plexus-interpolation-1.21.jar" output-file-name="plexus-interpolation.jar" />
+        <element id="file-copy" path="$MAVEN_REPOSITORY$/org/codehaus/plexus/plexus-utils/3.0.20/plexus-utils-3.0.20.jar" output-file-name="plexus-utils.jar" />
+        <element id="file-copy" path="$MAVEN_REPOSITORY$/org/codehaus/plexus/plexus-classworlds/2.5.2/plexus-classworlds-2.5.2.jar" output-file-name="plexus-classworlds.jar" />
+        <element id="file-copy" path="$MAVEN_REPOSITORY$/org/codehaus/plexus/plexus-component-annotations/1.5.5/plexus-component-annotations-1.5.5.jar" output-file-name="plexus-component-annotations.jar" />
+        <element id="file-copy" path="$MAVEN_REPOSITORY$/org/sonatype/plexus/plexus-sec-dispatcher/1.3/plexus-sec-dispatcher-1.3.jar" output-file-name="plexus-sec-dispatcher.jar" />
+        <element id="file-copy" path="$MAVEN_REPOSITORY$/org/sonatype/plexus/plexus-cipher/1.4/plexus-cipher-1.4.jar" output-file-name="plexus-cipher.jar" />
+        <element id="file-copy" path="$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/1.7.30/slf4j-api-1.7.30.jar" output-file-name="slf4j-api.jar" />
+        <element id="file-copy" path="$MAVEN_REPOSITORY$/org/jboss/ejb3/jboss-ejb3-ext-api/2.3.0.Final/jboss-ejb3-ext-api-2.3.0.Final.jar" output-file-name="jboss-ejb3-ext-api.jar" />
+      </element>
+      <element id="archive" name="ejbs.jar">
+        <element id="module-output" name="ejbs" />
+      </element>
+      <element id="archive" name="web.war">
+        <element id="artifact" artifact-name="web:war exploded" />
+      </element>
+    </root>
+  </artifact>
+</component>
