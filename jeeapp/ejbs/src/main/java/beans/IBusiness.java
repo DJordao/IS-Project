@@ -13,7 +13,7 @@ public interface IBusiness {
     public int getUserId(String email);
     public void editUserInfo(int id, String email, String nome, String password);
     public List<BusTrip> listAvailableTrips(Date dataInicio, Date dataFim);
-    public void chargeWallet(int id, double quantia);
+    public void chargeWallet(int id, float quantia);
     public void purchaseTicket(int userId, int busTripId, String local);
     public void returnTicket(int tripId, int userId);
 

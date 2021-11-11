@@ -21,9 +21,9 @@ public class ChargeWalletServlet extends HttpServlet {
         String result = "Invalid value.";
         String destination = "/chargeWalletScreen.html";
 
-        int val = 0;
+        float val = 0;
         try {
-            val = Integer.valueOf(value);
+            val = Float.valueOf(value);
         } catch (Exception e) {
             response.getWriter().print(result);
             request.getRequestDispatcher(destination).forward(request, response);

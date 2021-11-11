@@ -4,7 +4,7 @@ import javax.ejb.Remote;
 
 import data.BusTrip;
 import data.Ticket;
-import data.User;
+import data.Users;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import javax.persistence.*;
@@ -29,26 +29,26 @@ public class Business implements IBusiness{
 
     //Requisito 1
     public void addUser(String email, String nome, String password) {
-        User u = new User(email, nome, password);
+        Users u = new Users(email, nome, password);
         em.persist(u);
     }
 
     //Requisito 2
     public void addManager(String email, String nome, String password){
-        User u = new User(email, nome, password, "Manager");
+        Users u = new Users(email, nome, password, "Manager");
         em.persist(u);
     }
 
     //Requisito 3
     public String authenticate(String email, String password){
-        User u = null;
+        Users u = null;
         String result = "";
         logger.info("User " + email + "is trying to authenticate");
         try{
-            Query q = em.createQuery("FROM User u WHERE u.email = :email AND u.password = :password");
+            Query q = em.createQuery("FROM Users u WHERE u.email = :email AND u.password = :password");
             q.setParameter("email", email);
             q.setParameter("password", password);
-            u = (User) q.getSingleResult();
+            u = (Users) q.getSingleResult();
         }catch (NoResultException e){
             logger.info("Error while trying to authenticate user");
             logger.debug("Error while trying to authenticate user");
@@ -66,15 +66,15 @@ public class Business implements IBusiness{
 
     //Requisito 6
     public int getUserId(String email){
-        TypedQuery<User> q = em.createQuery("from User u where u.email = :email ", User.class);
+        TypedQuery<Users> q = em.createQuery("from Users u where u.email = :email ", Users.class);
         q.setParameter("email", email);
-        List<User> lu = q.getResultList();
+        List<Users> lu = q.getResultList();
         return lu.get(0).getId();
     }
 
     //Requisito 6
     public void editUserInfo(int id, String email, String nome, String password){
-        User u = em.find(User.class, id);
+        Users u = em.find(Users.class, id);
         if (email != null)
             u.setEmail(email);
         if (nome != null)
@@ -96,14 +96,16 @@ public class Business implements IBusiness{
     }
 
     //Requisito 9
-    public void chargeWallet(int id, double quantia){
-        User u = em.find(User.class, id);
-        u.adicionaQuantia(quantia);
+    public void chargeWallet(int id, float quantia){
+        Query q = em.createQuery("update Users set carteira = carteira + :quantia where id = :id");
+        q.setParameter("quantia", quantia);
+        q.setParameter("id", id);
+        q.executeUpdate();
     }
 
     //Requisito 10
     public void purchaseTicket(int userId, int busTripId, String local){
-        User u = em.find(User.class, userId);
+        Users u = em.find(Users.class, userId);
         BusTrip b = em.find(BusTrip.class, busTripId);
 
         if (b.getBilhetes().size() == b.getCapacidadeMax())
@@ -125,7 +127,7 @@ public class Business implements IBusiness{
 
         for (Ticket b : q.getResultList()){
             BusTrip bt = b.getViagem();
-            User u = b.getUser();
+            Users u = b.getUser();
             u.adicionaQuantia(bt.getPreco());
             em.remove(b);
         }

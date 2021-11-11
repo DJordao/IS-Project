@@ -1,4 +1,4 @@
-data/BusTrips.class
+data/Ticket.class
 data/Users.class
-data/Bilhete.class
+data/BusTrip.class
 data/Student.class

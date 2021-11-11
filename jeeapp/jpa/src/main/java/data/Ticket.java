@@ -12,14 +12,14 @@ public class Ticket implements Serializable{
     private String local;
 
     @ManyToOne
-    private User user;
+    private Users user;
 
     @ManyToOne
     private BusTrip viagem;
 
     public Ticket(){super();}
 
-    public Ticket(User user, BusTrip viagem, String local) {
+    public Ticket(Users user, BusTrip viagem, String local) {
         this.user = user;
         this.viagem = viagem;
         this.local = local;
@@ -45,11 +45,11 @@ public class Ticket implements Serializable{
         this.local = local;
     }
 
-    public User getUser() {
+    public Users getUser() {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(Users user) {
         this.user = user;
     }
 
