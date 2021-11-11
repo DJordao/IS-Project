@@ -21,8 +21,6 @@ public class RegisterServlet extends HttpServlet {
     @EJB
     private IBusiness business;
 
-
-
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String name = request.getParameter("Name");

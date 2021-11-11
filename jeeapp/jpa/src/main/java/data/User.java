@@ -7,7 +7,7 @@ import java.util.List;
 
 @Entity
 
-public class Users implements Serializable{
+public class User implements Serializable{
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
@@ -20,13 +20,13 @@ public class Users implements Serializable{
     private float carteira;
 
     @OneToMany(mappedBy = "user")
-    private List<Bilhete> bilhetes;
+    private List<Ticket> bilhetes;
 
-    public Users() {
+    public User() {
         super();
     }
 
-    public Users(String email, String nome, String password){
+    public User(String email, String nome, String password){
         super();
         this.email = email;
         this.nome = nome;
@@ -35,7 +35,7 @@ public class Users implements Serializable{
         this.carteira = 0;
     }
 
-    public Users(String email, String nome, String password, String managerType){
+    public User(String email, String nome, String password, String managerType){
         super();
         this.email = email;
         this.nome = nome;
@@ -88,11 +88,11 @@ public class Users implements Serializable{
         this.carteira = carteira;
     }
 
-    public List<Bilhete> getBilhetes() {
+    public List<Ticket> getBilhetes() {
         return bilhetes;
     }
 
-    public void setBilhetes(List<Bilhete> bilhetes) {
+    public void setBilhetes(List<Ticket> bilhetes) {
         this.bilhetes = bilhetes;
     }
 

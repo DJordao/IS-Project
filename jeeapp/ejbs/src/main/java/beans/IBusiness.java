@@ -1,6 +1,6 @@
 package beans;
 
-import data.BusTrips;
+import data.BusTrip;
 
 import javax.ejb.Remote;
 import java.util.Date;
@@ -12,7 +12,7 @@ public interface IBusiness {
     public void addManager(String email, String nome, String password);
     public int getUserId(String email);
     public void editUserInfo(int id, String email, String nome, String password);
-    public List<BusTrips> listAvailableTrips(Date dataInicio, Date dataFim);
+    public List<BusTrip> listAvailableTrips(Date dataInicio, Date dataFim);
     public void chargeWallet(int id, double quantia);
     public void purchaseTicket(int userId, int busTripId, String local);
     public void returnTicket(int tripId, int userId);

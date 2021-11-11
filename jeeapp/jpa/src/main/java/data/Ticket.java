@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-public class Bilhete implements Serializable{
+public class Ticket implements Serializable{
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
@@ -12,14 +12,14 @@ public class Bilhete implements Serializable{
     private String local;
 
     @ManyToOne
-    private Users user;
+    private User user;
 
     @ManyToOne
-    private BusTrips viagem;
+    private BusTrip viagem;
 
-    public Bilhete(){super();}
+    public Ticket(){super();}
 
-    public Bilhete(Users user, BusTrips viagem, String local) {
+    public Ticket(User user, BusTrip viagem, String local) {
         this.user = user;
         this.viagem = viagem;
         this.local = local;
@@ -45,19 +45,19 @@ public class Bilhete implements Serializable{
         this.local = local;
     }
 
-    public Users getUser() {
+    public User getUser() {
         return user;
     }
 
-    public void setUser(Users user) {
+    public void setUser(User user) {
         this.user = user;
     }
 
-    public BusTrips getViagem() {
+    public BusTrip getViagem() {
         return viagem;
     }
 
-    public void setViagem(BusTrips viagem) {
+    public void setViagem(BusTrip viagem) {
         this.viagem = viagem;
     }
 }

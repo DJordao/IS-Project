@@ -6,7 +6,7 @@ import java.util.Date;
 import java.util.List;
 
 @Entity
-public class BusTrips implements Serializable{
+public class BusTrip implements Serializable{
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
@@ -22,13 +22,13 @@ public class BusTrips implements Serializable{
     private float preco;
 
     @OneToMany(mappedBy = "viagem")
-    private List<Bilhete> bilhetes;
+    private List<Ticket> bilhetes;
 
-    public BusTrips() {
+    public BusTrip() {
         super();
     }
 
-    public BusTrips(Date horaPartida, String localPartida, Date horaChegada, String duracao, String destino, int capacidadeMax, float preco) {
+    public BusTrip(Date horaPartida, String localPartida, Date horaChegada, String duracao, String destino, int capacidadeMax, float preco) {
         super();
         this.horaPartida = horaPartida;
         this.localPartida = localPartida;
@@ -107,11 +107,11 @@ public class BusTrips implements Serializable{
         this.preco = preco;
     }
 
-    public List<Bilhete> getBilhetes() {
+    public List<Ticket> getBilhetes() {
         return bilhetes;
     }
 
-    public void setBilhetes(List<Bilhete> bilhetes) {
+    public void setBilhetes(List<Ticket> bilhetes) {
         this.bilhetes = bilhetes;
     }
 
