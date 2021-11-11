@@ -31,7 +31,7 @@ public class Users implements Serializable{
         this.email = email;
         this.nome = nome;
         this.password = password;
-        this.tipoUser = "Passageiro";
+        this.tipoUser = "Passenger";
         this.carteira = 0;
     }
 

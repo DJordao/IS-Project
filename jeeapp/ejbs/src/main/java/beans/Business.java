@@ -8,21 +8,21 @@ import data.Users;
 import org.apache.maven.lifecycle.internal.LifecycleStarter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import javax.persistence.EntityManager;
-import javax.persistence.TypedQuery;
 
+import javax.persistence.*;
 
 
 import org.jboss.ejb3.annotation.SecurityDomain;
 
 import javax.annotation.security.RolesAllowed;
-import javax.persistence.PersistenceContext;
+import javax.xml.registry.infomodel.User;
 import java.util.Date;
 import java.util.List;
 
 @Stateless
-@RolesAllowed({ "guest" })
-@SecurityDomain("other")
+//@RolesAllowed({ "guest" })
+//@SecurityDomain("other")
+@Remote(IBusiness.class)
 public class Business implements IBusiness{
     Logger logger = LoggerFactory.getLogger(Business.class);
 
@@ -47,6 +47,31 @@ public class Business implements IBusiness{
         em.persist(u);
     }
 
+    //Requisito 3
+    public String authenticate(String email, String password){
+        Users u = null;
+        String result = "";
+        logger.info("User " + email + "is trying to authenticate");
+        try{
+            Query q = em.createQuery("FROM Users u WHERE u.email = :email AND u.password = :password");
+            q.setParameter("email", email);
+            q.setParameter("password", password);
+            u = (Users) q.getSingleResult();
+        }catch (NoResultException e){
+            logger.info("Error while trying to authenticate user");
+            logger.debug("Error while trying to authenticate user");
+        }
+        if(u == null){ //Credenciais invalidas
+            logger.info("Wrong credentials!!");
+            result = "Wrong credentials!!";
+        }else if(u.getTipoUser().equals("Passenger")){ //É um passageiro
+            result = "Passenger";
+        }else{
+            result = "Manager";
+        }
+        return result;
+    }
+
     //Requisito 6
     public int getUserId(String email){
         TypedQuery<Users> q = em.createQuery("from Users u where u.email = :email ", Users.class);
@@ -69,7 +94,7 @@ public class Business implements IBusiness{
     //Requisito 7
 
     //Requisito 8
-    public List<BusTrips> listAvaialbleTrips(Date dataInicio, Date dataFim){
+    public List<BusTrips> listAvailableTrips(Date dataInicio, Date dataFim){
         TypedQuery<BusTrips> bt = em.createQuery("from BusTrips b where b.horaPartida > :partida and b.horaChegada < :chegada", BusTrips.class);
         bt.setParameter("partida", dataInicio);
         bt.setParameter("chegada", dataFim);
