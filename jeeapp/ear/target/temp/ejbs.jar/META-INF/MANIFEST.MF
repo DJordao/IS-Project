@@ -2,5 +2,23 @@ Manifest-Version: 1.0
 Created-By: Apache Maven 3.8.3
 Built-By: main
 Build-Jdk: 16.0.2
-Class-Path: lib/jpa.jar
+Class-Path: lib/jpa.jar lib/wildfly-cli.jar lib/aesh-readline.jar lib/ja
+ nsi.jar lib/aesh.jar lib/aesh-extensions.jar lib/staxmapper.jar lib/jbo
+ ss-modules.jar lib/wildfly-common.jar lib/wildfly-controller-client.jar
+  lib/wildfly-protocol.jar lib/jboss-dmr.jar lib/jboss-threads.jar lib/w
+ ildfly-embedded.jar lib/wildfly-elytron.jar lib/jboss-logging.jar lib/j
+ boss-logmanager.jar lib/jboss-remoting.jar lib/xnio-api.jar lib/wildfly
+ -client-config.jar lib/remoting-jmx.jar lib/jboss-marshalling.jar lib/j
+ boss-marshalling-river.jar lib/xnio-nio.jar lib/jboss-vfs.jar lib/jboss
+ -stdio.jar lib/maven-core.jar lib/maven-model.jar lib/maven-settings.ja
+ r lib/maven-settings-builder.jar lib/maven-builder-support.jar lib/mave
+ n-repository-metadata.jar lib/maven-artifact.jar lib/maven-plugin-api.j
+ ar lib/maven-model-builder.jar lib/guava.jar lib/maven-aether-provider.
+ jar lib/aether-spi.jar lib/aether-impl.jar lib/aether-api.jar lib/aethe
+ r-util.jar lib/org.eclipse.sisu.plexus.jar lib/cdi-api.jar lib/jsr250-a
+ pi.jar lib/org.eclipse.sisu.inject.jar lib/sisu-guice.jar lib/javax.inj
+ ect.jar lib/aopalliance.jar lib/plexus-interpolation.jar lib/plexus-uti
+ ls.jar lib/plexus-classworlds.jar lib/plexus-component-annotations.jar 
+ lib/plexus-sec-dispatcher.jar lib/plexus-cipher.jar lib/slf4j-api.jar l
+ ib/jboss-ejb3-ext-api.jar
 
