@@ -22,7 +22,7 @@ public class EditUserInfoServlet extends HttpServlet {
         String result = "Invalid email.";
 
         if(email != null) {
-            b.editUserInfo(email, name, password);
+            //b.editUserInfo(email, name, password);
             result = "You information has been updated.";
         }
         response.getWriter().print(result);

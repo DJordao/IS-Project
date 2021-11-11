@@ -1,5 +1,8 @@
+servlet/EditUserInfoServlet.class
+servlet/GreetingServlet.class
+servlet/ListAvailableTripsServlet.class
 servlet/MyServlet.class
 servlet/MainServlet.class
 filter/SecurityFilter.class
-servlet/GreetingServlet.class
+servlet/LoginServlet.class
 servlet/RegisterServlet.class

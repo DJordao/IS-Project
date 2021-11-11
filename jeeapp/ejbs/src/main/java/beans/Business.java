@@ -16,6 +16,7 @@ import org.jboss.ejb3.annotation.SecurityDomain;
 
 import javax.annotation.security.RolesAllowed;
 import javax.xml.registry.infomodel.User;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -48,36 +49,48 @@ public class Business implements IBusiness{
     }
 
     //Requisito 3
-    public String authenticate(String email, String password){
+    public List<String> authenticate(String email, String password){
         Users u = null;
-        String result = "";
-        logger.info("User " + email + "is trying to authenticate");
+        List<String> result = new ArrayList<>();
+        logger.info("User " + email + " is trying to authenticate");
         try{
-            Query q = em.createQuery("FROM Users u WHERE u.email = :email AND u.password = :password");
+
+            EncryptData encryptData = new EncryptData();
+            Users users = getUser(email);
+            String passwordEncrypted = users.getPassword();
+            String passwordDecrypted = encryptData.decrypt(passwordEncrypted);
+            //result = password + " " + passwordDecrypted;
+            logger.info("PASSWORD: " + password);
+            logger.info("DECRYPTED: " + passwordDecrypted);
+
+           Query q = em.createQuery("FROM Users u WHERE u.email = :email AND :passwordDb = :password");
             q.setParameter("email", email);
+            q.setParameter("passwordDb", passwordDecrypted); //A passwordDb é aquela que foi desencriptada
             q.setParameter("password", password);
             u = (Users) q.getSingleResult();
         }catch (NoResultException e){
             logger.info("Error while trying to authenticate user");
-            logger.debug("Error while trying to authenticate user");
         }
         if(u == null){ //Credenciais invalidas
             logger.info("Wrong credentials!!");
-            result = "Wrong credentials!!";
+            result.add("Error!");
+            result.add("Wrong credentials!!");
         }else if(u.getTipoUser().equals("Passenger")){ //É um passageiro
-            result = "Passenger";
+            result.add("Passenger");
+            result.add("User " + u.getNome() + "connected");
         }else{
-            result = "Manager";
+            result.add("Manager");
+            result.add("Manager " + u.getNome() + "connected");
         }
         return result;
     }
 
     //Requisito 6
-    public int getUserId(String email){
+    private Users getUser(String email){
         TypedQuery<Users> q = em.createQuery("from Users u where u.email = :email ", Users.class);
         q.setParameter("email", email);
-        List<Users> lu = q.getResultList();
-        return lu.get(0).getId();
+        Users u = q.getSingleResult();
+        return u;
     }
 
     //Requisito 6
@@ -127,7 +140,7 @@ public class Business implements IBusiness{
 
     //Requisito 11
     public void returnTicket(int tripId, int userId){
-        TypedQuery<Bilhete> q = em.createQuery("from Bilhete b where user.id = :userId and viagem.id = :tripId", Bilhete.class);
+        TypedQuery<Bilhete> q = em.createQuery("from Bilhete b where Users.id = :userId and BusTrips.id = :tripId", Bilhete.class);
         q.setParameter("userId", userId);
         q.setParameter("tripId", tripId);
 

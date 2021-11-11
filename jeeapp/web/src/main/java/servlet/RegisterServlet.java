@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/register")
 public class RegisterServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
-    Logger logger = LoggerFactory.getLogger(Business.class);
+    Logger logger = LoggerFactory.getLogger(RegisterServlet.class);
     @EJB
     private IBusiness business;
 
