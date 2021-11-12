@@ -69,10 +69,10 @@ public class Business implements IBusiness{
             result.add("Wrong credentials!!");
         }else if(u.getTipoUser().equals("Passenger")){ //É um passageiro
             result.add("Passenger");
-            result.add("User " + u.getNome() + "connected");
+            result.add("User " + u.getNome() + " connected");
         }else{
             result.add("Manager");
-            result.add("Manager " + u.getNome() + "connected");
+            result.add("Manager " + u.getNome() + " connected");
         }
         return result;
     }

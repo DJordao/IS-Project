@@ -7,6 +7,23 @@
     <title>Insert title here</title>
 </head>
 <body>
-<strong>Current logged user is ${auth}</strong>
+<strong>Welcome ${auth} !</strong>
+
+<nav>
+    <ul>
+        <li> <a href="editUserInfo.html"> Edit user information </a></li>
+        <li> <a href="chargeWallet.html"> Charge my wallet </a></li>
+        <li> <a href="listAvailableTrips.jsp"> List available trips </a></li>
+        <li> <a href="listAvailableTrips.jsp"> Purchase tickets  - NOT DONE</a></li>
+        <li> <a href="listAvailableTrips.jsp"> Return tickets  - NOT DONE</a></li>
+        <li> <a href="listAvailableTrips.jsp"> My trips  - NOT DONE</a></li>
+        <li> <a href="listAvailableTrips.jsp"> Delete profile  - NOT DONE</a></li><br/>
+        <li> <a href="listAvailableTrips.jsp"> Logout  - NOT DONE</a></li>
+
+    </ul>
+</nav>
 </body>
 </html>
+
+
+
