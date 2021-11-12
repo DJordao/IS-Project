@@ -5,44 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9f827455-07e9-4844-9e16-9a4b8a70d3a0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jeeapp/web/src/main/java/servlet/LoginServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jeeapp/ear/target/application.xml" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/ear/target/application.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jeeapp/ear/target/ear.ear" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/ear/target/ear.ear" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jeeapp/ear/target/ear/META-INF/application.xml" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/ear/target/ear/META-INF/application.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jeeapp/ear/target/ear/ejbs.jar" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/ear/target/ear/ejbs.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jeeapp/ear/target/ear/lib/jpa.jar" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/ear/target/ear/lib/jpa.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jeeapp/ear/target/ear/web.war" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/ear/target/ear/web.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jeeapp/ear/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/ear/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jeeapp/ear/target/temp/ejbs.jar/META-INF/maven/book/ejbs/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/ear/target/temp/ejbs.jar/META-INF/maven/book/ejbs/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jeeapp/ear/target/temp/ejbs.jar/beans/Business.class" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/ear/target/temp/ejbs.jar/beans/Business.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jeeapp/ear/target/temp/ejbs.jar/beans/IBusiness.class" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/ear/target/temp/ejbs.jar/beans/IBusiness.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/jeeapp/ejbs/src/main/java/beans/Business.java" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/ejbs/src/main/java/beans/Business.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/jeeapp/ejbs/src/main/java/beans/IBusiness.java" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/ejbs/src/main/java/beans/IBusiness.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jeeapp/ejbs/target/classes/beans/Business.class" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/ejbs/target/classes/beans/Business.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jeeapp/ejbs/target/classes/beans/IBusiness.class" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/ejbs/target/classes/beans/IBusiness.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jeeapp/ejbs/target/ejbs.jar" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/ejbs/target/ejbs.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jeeapp/ejbs/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/ejbs/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jeeapp/ejbs/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/ejbs/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jeeapp/ejbs/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/ejbs/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jeeapp/ejbs/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jeeapp/jpa/src/main/java/data/Ticket.java" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/jpa/src/main/java/data/Ticket.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jeeapp/jpa/src/main/java/data/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/jpa/src/main/java/data/Users.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jeeapp/jpa/target/classes/data/Bilhete.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jeeapp/jpa/target/classes/data/BusTrips.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/jeeapp/jpa/target/classes/data/Users.class" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/jpa/target/classes/data/Users.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jeeapp/jpa/target/jpa.jar" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/jpa/target/jpa.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jeeapp/jpa/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/jpa/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jeeapp/jpa/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/jpa/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jeeapp/jpa/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/jpa/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jeeapp/web/src/main/java/servlet/ChargeWalletServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/web/src/main/java/servlet/ChargeWalletServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jeeapp/web/src/main/java/servlet/EditUserInfoServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/web/src/main/java/servlet/EditUserInfoServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jeeapp/web/target/classes/servlet/RegisterServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/web/target/classes/servlet/RegisterServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jeeapp/web/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/web/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jeeapp/web/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/web/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jeeapp/web/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/web/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jeeapp/web/target/web.war" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/web/target/web.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jeeapp/web/target/web/WEB-INF/classes/servlet/RegisterServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/web/target/web/WEB-INF/classes/servlet/RegisterServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jeeapp/web/src/main/webapp/loginScreen.html" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/web/src/main/webapp/loginScreen.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,5 +80,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>
