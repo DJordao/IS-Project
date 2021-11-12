@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/chargeWallet")
+@WebServlet("/secured/chargeWallet")
 public class ChargeWalletServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
     @EJB
@@ -19,7 +19,7 @@ public class ChargeWalletServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         String value = request.getParameter("Value");
         String result = "Invalid value.";
-        String destination = "/chargeWalletScreen.html";
+        String destination = "/secured/chargeWalletScreen.html";
 
         float val = 0;
         try {
@@ -29,10 +29,10 @@ public class ChargeWalletServlet extends HttpServlet {
             request.getRequestDispatcher(destination).forward(request, response);
         }
 
-        b.chargeWallet(b.getUserId((String) request.getSession().getAttribute("auth")), val);
+        b.chargeWallet((Integer) request.getSession().getAttribute("auth"), val);
 
         result = "Value added to you account.";
         response.getWriter().print(result);
-        request.getRequestDispatcher(destination).forward(request, response);
+        //request.getRequestDispatcher(destination).forward(request, response);
     }
 }

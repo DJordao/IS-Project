@@ -14,7 +14,7 @@ import java.util.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-@WebServlet("/listAvailableTrips")
+@WebServlet("/secured/listAvailableTrips")
 public class ListAvailableTripsServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
     @EJB
@@ -24,7 +24,7 @@ public class ListAvailableTripsServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         String dateStart = request.getParameter("DateStart");
         String dateEnd = request.getParameter("DateEnd");
-        String destination = "/listAvailableTripsScreen.jsp";
+        String destination = "/secured/listAvailableTripsScreen.jsp";
 
         StringTokenizer st = new StringTokenizer(dateStart, "-");
         int year = Integer.valueOf(st.nextToken());

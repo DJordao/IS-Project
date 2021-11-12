@@ -95,13 +95,19 @@ public class Business implements IBusiness{
 
     //Requisito 6
     public void editUserInfo(int id, String email, String nome, String password){
-        Users u = em.find(Users.class, id);
+        /*Users u = em.find(Users.class, id);
         if (email != null)
             u.setEmail(email);
         if (nome != null)
             u.setNome(nome);
         if (password != null)
-            u.setPassword(password);
+            u.setPassword(password);*/
+        Query q = em.createQuery("update Users set email = :email, nome = :name, password = :password where id = :id");
+        q.setParameter("email", email);
+        q.setParameter("name", nome);
+        q.setParameter("password", password);
+        q.setParameter("id", id);
+        q.executeUpdate();
     }
 
     //Requisito 7
