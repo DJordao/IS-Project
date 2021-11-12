@@ -1,6 +1,5 @@
 package servlet;
 
-import beans.EncryptData;
 import beans.IBusiness;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
