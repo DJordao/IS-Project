@@ -1,7 +1,7 @@
 package servlet;
 
 import beans.IBusiness;
-import data.BusTrips;
+import data.BusTrip;
 
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
@@ -38,9 +38,9 @@ public class ListAvailableTripsServlet extends HttpServlet {
         day = Integer.valueOf(st.nextToken());
         Date end = getDate(day, month, year);
 
-        List<BusTrips> trips = b.listAvailableTrips(start, end);
+        List<BusTrip> trips = b.listAvailableTrips(start, end);
         List<String> tripsString = new ArrayList();
-        BusTrips bt;
+        BusTrip bt;
         for(int i = 0; i < trips.size(); i++) {
             bt = trips.get(i);
             tripsString.add(bt.toString());

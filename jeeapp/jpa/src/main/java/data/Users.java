@@ -2,7 +2,6 @@ package data;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -20,7 +19,7 @@ public class Users implements Serializable{
     private float carteira;
 
     @OneToMany(mappedBy = "user")
-    private List<Bilhete> bilhetes;
+    private List<Ticket> bilhetes;
 
     public Users() {
         super();
@@ -88,11 +87,11 @@ public class Users implements Serializable{
         this.carteira = carteira;
     }
 
-    public List<Bilhete> getBilhetes() {
+    public List<Ticket> getBilhetes() {
         return bilhetes;
     }
 
-    public void setBilhetes(List<Bilhete> bilhetes) {
+    public void setBilhetes(List<Ticket> bilhetes) {
         this.bilhetes = bilhetes;
     }
 

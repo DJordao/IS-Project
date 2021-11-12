@@ -2,20 +2,12 @@ package beans;
 import javax.ejb.Stateless;
 import javax.ejb.Remote;
 
-import data.Bilhete;
-import data.BusTrips;
+import data.BusTrip;
+import data.Ticket;
 import data.Users;
-import org.apache.maven.lifecycle.internal.LifecycleStarter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import javax.persistence.*;
-
-
-import org.jboss.ejb3.annotation.SecurityDomain;
-
-import javax.annotation.security.RolesAllowed;
-import javax.xml.registry.infomodel.User;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -51,7 +43,7 @@ public class Business implements IBusiness{
     //Requisito 3
     public List<String> authenticate(String email, String password){
         Users u = null;
-        List<String> result = new ArrayList<>();
+        List<String> result = new ArrayList();
         logger.info("User " + email + " is trying to authenticate");
         try{
 
@@ -63,7 +55,7 @@ public class Business implements IBusiness{
             logger.info("PASSWORD: " + password);
             logger.info("DECRYPTED: " + passwordDecrypted);
 
-           Query q = em.createQuery("FROM Users u WHERE u.email = :email AND :passwordDb = :password");
+            Query q = em.createQuery("FROM Users u WHERE u.email = :email AND :passwordDb = :password");
             q.setParameter("email", email);
             q.setParameter("passwordDb", passwordDecrypted); //A passwordDb é aquela que foi desencriptada
             q.setParameter("password", password);
@@ -94,6 +86,14 @@ public class Business implements IBusiness{
     }
 
     //Requisito 6
+    public int getUserId(String email){
+        TypedQuery<Users> q = em.createQuery("from Users u where u.email = :email ", Users.class);
+        q.setParameter("email", email);
+        Users u = q.getSingleResult();
+        return u.getId();
+    }
+
+    //Requisito 6
     public void editUserInfo(int id, String email, String nome, String password){
         Users u = em.find(Users.class, id);
         if (email != null)
@@ -107,25 +107,27 @@ public class Business implements IBusiness{
     //Requisito 7
 
     //Requisito 8
-    public List<BusTrips> listAvailableTrips(Date dataInicio, Date dataFim){
-        TypedQuery<BusTrips> bt = em.createQuery("from BusTrips b where b.horaPartida > :partida and b.horaChegada < :chegada", BusTrips.class);
+    public List<BusTrip> listAvailableTrips(Date dataInicio, Date dataFim){
+        TypedQuery<BusTrip> bt = em.createQuery("from BusTrip b where b.horaPartida > :partida and b.horaChegada < :chegada", BusTrip.class);
         bt.setParameter("partida", dataInicio);
         bt.setParameter("chegada", dataFim);
 
-        List<BusTrips> trips = bt.getResultList();
+        List<BusTrip> trips = bt.getResultList();
         return trips;
     }
 
     //Requisito 9
-    public void chargeWallet(int id, double quantia){
-        Users u = em.find(Users.class, id);
-        u.adicionaQuantia(quantia);
+    public void chargeWallet(int id, float quantia){
+        Query q = em.createQuery("update Users set carteira = carteira + :quantia where id = :id");
+        q.setParameter("quantia", quantia);
+        q.setParameter("id", id);
+        q.executeUpdate();
     }
 
     //Requisito 10
     public void purchaseTicket(int userId, int busTripId, String local){
         Users u = em.find(Users.class, userId);
-        BusTrips b = em.find(BusTrips.class, busTripId);
+        BusTrip b = em.find(BusTrip.class, busTripId);
 
         if (b.getBilhetes().size() == b.getCapacidadeMax())
             //limite maximo
@@ -133,19 +135,19 @@ public class Business implements IBusiness{
         if (u.getCarteira() < b.getPreco())
             //sem dinheiro
             return;
-        Bilhete bilhete = new Bilhete(u, b, local);
+        Ticket bilhete = new Ticket(u, b, local);
         em.persist(bilhete);
         u.adicionaQuantia(- b.getPreco());
     }
 
     //Requisito 11
     public void returnTicket(int tripId, int userId){
-        TypedQuery<Bilhete> q = em.createQuery("from Bilhete b where Users.id = :userId and BusTrips.id = :tripId", Bilhete.class);
+        TypedQuery<Ticket> q = em.createQuery("from Ticket b where user.id = :userId and viagem.id = :tripId", Ticket.class);
         q.setParameter("userId", userId);
         q.setParameter("tripId", tripId);
 
-        for (Bilhete b : q.getResultList()){
-            BusTrips bt = b.getViagem();
+        for (Ticket b : q.getResultList()){
+            BusTrip bt = b.getViagem();
             Users u = b.getUser();
             u.adicionaQuantia(bt.getPreco());
             em.remove(b);

@@ -1,6 +1,5 @@
 package servlet;
 
-import beans.EncryptData;
 import beans.IBusiness;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -45,6 +44,7 @@ public class LoginServlet extends HttpServlet {
             destination = "/error.html";
             logger.info("Error authenticating user!");
         }
+
         request.getRequestDispatcher(destination).forward(request, response);
     }
 }

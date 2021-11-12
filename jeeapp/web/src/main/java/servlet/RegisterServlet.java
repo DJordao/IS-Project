@@ -1,7 +1,6 @@
 package servlet;
-import beans.Business;
+
 import beans.IBusiness;
-import beans.IManageStudents;
 import beans.EncryptData;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,8 +19,6 @@ public class RegisterServlet extends HttpServlet {
     Logger logger = LoggerFactory.getLogger(RegisterServlet.class);
     @EJB
     private IBusiness business;
-
-
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
