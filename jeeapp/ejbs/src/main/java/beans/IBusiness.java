@@ -16,7 +16,8 @@ public interface IBusiness {
     public void editUserInfo(int id, String email, String nome, String password);
     public List<BusTrip> listAvailableTrips(Date dataInicio, Date dataFim);
     public void chargeWallet(int id, float quantia);
-    public void purchaseTicket(int userId, int busTripId, String local);
+    public List<BusTrip> searchTrips(String departure, String destination);
+    public void purchaseTicket(int userId, int busTripId);
     public void returnTicket(int tripId, int userId);
 
 }

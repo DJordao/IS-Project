@@ -14,7 +14,7 @@
         <li> <a href="secured/editUserInfoScreen.html"> Edit user information </a></li>
         <li> <a href="secured/chargeWalletScreen.html"> Charge my wallet </a></li>
         <li> <a href="secured/listAvailableTripsScreen.jsp"> List available trips </a></li>
-        <li> <a href="listAvailableTrips.jsp"> Purchase tickets  - NOT DONE</a></li>
+        <li> <a href="secured/purchaseTicketScreen.jsp"> Purchase tickets  - NOT DONE</a></li>
         <li> <a href="listAvailableTrips.jsp"> Return tickets  - NOT DONE</a></li>
         <li> <a href="listAvailableTrips.jsp"> My trips  - NOT DONE</a></li>
         <li> <a href="listAvailableTrips.jsp"> Delete profile  - NOT DONE</a></li><br/>

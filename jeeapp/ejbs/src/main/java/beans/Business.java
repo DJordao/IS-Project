@@ -95,19 +95,13 @@ public class Business implements IBusiness{
 
     //Requisito 6
     public void editUserInfo(int id, String email, String nome, String password){
-        /*Users u = em.find(Users.class, id);
+        Users u = em.find(Users.class, id);
         if (email != null)
             u.setEmail(email);
         if (nome != null)
             u.setNome(nome);
         if (password != null)
-            u.setPassword(password);*/
-        Query q = em.createQuery("update Users set email = :email, nome = :name, password = :password where id = :id");
-        q.setParameter("email", email);
-        q.setParameter("name", nome);
-        q.setParameter("password", password);
-        q.setParameter("id", id);
-        q.executeUpdate();
+            u.setPassword(password);
     }
 
     //Requisito 7
@@ -124,24 +118,34 @@ public class Business implements IBusiness{
 
     //Requisito 9
     public void chargeWallet(int id, float quantia){
-        Query q = em.createQuery("update Users set carteira = carteira + :quantia where id = :id");
-        q.setParameter("quantia", quantia);
-        q.setParameter("id", id);
-        q.executeUpdate();
+        Users u = em.find(Users.class, id);
+        u.adicionaQuantia(quantia);
     }
 
+
     //Requisito 10
-    public void purchaseTicket(int userId, int busTripId, String local){
+    public List<BusTrip> searchTrips(String departure, String destination){
+        TypedQuery<BusTrip> bt = em.createQuery("from BusTrip b where b.localPartida = :departure and b.destino = :destination", BusTrip.class);
+        bt.setParameter("departure", departure);
+        bt.setParameter("destination", destination);
+
+        List<BusTrip> trips = bt.getResultList();
+        return trips;
+    }
+
+
+    //Requisito 10
+    public void purchaseTicket(int userId, int busTripId){
         Users u = em.find(Users.class, userId);
         BusTrip b = em.find(BusTrip.class, busTripId);
 
-        if (b.getBilhetes().size() == b.getCapacidadeMax())
+        //if (b.getBilhetes().size() == b.getCapacidadeMax())
             //limite maximo
-            return;
+          //  return;
         if (u.getCarteira() < b.getPreco())
             //sem dinheiro
             return;
-        Ticket bilhete = new Ticket(u, b, local);
+        Ticket bilhete = new Ticket(u, b);
         em.persist(bilhete);
         u.adicionaQuantia(- b.getPreco());
     }

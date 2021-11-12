@@ -19,10 +19,9 @@ public class Ticket implements Serializable{
 
     public Ticket(){super();}
 
-    public Ticket(Users user, BusTrip viagem, String local) {
+    public Ticket(Users user, BusTrip viagem) {
         this.user = user;
         this.viagem = viagem;
-        this.local = local;
     }
 
     public static long getSerialVersionUID() {
@@ -35,14 +34,6 @@ public class Ticket implements Serializable{
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public String getLocal() {
-        return local;
-    }
-
-    public void setLocal(String local) {
-        this.local = local;
     }
 
     public Users getUser() {

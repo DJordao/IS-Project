@@ -10,14 +10,12 @@ Insert a date interval:
     <input name="DateStart" type="date" required/>
     -
     <input name="DateEnd" type="date" required/>
-    <input type="submit">
+    <input type="submit" value="Confirmar">
 </form>
 <c:choose>
     <c:when test="${trips == null}">
     </c:when>
-    <c:when test="${trips.isEmpty()}">
-        No available trips for the given date interval.
-    </c:when>
+
     <c:otherwise>
         <c:forEach var="item" items="${trips}">
             <div>Content is ${item}</div>
