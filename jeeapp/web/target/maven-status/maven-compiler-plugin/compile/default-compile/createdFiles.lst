@@ -3,6 +3,7 @@ servlet/GreetingServlet.class
 servlet/ListAvailableTripsServlet.class
 servlet/MyServlet.class
 servlet/MainServlet.class
+servlet/ChargeWalletServlet.class
 filter/SecurityFilter.class
 servlet/LoginServlet.class
 servlet/RegisterServlet.class
