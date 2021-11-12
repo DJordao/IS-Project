@@ -4,28 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9f827455-07e9-4844-9e16-9a4b8a70d3a0" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jeeapp/ear/target/ear.ear" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/ear/target/ear.ear" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jeeapp/ear/target/ear/ejbs.jar" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/ear/target/ear/ejbs.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jeeapp/ear/target/ear/lib/jpa.jar" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/ear/target/ear/lib/jpa.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jeeapp/ear/target/ear/web.war" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/ear/target/ear/web.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jeeapp/ear/target/temp/ejbs.jar/beans/Business.class" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/ear/target/temp/ejbs.jar/beans/Business.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jeeapp/ear/target/temp/ejbs.jar/beans/IBusiness.class" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/ear/target/temp/ejbs.jar/beans/IBusiness.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jeeapp/ejbs/src/main/java/beans/Business.java" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/ejbs/src/main/java/beans/Business.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jeeapp/ejbs/src/main/java/beans/IBusiness.java" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/ejbs/src/main/java/beans/IBusiness.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jeeapp/ejbs/target/classes/beans/Business.class" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/ejbs/target/classes/beans/Business.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jeeapp/ejbs/target/classes/beans/IBusiness.class" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/ejbs/target/classes/beans/IBusiness.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jeeapp/ejbs/target/ejbs.jar" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/ejbs/target/ejbs.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jeeapp/jpa/target/jpa.jar" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/jpa/target/jpa.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jeeapp/web/src/main/java/servlet/ChargeWalletServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/web/src/main/java/servlet/ChargeWalletServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jeeapp/web/src/main/java/servlet/LoginServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/web/src/main/java/servlet/LoginServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jeeapp/web/target/classes/servlet/ChargeWalletServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/web/target/classes/servlet/ChargeWalletServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jeeapp/web/target/classes/servlet/LoginServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/web/target/classes/servlet/LoginServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jeeapp/web/target/web.war" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/web/target/web.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jeeapp/web/target/web/WEB-INF/classes/servlet/ChargeWalletServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/web/target/web/WEB-INF/classes/servlet/ChargeWalletServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jeeapp/web/target/web/WEB-INF/classes/servlet/LoginServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/web/target/web/WEB-INF/classes/servlet/LoginServlet.class" afterDir="false" />
-    </list>
+    <list default="true" id="9f827455-07e9-4844-9e16-9a4b8a70d3a0" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
