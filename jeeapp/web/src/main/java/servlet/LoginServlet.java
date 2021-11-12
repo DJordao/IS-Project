@@ -44,6 +44,7 @@ public class LoginServlet extends HttpServlet {
             destination = "/error.html";
             logger.info("Error authenticating user!");
         }
+
         request.getRequestDispatcher(destination).forward(request, response);
     }
 }

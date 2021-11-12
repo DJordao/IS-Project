@@ -12,6 +12,7 @@ public interface IBusiness {
     public void addUser(String email, String nome, String password);
     public void addManager(String email, String nome, String password);
     public List<String> authenticate(String email, String password);
+    public int getUserId(String email);
     public void editUserInfo(int id, String email, String nome, String password);
     public List<BusTrip> listAvailableTrips(Date dataInicio, Date dataFim);
     public void chargeWallet(int id, float quantia);

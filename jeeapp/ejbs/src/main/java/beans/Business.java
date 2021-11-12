@@ -86,6 +86,14 @@ public class Business implements IBusiness{
     }
 
     //Requisito 6
+    public int getUserId(String email){
+        TypedQuery<Users> q = em.createQuery("from Users u where u.email = :email ", Users.class);
+        q.setParameter("email", email);
+        Users u = q.getSingleResult();
+        return u.getId();
+    }
+
+    //Requisito 6
     public void editUserInfo(int id, String email, String nome, String password){
         Users u = em.find(Users.class, id);
         if (email != null)

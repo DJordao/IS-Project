@@ -29,7 +29,7 @@ public class ChargeWalletServlet extends HttpServlet {
             request.getRequestDispatcher(destination).forward(request, response);
         }
 
-        b.chargeWallet(2, val);
+        b.chargeWallet(b.getUserId((String) request.getSession().getAttribute("auth")), val);
 
         result = "Value added to you account.";
         response.getWriter().print(result);
