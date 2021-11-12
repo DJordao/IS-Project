@@ -22,8 +22,8 @@ public class BusTrip implements Serializable{
     private int capacidadeMax;
     private float preco;
 
-    @OneToMany(mappedBy = "viagem")
-    private List<Ticket> bilhetes;
+    @ManyToMany
+    private List<Users> passengers;
 
     public BusTrip() {
         super();
@@ -108,14 +108,6 @@ public class BusTrip implements Serializable{
         this.preco = preco;
     }
 
-    public List<Ticket> getBilhetes() {
-        return bilhetes;
-    }
-
-    public void setBilhetes(List<Ticket> bilhetes) {
-        this.bilhetes = bilhetes;
-    }
-
     @Override
     public String toString() {
         return "BusTrips{" +
@@ -127,7 +119,6 @@ public class BusTrip implements Serializable{
                 ", destino='" + destino + '\'' +
                 ", capacidadeMax=" + capacidadeMax +
                 ", preco=" + preco +
-                ", bilhetes=" + bilhetes +
                 '}';
     }
 }

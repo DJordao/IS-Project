@@ -25,7 +25,7 @@ public class SearchTripsServlet extends HttpServlet {
 
         List<BusTrip> trips = b.searchTrips(departure, destination);
         for(int i = 0; i < trips.size(); i++) {
-            trips.get(i).setBilhetes(null);
+            //trips.get(i).setBilhetes(null);
         }
 
         request.setAttribute("trips", trips);

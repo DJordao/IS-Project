@@ -40,7 +40,7 @@ public class ListAvailableTripsServlet extends HttpServlet {
 
         List<BusTrip> trips = b.listAvailableTrips(start, end);
         for(int i = 0; i < trips.size(); i++) {
-            trips.get(i).setBilhetes(null);
+            //trips.get(i).setBilhetes(null);
         }
 
         request.setAttribute("trips", trips);

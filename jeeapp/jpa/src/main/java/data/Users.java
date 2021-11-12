@@ -18,8 +18,8 @@ public class Users implements Serializable{
     //private String sessão; //loggedIn ou logedOut
     private float carteira;
 
-    @OneToMany(mappedBy = "user")
-    private List<Ticket> bilhetes;
+    @ManyToMany(mappedBy = "passengers")
+    private List<BusTrip> trips;
 
     public Users() {
         super();
@@ -85,14 +85,6 @@ public class Users implements Serializable{
 
     public void setCarteira(float carteira) {
         this.carteira = carteira;
-    }
-
-    public List<Ticket> getBilhetes() {
-        return bilhetes;
-    }
-
-    public void setBilhetes(List<Ticket> bilhetes) {
-        this.bilhetes = bilhetes;
     }
 
     public int getId() {

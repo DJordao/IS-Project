@@ -3,7 +3,6 @@ import javax.ejb.Stateless;
 import javax.ejb.Remote;
 
 import data.BusTrip;
-import data.Ticket;
 import data.Users;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -135,7 +134,7 @@ public class Business implements IBusiness{
 
 
     //Requisito 10
-    public void purchaseTicket(int userId, int busTripId){
+    /*public void purchaseTicket(int userId, int busTripId){
         Users u = em.find(Users.class, userId);
         BusTrip b = em.find(BusTrip.class, busTripId);
 
@@ -164,7 +163,7 @@ public class Business implements IBusiness{
             em.remove(b);
         }
 
-    }
+    }*/
 
 }
 

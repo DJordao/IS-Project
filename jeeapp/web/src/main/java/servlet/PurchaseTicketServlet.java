@@ -28,7 +28,7 @@ public class PurchaseTicketServlet extends HttpServlet {
         }
         String destination = "/secured/purchaseTicketScreen.jsp";
 
-        b.purchaseTicket((Integer) request.getSession().getAttribute("auth"), id);
+        //b.purchaseTicket((Integer) request.getSession().getAttribute("auth"), id);
 
         result = "Purchase successful.";
         response.getWriter().print(result);
