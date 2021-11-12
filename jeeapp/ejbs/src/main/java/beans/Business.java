@@ -101,7 +101,7 @@ public class Business implements IBusiness{
         if (nome != null)
             u.setNome(nome);
         if (password != null)
-            u.setPassword(password);
+            u.setPassword(password); // TODO: 12/11/2021  encriptar
     }
 
     //Requisito 7
@@ -149,6 +149,7 @@ public class Business implements IBusiness{
         em.persist(bilhete);
         u.adicionaQuantia(- b.getPreco());
     }
+
 
     //Requisito 11
     public void returnTicket(int tripId, int userId){
