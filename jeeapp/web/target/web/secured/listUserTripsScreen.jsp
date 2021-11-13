@@ -14,7 +14,7 @@ Your trips:
     </c:when>
     <c:otherwise>
         <c:forEach var="item" items="${bustrips}">
-            <div>Content is ${item}</div>
+            <div>${item}</div>
         </c:forEach>
     </c:otherwise>
 </c:choose>

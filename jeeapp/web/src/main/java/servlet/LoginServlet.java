@@ -19,7 +19,7 @@ public class LoginServlet extends HttpServlet {
 
     @EJB
     private IBusiness business;
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
         Logger logger = LoggerFactory.getLogger(LoginServlet.class);
