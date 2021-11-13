@@ -1,10 +1,10 @@
 package beans;
 
 import data.BusTrip;
+import data.Ticket;
 import data.Users;
 
 import javax.ejb.Remote;
-import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
 
@@ -19,6 +19,7 @@ public interface IBusiness {
     public void chargeWallet(int id, float quantia);
     public List<BusTrip> searchTrips(String departure, String destination);
     public void purchaseTicket(int userId, int busTripId);
-    public void returnTicket(int tripId, int userId);
-    String createBusTrip(Timestamp departureTime, String departure, Timestamp destinationTime, String destination, int capacity, float price);
+    public List<Ticket> getTickets(int id);
+    public void returnTicket(int ticketId, int userId);
+    public List<BusTrip> getTrips(int id);
 }

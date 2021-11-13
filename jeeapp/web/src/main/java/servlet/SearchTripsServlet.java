@@ -24,9 +24,6 @@ public class SearchTripsServlet extends HttpServlet {
         String screenDestination = "/secured/purchaseTicketScreen.jsp";
 
         List<BusTrip> trips = b.searchTrips(departure, destination);
-        for(int i = 0; i < trips.size(); i++) {
-            trips.get(i).setBilhetes(null);
-        }
 
         request.setAttribute("trips", trips);
         request.getRequestDispatcher(screenDestination).forward(request, response);

@@ -156,18 +156,37 @@ public class Business implements IBusiness{
 
 
     //Requisito 11
-    public void returnTicket(int tripId, int userId){
-        TypedQuery<Ticket> q = em.createQuery("from Ticket b where user.id = :userId and viagem.id = :tripId", Ticket.class);
-        q.setParameter("userId", userId);
-        q.setParameter("tripId", tripId);
+    public List<Ticket> getTickets(int id) {
+        Users u = em.find(Users.class, id);
+        return u.getBilhetes();
+    }
 
-        for (Ticket b : q.getResultList()){
-            BusTrip bt = b.getViagem();
-            Users u = b.getUser();
-            u.adicionaQuantia(bt.getPreco());
-            em.remove(b);
+
+    //Requisito 11
+    public void returnTicket(int ticketId, int userId){
+        TypedQuery<Ticket> q = em.createQuery("from Ticket b where user.id = :userId and b.id = :ticketId", Ticket.class);
+        q.setParameter("userId", userId);
+        q.setParameter("ticketId", ticketId);
+        Ticket t = q.getSingleResult();
+
+        BusTrip bt = t.getViagem();
+        Users u = t.getUser();
+        u.adicionaQuantia(bt.getPreco());
+        em.remove(t);
+    }
+
+
+    //Requisito 12
+    public List<BusTrip> getTrips(int id) {
+        Users u = em.find(Users.class, id);
+        List<Ticket> t = u.getBilhetes();
+        List<BusTrip> bt = new ArrayList<>();
+
+        for(Ticket ticket : t) {
+            bt.add(ticket.getViagem());
         }
 
+        return bt;
     }
 
     //Requisito 13

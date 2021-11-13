@@ -19,8 +19,6 @@ public class LoginServlet extends HttpServlet {
 
     @EJB
     private IBusiness business;
-
-    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
@@ -36,13 +34,15 @@ public class LoginServlet extends HttpServlet {
             List<String> result = business.authenticate(email, password);
 
             if (!result.get(0).equals("Error!")){
-                request.getSession(true).setAttribute("auth", business.getUserId(email));
+                int id = business.getUserId(email);
+                request.getSession(true).setAttribute("auth", id);
                 request.getSession(true).setAttribute("type", result.get(0));
                 request.getSession(true).setAttribute("name", email);
+                request.getSession().setAttribute("tickets", business.getTickets(id));
+                request.getSession().setAttribute("bustrips", business.getTrips(id));
                 destination = "/secured/display.jsp";
                 logger.info(result.get(0) + " successfully authenticated!");
                 logger.info(result.get(1));
-
             }
 
         }else{

@@ -9,7 +9,6 @@ public class Ticket implements Serializable{
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private int id;
-    private String local;
 
     @ManyToOne
     private Users user;
@@ -50,5 +49,12 @@ public class Ticket implements Serializable{
 
     public void setViagem(BusTrip viagem) {
         this.viagem = viagem;
+    }
+
+    @Override
+    public String toString() {
+        return "Ticket{" +
+                "id=" + id +
+                '}';
     }
 }

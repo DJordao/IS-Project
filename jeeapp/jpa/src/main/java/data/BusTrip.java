@@ -24,7 +24,7 @@ public class BusTrip implements Serializable{
     private int capacidadeMax;
     private float preco;
 
-    @OneToMany(mappedBy = "viagem")
+    @OneToMany(mappedBy = "viagem", fetch = FetchType.EAGER, orphanRemoval = true)
     private List<Ticket> bilhetes;
 
     public BusTrip() {

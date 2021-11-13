@@ -1,5 +1,6 @@
 servlet/EditUserInfoServlet.class
 servlet/PurchaseTicketServlet.class
+servlet/ReturnTicketServlet.class
 servlet/GreetingServlet.class
 servlet/ListAvailableTripsServlet.class
 servlet/MyServlet.class

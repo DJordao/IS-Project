@@ -7,19 +7,19 @@
 <body>
 Your tickets:
 <c:choose>
-    <c:when test="${trips == null}">
+    <c:when test="${tickets == null}">
     </c:when>
-    <c:when test="${trips.isEmpty()}">
-        No available trips for the given locations.
+    <c:when test="${tickets.isEmpty()}">
+        No tickets owned.
     </c:when>
     <c:otherwise>
-        <c:forEach var="item" items="${trips}">
+        <c:forEach var="item" items="${tickets}">
             <div>${item}</div>
         </c:forEach>
-        Insert the desired trip ID:
-        <form action="purchaseTicket" method="get">
-            <input name="BusTripId" type="text" required/>
-            <input type="submit" value="Purchase"/>
+        Insert the desired ticket ID:
+        <form action="returnTicket" method="get">
+            <input name="TicketId" type="text" required/>
+            <input type="submit" value="Return"/>
         </form>
     </c:otherwise>
 </c:choose>

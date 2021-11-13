@@ -15,10 +15,12 @@ Insert a date interval:
 <c:choose>
     <c:when test="${trips == null}">
     </c:when>
-
+    <c:when test="${trips.isEmpty()}">
+        No trips for the given date interval.
+    </c:when>
     <c:otherwise>
         <c:forEach var="item" items="${trips}">
-            <div>Content is ${item}</div>
+            <div>${item}</div>
         </c:forEach>
     </c:otherwise>
 </c:choose>

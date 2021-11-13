@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 @WebServlet("/secured/purchaseTicket")
 public class PurchaseTicketServlet extends HttpServlet {
@@ -18,18 +20,19 @@ public class PurchaseTicketServlet extends HttpServlet {
     private IBusiness b;
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        int id = -1;
+        int tripId = -1;
         String result = null;
         try {
-            id = Integer.valueOf(request.getParameter("BusTripId"));
+            tripId = Integer.valueOf(request.getParameter("BusTripId"));
         } catch (Exception e) {
             result = "Invalid trip ID.";
             response.getWriter().print(result);
         }
         String destination = "/secured/purchaseTicketScreen.jsp";
-
-        b.purchaseTicket((Integer) request.getSession().getAttribute("auth"), id);
-
+        int userId = (Integer) request.getSession().getAttribute("auth");
+        b.purchaseTicket(userId, tripId);
+        request.getSession().setAttribute("tickets", b.getTickets(userId));
+        request.getSession().setAttribute("bustrips", b.getTrips(userId));
         result = "Purchase successful.";
         response.getWriter().print(result);
     }

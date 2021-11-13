@@ -2,6 +2,7 @@ package data;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -18,8 +19,8 @@ public class Users implements Serializable{
     //private String sessão; //loggedIn ou logedOut
     private float carteira;
 
-    @OneToMany(mappedBy = "user")
-    private List<Ticket> bilhetes;
+    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER, orphanRemoval = true)
+    private List<Ticket> bilhetes = new ArrayList<>();
 
     public Users() {
         super();

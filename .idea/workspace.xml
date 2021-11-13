@@ -5,9 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9f827455-07e9-4844-9e16-9a4b8a70d3a0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/jeeapp/web/src/main/webapp/secured/returnTicketScreen.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jeeapp/ejbs/src/main/java/beans/Business.java" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/ejbs/src/main/java/beans/Business.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jeeapp/ear/target/ear.ear" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/ear/target/ear.ear" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jeeapp/ear/target/ear/ejbs.jar" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/ear/target/ear/ejbs.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jeeapp/ear/target/ear/web.war" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/ear/target/ear/web.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jeeapp/ejbs/target/ejbs.jar" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/ejbs/target/ejbs.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jeeapp/jpa/target/jpa.jar" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/jpa/target/jpa.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jeeapp/web/src/main/java/servlet/LoginServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/web/src/main/java/servlet/LoginServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jeeapp/web/src/main/webapp/loginScreen.html" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/web/src/main/webapp/loginScreen.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jeeapp/web/src/main/webapp/secured/display.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/web/src/main/webapp/secured/display.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jeeapp/web/target/web.war" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/web/target/web.war" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +33,14 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
   <component name="ProjectId" id="20mglLrCecMABrmHLARSdusv9aP" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -40,6 +55,9 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -75,6 +93,8 @@
       <workItem from="1636655608382" duration="3643000" />
       <workItem from="1636721954207" duration="3136000" />
       <workItem from="1636730995490" duration="7805000" />
+      <workItem from="1636799820698" duration="8193000" />
+      <workItem from="1636814683547" duration="3592000" />
     </task>
     <servers />
   </component>
