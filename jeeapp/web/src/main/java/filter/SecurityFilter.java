@@ -1,4 +1,8 @@
 package filter;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import servlet.CreateBusTripsServlet;
+
 import java.io.IOException;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -15,6 +19,14 @@ public class SecurityFilter implements Filter {
         System.out.println("Accessing the filter...");
         HttpServletRequest httpReq = (HttpServletRequest) request;
         HttpSession session = httpReq.getSession(false);
+
+        Logger logger = LoggerFactory.getLogger(SecurityFilter.class);
+        logger.info("#############################");
+        logger.info("AUTH VALUE: " + session.getAttribute("auth"));
+        logger.info("SESSION : " + session);
+        logger.info("#############################");
+
+
         if (session != null && session.getAttribute("auth") != null)
         {
             System.out.println("Verified authentication token...");

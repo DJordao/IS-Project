@@ -4,7 +4,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Insert title here</title>
+    <title>Bus - Company</title>
 </head>
 <body>
 
@@ -26,7 +26,7 @@
      <c:otherwise>
         <strong>Welcome Manager ${name} !</strong></br>
         <ul>
-            <li> <a href="secured/createBusTrips.html"> Create Bus Trips </a></li>
+            <li> <a href="/web/secured/createBusTrips.html"> Create Bus Trips </a></li>
             <li> <a href="secured/editUserInfoScreen.html"> Delete Bus Trips </a></li>
             <li> <a href="secured/editUserInfoScreen.html"> List Top 5 Passengers </a></li>
             <li> <a href="secured/editUserInfoScreen.html"> Search Bus Trips </a></li>

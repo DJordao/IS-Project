@@ -7,5 +7,6 @@ servlet/MainServlet.class
 servlet/ChargeWalletServlet.class
 servlet/SearchTripsServlet.class
 filter/SecurityFilter.class
+servlet/CreateBusTripsServlet.class
 servlet/LoginServlet.class
 servlet/RegisterServlet.class

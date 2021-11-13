@@ -1,6 +1,7 @@
 /workspace/web/src/main/java/servlet/EditUserInfoServlet.java
 /workspace/web/src/main/java/servlet/ChargeWalletServlet.java
 /workspace/web/src/main/java/filter/SecurityFilter.java
+/workspace/web/src/main/java/servlet/CreateBusTripsServlet.java
 /workspace/web/src/main/java/servlet/LoginServlet.java
 /workspace/web/src/main/java/servlet/MainServlet.java
 /workspace/web/src/main/java/servlet/PurchaseTicketServlet.java

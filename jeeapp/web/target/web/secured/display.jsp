@@ -4,15 +4,14 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Insert title here</title>
+    <title>Bus - Company</title>
 </head>
 <body>
-<strong>Welcome ${auth} !</strong>
 
 <nav>
 <c:choose>
     <c:when test="${type == 'Passenger'}">
-        <strong>Welcome ${name} !</strong>
+        <strong>Welcome ${name} !</strong></br>
     <ul>
         <li> <a href="secured/editUserInfoScreen.html"> Edit user information </a></li>
         <li> <a href="secured/chargeWalletScreen.html"> Charge my wallet </a></li>
@@ -25,7 +24,17 @@
     </ul>
     </c:when>
      <c:otherwise>
-                  Manager
+        <strong>Welcome Manager ${name} !</strong></br>
+        <ul>
+            <li> <a href="/web/secured/createBusTrips.html"> Create Bus Trips </a></li>
+            <li> <a href="secured/editUserInfoScreen.html"> Delete Bus Trips </a></li>
+            <li> <a href="secured/editUserInfoScreen.html"> List Top 5 Passengers </a></li>
+            <li> <a href="secured/editUserInfoScreen.html"> Search Bus Trips </a></li>
+            <li> <a href="secured/editUserInfoScreen.html"> Search Detailed Bus Trips </a></li>
+            <li> <a href="secured/editUserInfoScreen.html"> List Passengers on a Trip </a></li>
+
+        </ul>
+
      </c:otherwise>
 </c:choose>
 </nav>

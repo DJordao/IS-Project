@@ -19,7 +19,9 @@ public class LoginServlet extends HttpServlet {
 
     @EJB
     private IBusiness business;
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
         Logger logger = LoggerFactory.getLogger(LoginServlet.class);
@@ -40,6 +42,7 @@ public class LoginServlet extends HttpServlet {
                 destination = "/secured/display.jsp";
                 logger.info(result.get(0) + " successfully authenticated!");
                 logger.info(result.get(1));
+
             }
 
         }else{

@@ -8,6 +8,7 @@ import data.Users;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import javax.persistence.*;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -167,6 +168,14 @@ public class Business implements IBusiness{
             em.remove(b);
         }
 
+    }
+
+    //Requisito 13
+    public String createBusTrip(Timestamp departureTime, String departure, Timestamp destinationTime, String destination, int capacity, float price){
+        BusTrip b = new BusTrip(departureTime, departure, destinationTime, destination, capacity, price);
+        em.persist(b);
+        String result = "Bus Trip " + departure + " to " + destination + " created successfully";
+        return result;
     }
 
 }

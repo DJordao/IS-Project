@@ -2,6 +2,8 @@ package data;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.sql.Time;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -12,11 +14,11 @@ public class BusTrip implements Serializable{
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     int id;
-    @Temporal(TemporalType.DATE)
-    private Date horaPartida;
+
+    private Timestamp horaPartida;
     private String localPartida;
-    @Temporal(TemporalType.DATE)
-    private Date horaChegada;
+
+    private Timestamp horaChegada;
     private String duracao;
     private String destino;
     private int capacidadeMax;
@@ -29,12 +31,12 @@ public class BusTrip implements Serializable{
         super();
     }
 
-    public BusTrip(Date horaPartida, String localPartida, Date horaChegada, String duracao, String destino, int capacidadeMax, float preco) {
+    public BusTrip(Timestamp horaPartida, String localPartida, Timestamp horaChegada, String destino, int capacidadeMax, float preco) {
         super();
         this.horaPartida = horaPartida;
         this.localPartida = localPartida;
         this.horaChegada = horaChegada;
-        this.duracao = duracao;
+        //this.duracao = duracao;
         this.destino = destino;
         this.capacidadeMax = capacidadeMax;
         this.preco = preco;
@@ -52,11 +54,11 @@ public class BusTrip implements Serializable{
         this.id = id;
     }
 
-    public Date getHoraPartida() {
+    public Timestamp getHoraPartida() {
         return horaPartida;
     }
 
-    public void setHoraPartida(Date horaPartida) {
+    public void setHoraPartida(Timestamp horaPartida) {
         this.horaPartida = horaPartida;
     }
 
@@ -68,21 +70,21 @@ public class BusTrip implements Serializable{
         this.localPartida = localPartida;
     }
 
-    public Date getHoraChegada() {
+    public Timestamp getHoraChegada() {
         return horaChegada;
     }
 
-    public void setHoraChegada(Date horaChegada) {
+    public void setHoraChegada(Timestamp horaChegada) {
         this.horaChegada = horaChegada;
     }
 
-    public String getDuracao() {
+    /*public String getDuracao() {
         return duracao;
     }
 
     public void setDuracao(String duracao) {
         this.duracao = duracao;
-    }
+    }*/
 
     public String getDestino() {
         return destino;

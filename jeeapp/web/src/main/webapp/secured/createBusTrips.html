@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Manager - Create Bus Trips</title>
+</head>
+<body>
+<p>Fill the fields to create a new Bus Trip:</p>
+<form action="createBusTrips" method="post">
+    <label> Departure: </label>
+    <select name="Departure" required>
+        <option value="Coimbra">Coimbra</option>
+        <option value="Lisboa">Lisboa</option>
+        <option value="Leiria">Leiria</option>
+        <option value="Porto">Porto</option>
+    </select>
+
+    <label> Departure time: </label>
+    <input type="datetime-local" id="Departure-time" name="Departure-time" required><br/><br/>
+
+    <label> Destination: </label>
+    <select name="Destination" required>
+        <option value="Coimbra">Coimbra</option>
+        <option value="Lisboa">Lisboa</option>
+        <option value="Leiria">Leiria</option>
+        <option value="Porto">Porto</option>
+    </select>
+
+    <label> Destination time: </label>
+    <input type="datetime-local" id="Destination-time" name="Destination-time" required><br/><br/>
+
+    <label> Capacity: </label>
+    <input name="Capacity" type="number" placeholder="Capacity" required/>
+
+    <label> Price: </label>
+    <input name="Price" min="0.00" step="0.01" placeholder="Price" required/>
+    <input type="submit" value="Create Trip"><br/><br/>
+
+
+</form>
+</body>
+</html>
