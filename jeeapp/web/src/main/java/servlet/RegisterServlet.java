@@ -31,6 +31,7 @@ public class RegisterServlet extends HttpServlet {
         //Ver o conteúdo dos campos
         if (!(name.charAt(0) == ' ') && !email.contains(" ") && !password.contains(" ")){
             //TODO encriptar password
+
             EncryptData encryptData = new EncryptData();
             String passwordEncrypted = encryptData.encrypt(password);
             String passwordDecrypted = encryptData.decrypt(passwordEncrypted);

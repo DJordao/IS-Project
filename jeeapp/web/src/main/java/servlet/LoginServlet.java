@@ -28,15 +28,17 @@ public class LoginServlet extends HttpServlet {
         String password = request.getParameter("Password");
 
         String destination = "/error.html";
-        logger.info("ENTREI 1");
+
         if (!email.contains(" ") && !password.contains(" ")){
             //Os campos estao escritos e temos de verificar se estão bem de acordo com a BD
             List<String> result = business.authenticate(email, password);
-            logger.info("ENTREI 2");
+
             if (!result.get(0).equals("Error!")){
                 request.getSession(true).setAttribute("auth", business.getUserId(email));
+                request.getSession(true).setAttribute("type", result.get(0));
+                request.getSession(true).setAttribute("name", email);
                 destination = "/secured/display.jsp";
-                logger.info("User successfully authenticated!");
+                logger.info(result.get(0) + " successfully authenticated!");
                 logger.info(result.get(1));
             }
 

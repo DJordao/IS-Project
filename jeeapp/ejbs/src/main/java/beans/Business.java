@@ -96,12 +96,15 @@ public class Business implements IBusiness{
     //Requisito 6
     public void editUserInfo(int id, String email, String nome, String password){
         Users u = em.find(Users.class, id);
+        EncryptData encryptData = new EncryptData();
         if (email != null)
             u.setEmail(email);
         if (nome != null)
             u.setNome(nome);
-        if (password != null)
-            u.setPassword(password); // TODO: 12/11/2021  encriptar
+        if (password != null){
+            String passwordEncrypted = encryptData.encrypt(password);
+            u.setPassword(passwordEncrypted); // TODO: 12/11/2021  encriptar - DONE
+        }
     }
 
     //Requisito 7

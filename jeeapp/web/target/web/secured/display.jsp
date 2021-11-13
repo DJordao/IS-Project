@@ -10,6 +10,9 @@
 <strong>Welcome ${auth} !</strong>
 
 <nav>
+<c:choose>
+    <c:when test="${type == 'Passenger'}">
+        <strong>Welcome ${name} !</strong>
     <ul>
         <li> <a href="secured/editUserInfoScreen.html"> Edit user information </a></li>
         <li> <a href="secured/chargeWalletScreen.html"> Charge my wallet </a></li>
@@ -19,8 +22,12 @@
         <li> <a href="listAvailableTrips.jsp"> My trips  - NOT DONE</a></li>
         <li> <a href="listAvailableTrips.jsp"> Delete profile  - NOT DONE</a></li><br/>
         <li> <a href="listAvailableTrips.jsp"> Logout  - NOT DONE</a></li>
-
     </ul>
+    </c:when>
+     <c:otherwise>
+                  Manager
+     </c:otherwise>
+</c:choose>
 </nav>
 </body>
 </html>
