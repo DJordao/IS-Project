@@ -108,7 +108,19 @@ public class Business implements IBusiness{
         }
     }
 
+
     //Requisito 7
+    public void deleteProfile(int id) {
+        Users u = em.find(Users.class, id);
+        List<Ticket> t = u.getBilhetes();
+
+        for(Ticket ticket : t) {
+            em.remove(ticket);
+        }
+
+        em.remove(u);
+    }
+
 
     //Requisito 8
     public List<BusTrip> listAvailableTrips(Date dataInicio, Date dataFim){

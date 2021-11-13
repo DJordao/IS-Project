@@ -5,28 +5,37 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9f827455-07e9-4844-9e16-9a4b8a70d3a0" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/jeeapp/web/src/main/java/servlet/DeleteProfileServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jeeapp/web/src/main/java/servlet/LogoutServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/jeeapp/ear/target/ear.ear" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/ear/target/ear.ear" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/jeeapp/ear/target/ear/ejbs.jar" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/ear/target/ear/ejbs.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/jeeapp/ear/target/ear/lib/jpa.jar" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/ear/target/ear/lib/jpa.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/jeeapp/ear/target/ear/web.war" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/ear/target/ear/web.war" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/jeeapp/ear/target/temp/ejbs.jar/beans/Business.class" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/ear/target/temp/ejbs.jar/beans/Business.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jeeapp/ear/target/temp/ejbs.jar/beans/IBusiness.class" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/ear/target/temp/ejbs.jar/beans/IBusiness.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/jeeapp/ejbs/src/main/java/beans/Business.java" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/ejbs/src/main/java/beans/Business.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/jeeapp/ejbs/src/main/java/beans/IBusiness.java" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/ejbs/src/main/java/beans/IBusiness.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/jeeapp/ejbs/target/classes/beans/Business.class" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/ejbs/target/classes/beans/Business.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jeeapp/ejbs/target/classes/beans/IBusiness.class" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/ejbs/target/classes/beans/IBusiness.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/jeeapp/ejbs/target/ejbs.jar" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/ejbs/target/ejbs.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jeeapp/jpa/src/main/java/data/BusTrip.java" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/jpa/src/main/java/data/BusTrip.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jeeapp/jpa/target/classes/data/BusTrip.class" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/jpa/target/classes/data/BusTrip.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/jeeapp/jpa/target/jpa.jar" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/jpa/target/jpa.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jeeapp/web/src/main/java/servlet/CreateBusTripsServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/web/src/main/java/servlet/CreateBusTripsServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jeeapp/web/target/classes/servlet/ChargeWalletServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/web/target/classes/servlet/ChargeWalletServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jeeapp/web/src/main/java/servlet/LoginServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/web/src/main/java/servlet/LoginServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jeeapp/web/src/main/webapp/secured/chargeWalletScreen.html" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/web/src/main/webapp/secured/chargeWalletScreen.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jeeapp/web/src/main/webapp/secured/display.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/web/src/main/webapp/secured/display.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jeeapp/web/src/main/webapp/secured/editUserInfoScreen.html" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/web/src/main/webapp/secured/editUserInfoScreen.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jeeapp/web/src/main/webapp/secured/listAvailableTripsScreen.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/web/src/main/webapp/secured/listAvailableTripsScreen.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jeeapp/web/src/main/webapp/secured/listUserTripsScreen.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/web/src/main/webapp/secured/listUserTripsScreen.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jeeapp/web/src/main/webapp/secured/purchaseTicketScreen.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/web/src/main/webapp/secured/purchaseTicketScreen.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jeeapp/web/src/main/webapp/secured/returnTicketScreen.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/web/src/main/webapp/secured/returnTicketScreen.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/jeeapp/web/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/web/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/jeeapp/web/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/web/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/jeeapp/web/target/web.war" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/web/target/web.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jeeapp/web/target/web/WEB-INF/classes/servlet/ChargeWalletServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/web/target/web/WEB-INF/classes/servlet/ChargeWalletServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jeeapp/web/target/web/secured/chargeWalletScreen.html" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/web/target/web/secured/chargeWalletScreen.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/jeeapp/web/target/web/secured/display.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/web/target/web/secured/display.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jeeapp/web/target/web/secured/editUserInfoScreen.html" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/web/target/web/secured/editUserInfoScreen.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jeeapp/web/target/web/secured/listAvailableTripsScreen.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/web/target/web/secured/listAvailableTripsScreen.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jeeapp/web/target/web/secured/listUserTripsScreen.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/web/target/web/secured/listUserTripsScreen.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jeeapp/web/target/web/secured/purchaseTicketScreen.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/web/target/web/secured/purchaseTicketScreen.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jeeapp/web/target/web/secured/returnTicketScreen.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/web/target/web/secured/returnTicketScreen.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,8 +46,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
-        <option value="Class" />
         <option value="Jsp File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -107,6 +116,7 @@
       <workItem from="1636730995490" duration="7805000" />
       <workItem from="1636799820698" duration="8193000" />
       <workItem from="1636814683547" duration="4367000" />
+      <workItem from="1636824906656" duration="1558000" />
     </task>
     <servers />
   </component>

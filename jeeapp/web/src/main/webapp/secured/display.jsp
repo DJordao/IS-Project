@@ -19,8 +19,12 @@
         <li> <a href="/web/secured/purchaseTicketScreen.jsp"> Purchase tickets  - NOT DONE</a></li>
         <li> <a href="/web/secured/returnTicketScreen.jsp"> Return tickets  - NOT DONE</a></li>
         <li> <a href="/web/secured/listUserTripsScreen.jsp"> My trips  - NOT DONE</a></li>
-        <li> <a href="listAvailableTrips.jsp"> Delete profile  - NOT DONE</a></li><br/>
-        <li> <a href="listAvailableTrips.jsp"> Logout  - NOT DONE</a></li>
+        <form action="deleteProfile" method="post">
+            <input type="submit" value="Delete profile">
+        </form>
+        <form action="logout" method="post">
+            <input type="submit" value="Logout">
+        </form>
     </ul>
     </c:when>
      <c:otherwise>
