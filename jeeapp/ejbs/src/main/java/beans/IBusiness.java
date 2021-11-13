@@ -5,6 +5,7 @@ import data.Ticket;
 import data.Users;
 
 import javax.ejb.Remote;
+import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
 
@@ -22,4 +23,5 @@ public interface IBusiness {
     public List<Ticket> getTickets(int id);
     public void returnTicket(int ticketId, int userId);
     public List<BusTrip> getTrips(int id);
+    public String createBusTrip(Timestamp departureTime, String departure, Timestamp destinationTime, String destination, int capacity, float price);
 }

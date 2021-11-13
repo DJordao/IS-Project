@@ -143,9 +143,9 @@ public class Business implements IBusiness{
         Users u = em.find(Users.class, userId);
         BusTrip b = em.find(BusTrip.class, busTripId);
 
-        //if (b.getBilhetes().size() == b.getCapacidadeMax())
+        if (b.getBilhetes().size() == b.getCapacidadeMax())
             //limite maximo
-          //  return;
+            return;
         if (u.getCarteira() < b.getPreco())
             //sem dinheiro
             return;

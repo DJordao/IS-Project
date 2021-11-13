@@ -19,7 +19,7 @@ public class BusTrip implements Serializable{
     private String localPartida;
 
     private Timestamp horaChegada;
-    private String duracao;
+    //private String duracao;
     private String destino;
     private int capacidadeMax;
     private float preco;
@@ -125,7 +125,6 @@ public class BusTrip implements Serializable{
                 ", horaPartida=" + horaPartida +
                 ", localPartida='" + localPartida + '\'' +
                 ", horaChegada=" + horaChegada +
-                ", duracao=" + duracao +
                 ", destino='" + destino + '\'' +
                 ", capacidadeMax=" + capacidadeMax +
                 ", preco=" + preco +
