@@ -27,8 +27,12 @@
         <strong>Welcome Manager ${name} !</strong></br>
         <ul>
             <li> <a href="/web/secured/createBusTrips.html"> Create Bus Trips </a></li>
-            <li> <a href="secured/editUserInfoScreen.html"> Delete Bus Trips </a></li>
-            <li> <a href="secured/editUserInfoScreen.html"> List Top 5 Passengers </a></li>
+            <li> <a href="/web/secured/deleteFutureTrips.jsp"> Delete Bus Trips </a></li>
+
+            <form action="/web/secured/listTopPassengers" method="post">
+                <input type="submit" value="List"/>
+            </form>
+            <li> <a href="secured/topPassengers.jsp"> List Top 5 Passengers </a></li>
             <li> <a href="secured/editUserInfoScreen.html"> Search Bus Trips </a></li>
             <li> <a href="secured/editUserInfoScreen.html"> Search Detailed Bus Trips </a></li>
             <li> <a href="secured/editUserInfoScreen.html"> List Passengers on a Trip </a></li>

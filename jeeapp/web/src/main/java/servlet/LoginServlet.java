@@ -40,6 +40,9 @@ public class LoginServlet extends HttpServlet {
                 request.getSession(true).setAttribute("name", email);
                 request.getSession().setAttribute("tickets", business.getTickets(id));
                 request.getSession().setAttribute("bustrips", business.getTrips(id));
+                request.getSession().setAttribute("futureTrips", business.getFutureTrips());
+
+
                 destination = "/secured/display.jsp";
                 logger.info(result.get(0) + " successfully authenticated!");
                 logger.info(result.get(1));

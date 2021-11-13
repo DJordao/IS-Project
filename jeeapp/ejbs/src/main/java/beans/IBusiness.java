@@ -7,6 +7,7 @@ import data.Users;
 import javax.ejb.Remote;
 import java.sql.Timestamp;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
 @Remote
@@ -24,4 +25,7 @@ public interface IBusiness {
     public void returnTicket(int ticketId, int userId);
     public List<BusTrip> getTrips(int id);
     public String createBusTrip(Timestamp departureTime, String departure, Timestamp destinationTime, String destination, int capacity, float price);
+    public List<BusTrip> getFutureTrips();
+    public String deleteTrip(int tripId);
+    public HashMap<String, String> topPasssengers();
 }

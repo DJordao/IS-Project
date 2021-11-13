@@ -8,9 +8,11 @@ import data.Users;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import javax.persistence.*;
+import javax.xml.registry.BusinessQueryManager;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
 @Stateless
@@ -196,6 +198,44 @@ public class Business implements IBusiness{
         String result = "Bus Trip " + departure + " to " + destination + " created successfully";
         return result;
     }
+
+    //Reqisito 14
+    public List<BusTrip> getFutureTrips() {
+        TypedQuery<BusTrip> b = em.createQuery("from BusTrip b where horaPartida > current_timestamp ", BusTrip.class);
+
+        List<BusTrip> trips = b.getResultList();
+        return trips;
+    }
+
+    //Requisito 14
+    public String deleteTrip(int tripId){
+        BusTrip b = em.find(BusTrip.class, tripId);
+        List<Ticket> t = b.getBilhetes();
+        float preco = b.getPreco();
+
+        for(Ticket ticket: t){
+            ticket.getUser().adicionaQuantia(preco);
+            em.remove(ticket);
+        }
+        em.remove(b);
+
+        return "Trip deleted successfully";
+
+    }
+
+    //Requisito 15
+    public HashMap<String, String> topPasssengers(){
+        HashMap<String, String> passengerList = new HashMap<String, String>();
+        TypedQuery<Object[]> t = em.createQuery("select t.user.id, count (distinct t.viagem) as n from Ticket t group by t.user.id order by n asc", Object[].class);
+        List<Object[]> queryData = t.getResultList();
+
+        for (Object[] o: queryData){
+            passengerList.put(String.valueOf(o[0]), String.valueOf(o[1]));
+            logger.info(String.valueOf(o[0]) + "TRIPS " + String.valueOf(o[1]));
+        }
+        return passengerList;
+    }
+
 
 }
 

@@ -65,10 +65,10 @@ public class CreateBusTripsServlet extends HttpServlet {
             destinationScreen = "/secured/display.jsp";
 
             String result = b.createBusTrip(departureTimestamp, departure, destinationTimestamp, destination, capacityInt, priceFloat);
+            request.getSession().setAttribute("futureTrips", b.getFutureTrips());
+
 
             logger.info(result);
-
-            logger.info(request.getHeader("referer"));
 
             request.getRequestDispatcher(destinationScreen).forward(request, response);
 
