@@ -39,9 +39,6 @@ public class ListAvailableTripsServlet extends HttpServlet {
         Date end = getDate(day, month, year);
 
         List<BusTrip> trips = b.listAvailableTrips(start, end);
-        for(int i = 0; i < trips.size(); i++) {
-            trips.get(i).setBilhetes(null);
-        }
 
         request.setAttribute("trips", trips);
         request.getRequestDispatcher(destination).forward(request, response);

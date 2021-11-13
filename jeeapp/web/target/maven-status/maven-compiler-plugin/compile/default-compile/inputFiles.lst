@@ -4,6 +4,7 @@
 /workspace/web/src/main/java/servlet/LoginServlet.java
 /workspace/web/src/main/java/servlet/MainServlet.java
 /workspace/web/src/main/java/servlet/PurchaseTicketServlet.java
+/workspace/web/src/main/java/servlet/ReturnTicketServlet.java
 /workspace/web/src/main/java/servlet/SearchTripsServlet.java
 /workspace/web/src/main/java/servlet/GreetingServlet.java
 /workspace/web/src/main/java/servlet/RegisterServlet.java

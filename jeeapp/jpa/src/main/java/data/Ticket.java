@@ -51,4 +51,11 @@ public class Ticket implements Serializable{
     public void setViagem(BusTrip viagem) {
         this.viagem = viagem;
     }
+
+    @Override
+    public String toString() {
+        return "Ticket{" +
+                "id=" + id +
+                '}';
+    }
 }

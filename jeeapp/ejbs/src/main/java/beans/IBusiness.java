@@ -1,6 +1,7 @@
 package beans;
 
 import data.BusTrip;
+import data.Ticket;
 import data.Users;
 
 import javax.ejb.Remote;
@@ -18,6 +19,7 @@ public interface IBusiness {
     public void chargeWallet(int id, float quantia);
     public List<BusTrip> searchTrips(String departure, String destination);
     public void purchaseTicket(int userId, int busTripId);
-    public void returnTicket(int tripId, int userId);
+    public List<Ticket> getTickets(int id);
+    public void returnTicket(int ticketId, int userId);
 
 }

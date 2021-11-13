@@ -7,25 +7,34 @@
     <title>Insert title here</title>
 </head>
 <body>
-<strong>Welcome ${auth} !</strong>
 
 <nav>
 <c:choose>
     <c:when test="${type == 'Passenger'}">
-        <strong>Welcome ${name} !</strong>
+        <strong>Welcome ${name} !</strong></br>
     <ul>
         <li> <a href="secured/editUserInfoScreen.html"> Edit user information </a></li>
         <li> <a href="secured/chargeWalletScreen.html"> Charge my wallet </a></li>
         <li> <a href="secured/listAvailableTripsScreen.jsp"> List available trips </a></li>
         <li> <a href="secured/purchaseTicketScreen.jsp"> Purchase tickets  - NOT DONE</a></li>
-        <li> <a href="listAvailableTrips.jsp"> Return tickets  - NOT DONE</a></li>
+        <li> <a href="secured/returnTicketScreen.jsp"> Return tickets  - NOT DONE</a></li>
         <li> <a href="listAvailableTrips.jsp"> My trips  - NOT DONE</a></li>
         <li> <a href="listAvailableTrips.jsp"> Delete profile  - NOT DONE</a></li><br/>
         <li> <a href="listAvailableTrips.jsp"> Logout  - NOT DONE</a></li>
     </ul>
     </c:when>
      <c:otherwise>
-                  Manager
+        <strong>Welcome Manager ${name} !</strong></br>
+        <ul>
+            <li> <a href="secured/createBusTrips.html"> Create Bus Trips </a></li>
+            <li> <a href="secured/editUserInfoScreen.html"> Delete Bus Trips </a></li>
+            <li> <a href="secured/editUserInfoScreen.html"> List Top 5 Passengers </a></li>
+            <li> <a href="secured/editUserInfoScreen.html"> Search Bus Trips </a></li>
+            <li> <a href="secured/editUserInfoScreen.html"> Search Detailed Bus Trips </a></li>
+            <li> <a href="secured/editUserInfoScreen.html"> List Passengers on a Trip </a></li>
+
+        </ul>
+
      </c:otherwise>
 </c:choose>
 </nav>
