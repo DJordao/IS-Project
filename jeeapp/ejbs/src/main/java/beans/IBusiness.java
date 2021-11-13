@@ -21,5 +21,5 @@ public interface IBusiness {
     public void purchaseTicket(int userId, int busTripId);
     public List<Ticket> getTickets(int id);
     public void returnTicket(int ticketId, int userId);
-
+    public List<BusTrip> getTrips(int id);
 }

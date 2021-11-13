@@ -174,5 +174,19 @@ public class Business implements IBusiness{
         em.remove(t);
     }
 
+
+    //Requisito 12
+    public List<BusTrip> getTrips(int id) {
+        Users u = em.find(Users.class, id);
+        List<Ticket> t = u.getBilhetes();
+        List<BusTrip> bt = new ArrayList<>();
+
+        for(Ticket ticket : t) {
+            bt.add(ticket.getViagem());
+        }
+
+        return bt;
+    }
+
 }
 

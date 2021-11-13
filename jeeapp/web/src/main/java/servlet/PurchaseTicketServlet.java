@@ -32,7 +32,7 @@ public class PurchaseTicketServlet extends HttpServlet {
         int userId = (Integer) request.getSession().getAttribute("auth");
         b.purchaseTicket(userId, tripId);
         request.getSession().setAttribute("tickets", b.getTickets(userId));
-
+        request.getSession().setAttribute("bustrips", b.getTrips(userId));
         result = "Purchase successful.";
         response.getWriter().print(result);
     }

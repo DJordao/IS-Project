@@ -30,7 +30,7 @@ public class ReturnTicketServlet extends HttpServlet {
         int userId = (Integer) request.getSession().getAttribute("auth");
         b.returnTicket(ticketId, userId);
         request.getSession().setAttribute("tickets", b.getTickets(userId));
-
+        request.getSession().setAttribute("bustrips", b.getTrips(userId));
         result = "Return successful.";
         response.getWriter().print(result);
     }

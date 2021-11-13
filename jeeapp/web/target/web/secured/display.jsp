@@ -18,7 +18,7 @@
         <li> <a href="secured/listAvailableTripsScreen.jsp"> List available trips </a></li>
         <li> <a href="secured/purchaseTicketScreen.jsp"> Purchase tickets  - NOT DONE</a></li>
         <li> <a href="secured/returnTicketScreen.jsp"> Return tickets  - NOT DONE</a></li>
-        <li> <a href="listAvailableTrips.jsp"> My trips  - NOT DONE</a></li>
+        <li> <a href="secured/listUserTripsScreen.jsp"> My trips  - NOT DONE</a></li>
         <li> <a href="listAvailableTrips.jsp"> Delete profile  - NOT DONE</a></li><br/>
         <li> <a href="listAvailableTrips.jsp"> Logout  - NOT DONE</a></li>
     </ul>

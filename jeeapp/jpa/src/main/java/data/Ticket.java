@@ -9,7 +9,6 @@ public class Ticket implements Serializable{
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private int id;
-    private String local;
 
     @ManyToOne
     private Users user;
