@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="9f827455-07e9-4844-9e16-9a4b8a70d3a0" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jeeapp/web/src/main/java/servlet/LogoutServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/web/src/main/java/servlet/LogoutServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jeeapp/jpa/src/main/java/data/Users.java" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/jpa/src/main/java/data/Users.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,6 +89,8 @@
       <workItem from="1636814683547" duration="4367000" />
       <workItem from="1636824906656" duration="2938000" />
       <workItem from="1636829374183" duration="302000" />
+      <workItem from="1636884347352" duration="621000" />
+      <workItem from="1636884992454" duration="30000" />
     </task>
     <servers />
   </component>
