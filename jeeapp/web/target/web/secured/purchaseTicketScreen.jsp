@@ -24,7 +24,7 @@ Insert your desired departure and destination:
             <div>${item}</div>
         </c:forEach>
         Insert the desired trip ID:
-        <form action="purchaseTicket" method="get">
+        <form action="purchaseTicket" method="post">
             <input name="BusTripId" type="text" required/>
             <input type="submit" value="Purchase"/>
         </form>

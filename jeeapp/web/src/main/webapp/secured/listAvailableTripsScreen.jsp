@@ -7,9 +7,9 @@
 <body>
 Insert a date interval:
 <form action="listAvailableTrips" method="get">
-    <input name="DateStart" type="date" required/>
+    <input name="DateStart" type="datetime-local" required/>
     -
-    <input name="DateEnd" type="date" required/>
+    <input name="DateEnd" type="datetime-local" required/>
     <input type="submit" value="Confirmar">
 </form>
 <c:choose>

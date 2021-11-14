@@ -19,21 +19,30 @@ public class PurchaseTicketServlet extends HttpServlet {
     @EJB
     private IBusiness b;
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         int tripId = -1;
-        String result = null;
+        String result = "Invalid trip ID.";
         try {
             tripId = Integer.valueOf(request.getParameter("BusTripId"));
         } catch (Exception e) {
-            result = "Invalid trip ID.";
             response.getWriter().print(result);
         }
-        String destination = "/secured/purchaseTicketScreen.jsp";
+
         int userId = (Integer) request.getSession().getAttribute("auth");
-        b.purchaseTicket(userId, tripId);
-        request.getSession().setAttribute("tickets", b.getTickets(userId));
-        request.getSession().setAttribute("bustrips", b.getTrips(userId));
-        result = "Purchase successful.";
+        int res = b.purchaseTicket(userId, tripId);
+
+        if(res == -1) {
+            result = "No more tickets available for this trip.";
+        }
+        else if(res == -2) {
+            result = "You don't have enough money to purchase this ticket.";
+        }
+        else {
+            request.getSession().setAttribute("tickets", b.getTickets(userId));
+            request.getSession().setAttribute("bustrips", b.getTrips(userId));
+            result = "Purchase successful.";
+        }
+
         response.getWriter().print(result);
     }
 }

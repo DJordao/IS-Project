@@ -17,7 +17,7 @@ Your tickets:
             <div>${item}</div>
         </c:forEach>
         Insert the desired ticket ID:
-        <form action="returnTicket" method="get">
+        <form action="returnTicket" method="post">
             <input name="TicketId" type="text" required/>
             <input type="submit" value="Return"/>
         </form>
