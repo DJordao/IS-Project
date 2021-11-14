@@ -11,7 +11,7 @@ import java.io.IOException;
 @WebServlet("/logout")
 public class LogoutServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String destination = "/web";
+        String destination = "/web/";
         HttpSession s = request.getSession();
         s.removeAttribute("auth");
         s.removeAttribute("type");
