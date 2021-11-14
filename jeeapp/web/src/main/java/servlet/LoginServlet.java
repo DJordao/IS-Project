@@ -34,14 +34,18 @@ public class LoginServlet extends HttpServlet {
             List<String> result = business.authenticate(email, password);
 
             if (!result.get(0).equals("Error!")){
+
                 int id = business.getUserId(email);
                 request.getSession(true).setAttribute("auth", id);
                 request.getSession(true).setAttribute("type", result.get(0));
                 request.getSession(true).setAttribute("name", email);
-                request.getSession().setAttribute("tickets", business.getTickets(id));
-                request.getSession().setAttribute("bustrips", business.getTrips(id));
-                request.getSession().setAttribute("futureTrips", business.getFutureTrips());
 
+                if(result.get(0).equals("Passenger")){
+                    request.getSession().setAttribute("tickets", business.getTickets(id));
+                    request.getSession().setAttribute("bustrips", business.getTrips(id));
+                }else{
+                    request.getSession().setAttribute("futureTrips", business.getFutureTrips());
+                }
 
                 destination = "/secured/display.jsp";
                 logger.info(result.get(0) + " successfully authenticated!");

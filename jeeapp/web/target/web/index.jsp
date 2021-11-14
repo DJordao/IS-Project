@@ -6,6 +6,7 @@
     <title>Bus Company Management</title>
 </head>
 <body>
+    <h2>Bus Company Management</h2><br/>
     <title> Chose on option</title>
     <nav>
         <ul>
@@ -14,6 +15,6 @@
         </ul>
     </nav>
 
-<h2>Hello World!</h2>
+
 </body>
 </html>

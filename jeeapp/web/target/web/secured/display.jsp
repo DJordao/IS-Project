@@ -34,11 +34,10 @@
             <li> <a href="/web/secured/deleteFutureTrips.jsp"> Delete Bus Trips </a></li>
 
             <form action="/web/secured/listTopPassengers" method="post">
-                <input type="submit" value="List"/>
+                <input type="submit" value="List Top Passengers"/>
             </form>
-            <li> <a href="secured/topPassengers.jsp"> List Top 5 Passengers </a></li>
-            <li> <a href="secured/editUserInfoScreen.html"> Search Bus Trips </a></li>
-            <li> <a href="secured/editUserInfoScreen.html"> Search Detailed Bus Trips </a></li>
+            <li> <a href="/web/secured/searchBusTrips.jsp"> Search Bus Trips </a></li>
+            <li> <a href="/web/secured/detailedBusTrip.jsp"> Search Detailed Bus Trip </a></li>
             <li> <a href="secured/editUserInfoScreen.html"> List Passengers on a Trip </a></li>
 
         </ul>

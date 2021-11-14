@@ -29,4 +29,7 @@ public interface IBusiness {
     public List<BusTrip> getFutureTrips();
     public String deleteTrip(int tripId);
     public HashMap<String, String> topPasssengers();
+    public List<BusTrip> listAllBusTrips(Timestamp dataInicio, Timestamp dataFim);
+
+    public List<BusTrip> getDetailedBusTrips(Date start);
 }

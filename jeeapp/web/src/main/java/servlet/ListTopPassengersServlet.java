@@ -27,9 +27,9 @@ public class ListTopPassengersServlet extends HttpServlet {
         try{
             HashMap<String, String> topPassengers;
             String destination = "/secured/topPassengers.jsp";
-            logger.info("ENTREI");
 
             topPassengers = b.topPasssengers();
+            logger.info("Top Passengers returned successfully");
 
             result = "Return successful.";
 
@@ -37,9 +37,10 @@ public class ListTopPassengersServlet extends HttpServlet {
             request.getRequestDispatcher(destination).forward(request, response);
 
         }catch (Exception e) {
-            result = "Invalid field(s).";
+            result = "Error while searching for top passengers";
             String destination = "/error.html";
             request.getRequestDispatcher(destination).forward(request, response);
+            logger.info(result);
             e.printStackTrace();
         }
     }

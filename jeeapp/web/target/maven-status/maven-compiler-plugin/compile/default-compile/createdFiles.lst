@@ -11,7 +11,9 @@ servlet/CreateBusTripsServlet.class
 servlet/LoginServlet.class
 servlet/RegisterServlet.class
 servlet/PurchaseTicketServlet.class
+servlet/SearchBusTripsServlet.class
 servlet/ReturnTicketServlet.class
 servlet/DeleteProfileServlet.class
+servlet/DetailedBusTripsServlet.class
 servlet/ChargeWalletServlet.class
 servlet/SearchTripsServlet.class

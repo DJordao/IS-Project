@@ -9,11 +9,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import javax.persistence.*;
 import javax.xml.registry.BusinessQueryManager;
+import java.sql.Time;
 import java.sql.Timestamp;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 @Stateless
 //@RolesAllowed({ "guest" })
@@ -237,16 +235,36 @@ public class Business implements IBusiness{
 
     //Requisito 15
     public HashMap<String, String> topPasssengers(){
-        HashMap<String, String> passengerList = new HashMap<String, String>();
-        TypedQuery<Object[]> t = em.createQuery("select t.user.id, count (distinct t.viagem) as n from Ticket t group by t.user.id order by n asc", Object[].class);
+        LinkedHashMap<String, String> passengerList = new LinkedHashMap<String, String>();
+        TypedQuery<Object[]> t = em.createQuery("select t.user.id, count (distinct t.viagem) as n from Ticket t group by t.user.id order by n desc", Object[].class);
         List<Object[]> queryData = t.getResultList();
 
         for (Object[] o: queryData){
-            passengerList.put(String.valueOf(o[0]), String.valueOf(o[1]));
-            logger.info(String.valueOf(o[0]) + "TRIPS " + String.valueOf(o[1]));
+            Users u = em.find(Users.class, (Integer) o[0]);
+            passengerList.put(u.getEmail(), String.valueOf(o[1]));
+            logger.info(u.getEmail() + "TRIPS " + String.valueOf(o[1]));
         }
         return passengerList;
     }
+
+    public List<BusTrip> listAllBusTrips(Timestamp dataInicio, Timestamp dataFim){
+        TypedQuery<BusTrip> bt = em.createQuery("from BusTrip b where b.horaPartida between :start and :end order by b.horaPartida asc", BusTrip.class);
+        bt.setParameter("start", dataInicio);
+        bt.setParameter("end", dataFim);
+
+        List<BusTrip> trips = bt.getResultList();
+        return trips;
+    }
+
+    public List<BusTrip> getDetailedBusTrips(Date start){
+        TypedQuery<BusTrip> b = em.createQuery("from BusTrip b where date(horaPartida) = :date ", BusTrip.class);
+        b.setParameter("date", start);
+
+        List<BusTrip> trips = b.getResultList();
+        logger.info("I GOT DETAILED BUS TRIPS");
+        return trips;
+    }
+
 
 
 }
