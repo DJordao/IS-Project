@@ -57,20 +57,27 @@ public class CreateBusTripsServlet extends HttpServlet {
             Timestamp departureTimestamp = Timestamp.valueOf(departure_time.replace("T", " "));
             Timestamp destinationTimestamp = Timestamp.valueOf(destination_time.replace("T", " "));
 
-            logger.info("DEPARTURE TIME: " + departureTimestamp);
-            logger.info("DESTINATION TIME: " + destinationTimestamp);
+            if(departureTimestamp.after(destinationTimestamp)) {
+                String result = "Departure date can't be after destination date.";
+                response.getWriter().print(result);
+                destinationScreen = "/secured/createBusTrips.html";
+            }else{
+                logger.info("DEPARTURE TIME: " + departureTimestamp);
+                logger.info("DESTINATION TIME: " + destinationTimestamp);
 
-            float priceFloat = Float.valueOf(price);
-            int capacityInt = Integer.parseInt(capacity);
-            destinationScreen = "/secured/display.jsp";
+                float priceFloat = Float.valueOf(price);
+                int capacityInt = Integer.parseInt(capacity);
+                destinationScreen = "/secured/display.jsp";
 
-            String result = b.createBusTrip(departureTimestamp, departure, destinationTimestamp, destination, capacityInt, priceFloat);
-            request.getSession().setAttribute("futureTrips", b.getFutureTrips());
+                String result = b.createBusTrip(departureTimestamp, departure, destinationTimestamp, destination, capacityInt, priceFloat);
+                request.getSession().setAttribute("futureTrips", b.getFutureTrips());
 
 
-            logger.info(result);
+                logger.info(result);
 
-            request.getRequestDispatcher(destinationScreen).forward(request, response);
+                request.getRequestDispatcher(destinationScreen).forward(request, response);
+            }
+
 
         } catch (Exception e) {
             result = "Invalid field(s).";

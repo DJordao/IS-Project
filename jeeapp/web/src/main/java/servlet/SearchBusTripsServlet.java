@@ -39,10 +39,16 @@ public class SearchBusTripsServlet extends HttpServlet {
             Timestamp start = Timestamp.valueOf(startTime.replace("T", " "));
             Timestamp end = Timestamp.valueOf(endTime.replace("T", " "));
 
-            List<BusTrip> trips = b.listAllBusTrips(start, end);
+            if(start.after(end)) {
+                result = "Departure date can't be after destination date.";
+                response.getWriter().print(result);
+            }else{
+                List<BusTrip> trips = b.listAllBusTrips(start, end);
 
-            request.getSession().setAttribute("allTrips", trips);
-            request.getRequestDispatcher(destination).forward(request, response);
+                request.getSession().setAttribute("allTrips", trips);
+                request.getRequestDispatcher(destination).forward(request, response);
+            }
+
 
         } catch (Exception e) {
 
