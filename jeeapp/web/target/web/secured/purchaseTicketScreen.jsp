@@ -8,7 +8,7 @@
 Insert your desired departure and destination:
 <form action="searchTrips" method="get">
     <input name="Departure" type="text" required/>
-    ->
+    to
     <input name="Destination" type="text" required/>
     <input type="submit" value="Confirmar">
 </form>
@@ -21,7 +21,13 @@ Insert your desired departure and destination:
     </c:when>
     <c:otherwise>
         <c:forEach var="item" items="${cache}">
-            <div>${item}</div>
+            <div>
+                <b>ID: </b>${item.getId()}<br>
+                <b>Departure: </b>${item.getLocalPartida()}<br>
+                <b>Departure date: </b>${item.getHoraPartida()}<br>
+                <b>Destination: </b>${item.getDestino()}<br>
+                <b>Destination date: </b>${item.getHoraChegada()}<br>
+            </div><br/><br/>
         </c:forEach>
         Insert the desired trip ID:
         <form action="purchaseTicket" method="post">

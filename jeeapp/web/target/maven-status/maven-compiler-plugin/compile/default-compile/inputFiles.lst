@@ -6,6 +6,7 @@
 /workspace/web/src/main/java/servlet/SearchTripsServlet.java
 /workspace/web/src/main/java/servlet/GreetingServlet.java
 /workspace/web/src/main/java/servlet/ListAvailableTripsServlet.java
+/workspace/web/src/main/java/servlet/SearchTicketsServlet.java
 /workspace/web/src/main/java/servlet/ChargeWalletServlet.java
 /workspace/web/src/main/java/filter/SecurityFilter.java
 /workspace/web/src/main/java/servlet/CreateBusTripsServlet.java

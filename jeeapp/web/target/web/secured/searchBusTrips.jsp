@@ -24,10 +24,10 @@ Insert a date interval:
         <c:forEach var="item" items="${allTrips}">
             <div>
                 <b>ID: </b>${item.getId()}<br>
-                <b>Local de Partida: </b>${item.getLocalPartida()}<br>
-                <b>Hora de Partida: </b>${item.getHoraPartida()}<br>
-                <b>Local de Chegada: </b>${item.getDestino()}<br>
-                <b>Hora de Chegada: </b>${item.getHoraChegada()}<br>
+                <b>Departure: </b>${item.getLocalPartida()}<br>
+                <b>Departure date: </b>${item.getHoraPartida()}<br>
+                <b>Destination: </b>${item.getDestino()}<br>
+                <b>Destination date: </b>${item.getHoraChegada()}<br>
             </div><br/><br/>
         </c:forEach>
         Insert the desired trip ID to list all the passengers in it:

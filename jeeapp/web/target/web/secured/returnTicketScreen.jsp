@@ -10,11 +10,17 @@ Your tickets:
     <c:when test="${tickets == null}">
     </c:when>
     <c:when test="${tickets.isEmpty()}">
-        No tickets owned.
+        No refundable tickets.
     </c:when>
     <c:otherwise>
         <c:forEach var="item" items="${tickets}">
-            <div>${item}</div>
+            <div>
+                <b>Ticket ID: </b>${item.getId()}<br>
+                <b>Departure: </b>${item.getViagem().getLocalPartida()}<br>
+                <b>Departure date: </b>${item.getViagem().getHoraPartida()}<br>
+                <b>Destination: </b>${item.getViagem().getDestino()}<br>
+                <b>Destination date: </b>${item.getViagem().getHoraChegada()}<br>
+            </div><br/><br/>
         </c:forEach>
         Insert the desired ticket ID:
         <form action="returnTicket" method="post">

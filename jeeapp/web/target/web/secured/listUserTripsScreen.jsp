@@ -14,7 +14,13 @@ Your trips:
     </c:when>
     <c:otherwise>
         <c:forEach var="item" items="${bustrips}">
-            <div>${item}</div>
+            <div>
+                <b>ID: </b>${item.getId()}<br>
+                <b>Departure: </b>${item.getLocalPartida()}<br>
+                <b>Departure date: </b>${item.getHoraPartida()}<br>
+                <b>Destination: </b>${item.getDestino()}<br>
+                <b>Destination date: </b>${item.getHoraChegada()}<br>
+            </div><br/><br/>
         </c:forEach>
     </c:otherwise>
 </c:choose>
