@@ -12,6 +12,7 @@ public class Users implements Serializable{
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     int id;
+    @Column(unique=true)
     private String email;
     private String nome;
     private String password;

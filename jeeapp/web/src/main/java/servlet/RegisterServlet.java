@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import javax.ejb.EJB;
+import javax.ejb.EJBTransactionRolledbackException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -20,7 +21,7 @@ public class RegisterServlet extends HttpServlet {
     @EJB
     private IBusiness business;
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String name = request.getParameter("Name");
         String password = request.getParameter("Password");
@@ -40,11 +41,19 @@ public class RegisterServlet extends HttpServlet {
             logger.info("DECRYPTED: " + passwordDecrypted);
 
             logger.info("ENCRYPTION DONE!!");
+            try {
+                business.addUser(email, name, passwordEncrypted);
+                destination = "/index.jsp";
+                request.getSession(true).setAttribute("auth", name);
+                logger.info("User successfully created!");
+            } catch (EJBTransactionRolledbackException e) {
+                String result = "Email already in use.";
+                logger.info(result);
+                response.getWriter().print(result);
+                return;
+            }
 
-            business.addUser(email, name, passwordEncrypted);
-            destination = "/index.jsp";
-            request.getSession(true).setAttribute("auth", name);
-            logger.info("User successfully created!");
+
         }else{
             destination = "/error.html";
             logger.error("Error creating user!");

@@ -3,6 +3,7 @@ package servlet;
 import beans.IBusiness;
 
 import javax.ejb.EJB;
+import javax.ejb.EJBTransactionRolledbackException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,16 +17,22 @@ public class EditUserInfoServlet extends HttpServlet {
     @EJB
     private IBusiness b;
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String email = request.getParameter("Email");
         String name = request.getParameter("Name");
         String password = request.getParameter("Password");
-        String result = "Invalid field(s).";
         String destination = "/secured/editUserInfoScreen.html";
+        String result = "Invalid field(s).";
 
-        b.editUserInfo((Integer) request.getSession().getAttribute("auth"), email, name, password);
+        if(!name.contains(" ") && !email.contains(" ") && !password.contains(" ")) {
+            try {
+                b.editUserInfo((Integer) request.getSession().getAttribute("auth"), email, name, password);
+                result = "Information updated.";
+            } catch (EJBTransactionRolledbackException e) {
+                result = "Email already in use.";
+            }
+        }
 
-        result = "Information updated.";
         response.getWriter().print(result);
         //request.getRequestDispatcher(destination).forward(request, response);
     }

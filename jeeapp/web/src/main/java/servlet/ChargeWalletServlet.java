@@ -16,7 +16,7 @@ public class ChargeWalletServlet extends HttpServlet {
     @EJB
     private IBusiness b;
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         String value = request.getParameter("Value");
         String result = "Invalid value.";
         String destination = "/secured/chargeWalletScreen.html";
@@ -26,7 +26,6 @@ public class ChargeWalletServlet extends HttpServlet {
             val = Float.valueOf(value);
         } catch (Exception e) {
             response.getWriter().print(result);
-            request.getRequestDispatcher(destination).forward(request, response);
         }
 
         b.chargeWallet((Integer) request.getSession().getAttribute("auth"), val);

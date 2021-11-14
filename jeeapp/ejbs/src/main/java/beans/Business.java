@@ -1,4 +1,5 @@
 package beans;
+import javax.ejb.EJBTransactionRolledbackException;
 import javax.ejb.Stateless;
 import javax.ejb.Remote;
 
@@ -32,7 +33,8 @@ public class Business implements IBusiness{
     }
 
     //Requisito 1
-    public void addUser(String email, String nome, String password) {
+    public void addUser(String email, String nome, String password) throws EJBTransactionRolledbackException {
+        logger.info("addUser");
         Users u = new Users(email, nome, password);
         em.persist(u);
     }
@@ -97,16 +99,16 @@ public class Business implements IBusiness{
     }
 
     //Requisito 6
-    public void editUserInfo(int id, String email, String nome, String password){
+    public void editUserInfo(int id, String email, String nome, String password) throws EJBTransactionRolledbackException {
         Users u = em.find(Users.class, id);
         EncryptData encryptData = new EncryptData();
-        if (email != null)
+        if (email != "")
             u.setEmail(email);
-        if (nome != null)
+        if (nome != "")
             u.setNome(nome);
-        if (password != null){
+        if (password != ""){
             String passwordEncrypted = encryptData.encrypt(password);
-            u.setPassword(passwordEncrypted); // TODO: 12/11/2021  encriptar - DONE
+            u.setPassword(passwordEncrypted);
         }
     }
 
@@ -126,7 +128,7 @@ public class Business implements IBusiness{
 
     //Requisito 8
     public List<BusTrip> listAvailableTrips(Date dataInicio, Date dataFim){
-        TypedQuery<BusTrip> bt = em.createQuery("from BusTrip b where b.horaPartida > :partida and b.horaChegada < :chegada", BusTrip.class);
+        TypedQuery<BusTrip> bt = em.createQuery("from BusTrip b where b.horaPartida > :partida and b.horaChegada < :chegada", BusTrip.class); //TODO corrigir datas pls help ze
         bt.setParameter("partida", dataInicio);
         bt.setParameter("chegada", dataFim);
 
@@ -143,7 +145,7 @@ public class Business implements IBusiness{
 
     //Requisito 10
     public List<BusTrip> searchTrips(String departure, String destination){
-        TypedQuery<BusTrip> bt = em.createQuery("from BusTrip b where b.localPartida = :departure and b.destino = :destination", BusTrip.class);
+        TypedQuery<BusTrip> bt = em.createQuery("from BusTrip b where b.localPartida = :departure and b.destino = :destination", BusTrip.class); //TODO mais datas pls help
         bt.setParameter("departure", departure);
         bt.setParameter("destination", destination);
 
@@ -153,19 +155,22 @@ public class Business implements IBusiness{
 
 
     //Requisito 10
-    public void purchaseTicket(int userId, int busTripId){
+    public int purchaseTicket(int userId, int busTripId){
         Users u = em.find(Users.class, userId);
         BusTrip b = em.find(BusTrip.class, busTripId);
 
         if (b.getBilhetes().size() == b.getCapacidadeMax())
             //limite maximo
-            return;
+            return -1;
         if (u.getCarteira() < b.getPreco())
             //sem dinheiro
-            return;
+            return -2;
+
         Ticket bilhete = new Ticket(u, b);
         em.persist(bilhete);
         u.adicionaQuantia(- b.getPreco());
+
+        return 0;
     }
 
 
@@ -178,7 +183,7 @@ public class Business implements IBusiness{
 
     //Requisito 11
     public void returnTicket(int ticketId, int userId){
-        TypedQuery<Ticket> q = em.createQuery("from Ticket b where user.id = :userId and b.id = :ticketId", Ticket.class);
+        TypedQuery<Ticket> q = em.createQuery("from Ticket b where user.id = :userId and b.id = :ticketId", Ticket.class); //TODO help ;_;
         q.setParameter("userId", userId);
         q.setParameter("ticketId", ticketId);
         Ticket t = q.getSingleResult();

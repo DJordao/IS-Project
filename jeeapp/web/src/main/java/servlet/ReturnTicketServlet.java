@@ -16,7 +16,7 @@ public class ReturnTicketServlet extends HttpServlet {
     @EJB
     private IBusiness b;
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         int ticketId = -1;
         String result = null;
         try {
