@@ -25,7 +25,7 @@ public class SearchTripsServlet extends HttpServlet {
 
         List<BusTrip> trips = b.searchTrips(departure, destination);
 
-        request.setAttribute("trips", trips);
+        request.getSession().setAttribute("cache", trips);
         request.getRequestDispatcher(screenDestination).forward(request, response);
     }
 }

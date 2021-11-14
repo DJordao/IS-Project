@@ -11,13 +11,14 @@ import java.io.IOException;
 @WebServlet("/logout")
 public class LogoutServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String destination = "/web/";
+        String destination = "/";
         HttpSession s = request.getSession();
         s.removeAttribute("auth");
         s.removeAttribute("type");
         s.removeAttribute("name");
         s.removeAttribute("tickets");
         s.removeAttribute("bustrips");
+        s.removeAttribute("cache");
 
         request.getRequestDispatcher(destination).forward(request, response);
     }

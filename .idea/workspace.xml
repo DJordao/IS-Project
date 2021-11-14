@@ -9,9 +9,17 @@
       <change beforePath="$PROJECT_DIR$/jeeapp/ejbs/src/main/java/beans/Business.java" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/ejbs/src/main/java/beans/Business.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/jeeapp/ejbs/src/main/java/beans/IBusiness.java" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/ejbs/src/main/java/beans/IBusiness.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/jeeapp/ejbs/target/ejbs.jar" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/ejbs/target/ejbs.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jeeapp/jpa/src/main/java/data/Users.java" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/jpa/src/main/java/data/Users.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/jeeapp/jpa/target/jpa.jar" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/jpa/target/jpa.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jeeapp/web/src/main/java/servlet/ChargeWalletServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/web/src/main/java/servlet/ChargeWalletServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jeeapp/web/src/main/java/servlet/DeleteProfileServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/web/src/main/java/servlet/DeleteProfileServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/jeeapp/web/src/main/java/servlet/ListAvailableTripsServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/web/src/main/java/servlet/ListAvailableTripsServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jeeapp/web/src/main/webapp/secured/listAvailableTripsScreen.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/web/src/main/webapp/secured/listAvailableTripsScreen.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jeeapp/web/src/main/java/servlet/LogoutServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/web/src/main/java/servlet/LogoutServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jeeapp/web/src/main/java/servlet/PurchaseTicketServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/web/src/main/java/servlet/PurchaseTicketServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jeeapp/web/src/main/java/servlet/ReturnTicketServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/web/src/main/java/servlet/ReturnTicketServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jeeapp/web/src/main/java/servlet/SearchTripsServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/web/src/main/java/servlet/SearchTripsServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jeeapp/web/src/main/webapp/secured/display.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/web/src/main/webapp/secured/display.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jeeapp/web/src/main/webapp/secured/purchaseTicketScreen.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/web/src/main/webapp/secured/purchaseTicketScreen.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/jeeapp/web/target/web.war" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/web/target/web.war" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -97,7 +105,7 @@
       <workItem from="1636829374183" duration="302000" />
       <workItem from="1636884347352" duration="621000" />
       <workItem from="1636884992454" duration="6533000" />
-      <workItem from="1636903030830" duration="2285000" />
+      <workItem from="1636903030830" duration="8188000" />
     </task>
     <servers />
   </component>

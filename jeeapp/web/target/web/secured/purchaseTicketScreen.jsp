@@ -14,13 +14,13 @@ Insert your desired departure and destination:
 </form>
 
 <c:choose>
-    <c:when test="${trips == null}">
+    <c:when test="${cache == null}">
     </c:when>
-    <c:when test="${trips.isEmpty()}">
+    <c:when test="${cache.isEmpty()}">
         No available trips for the given locations.
     </c:when>
     <c:otherwise>
-        <c:forEach var="item" items="${trips}">
+        <c:forEach var="item" items="${cache}">
             <div>${item}</div>
         </c:forEach>
         Insert the desired trip ID:
