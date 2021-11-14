@@ -5,7 +5,7 @@
     <title>Manager - Create Bus Trips</title>
 </head>
 <body>
-<p>Fill the fields to create a new Bus Trip:</p>
+<b> Fill the fields to create a new Bus Trip:</b>
 <form action="createBusTrips" method="post">
     <label> Departure: </label>
     <select name="Departure" required>
@@ -26,15 +26,19 @@
         <option value="Porto">Porto</option>
     </select>
 
+    <input type="number" id="tentacles" name="tentacles" min="10" max="100">
+
     <label> Destination time: </label>
     <input type="datetime-local" id="Destination-time" name="Destination-time" required><br/><br/>
 
     <label> Capacity: </label>
-    <input name="Capacity" type="number" placeholder="Capacity" required/>
+    <input name="Capacity" type="number" placeholder="Capacity" min="1" max="100" value="1"/>
 
     <label> Price: </label>
     <input name="Price" min="0.00" step="0.01" placeholder="Price" required/>
     <input type="submit" value="Create Trip"><br/><br/>
+
+
 
 
 </form>

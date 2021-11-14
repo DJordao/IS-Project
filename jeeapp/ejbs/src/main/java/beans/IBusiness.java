@@ -13,11 +13,11 @@ import java.util.List;
 
 @Remote
 public interface IBusiness {
-    public void addUser(String email, String nome, String password) throws EJBTransactionRolledbackException;
+    public void addUser(String email, String nome, String password);
     public void addManager(String email, String nome, String password);
     public List<String> authenticate(String email, String password);
     public int getUserId(String email);
-    public void editUserInfo(int id, String email, String nome, String password) throws EJBTransactionRolledbackException;
+    public void editUserInfo(int id, String email, String nome, String password);
     public void deleteProfile(int id);
     public List<BusTrip> listAvailableTrips(Timestamp dataInicio, Timestamp dataFim);
     public void chargeWallet(int id, float quantia);
@@ -33,4 +33,5 @@ public interface IBusiness {
     public List<BusTrip> listAllBusTrips(Timestamp dataInicio, Timestamp dataFim);
 
     public List<BusTrip> getDetailedBusTrips(Date start);
+    public List<Users> getPassengersTrip(int tripId);
 }

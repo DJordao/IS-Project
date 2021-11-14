@@ -38,7 +38,6 @@
             </form>
             <li> <a href="/web/secured/searchBusTrips.jsp"> Search Bus Trips </a></li>
             <li> <a href="/web/secured/detailedBusTrip.jsp"> Search Detailed Bus Trip </a></li>
-            <li> <a href="secured/editUserInfoScreen.html"> List Passengers on a Trip </a></li>
 
         </ul>
 

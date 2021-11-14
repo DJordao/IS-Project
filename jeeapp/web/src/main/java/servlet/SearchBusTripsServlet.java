@@ -41,7 +41,7 @@ public class SearchBusTripsServlet extends HttpServlet {
 
             List<BusTrip> trips = b.listAllBusTrips(start, end);
 
-            request.setAttribute("allTrips", trips);
+            request.getSession().setAttribute("allTrips", trips);
             request.getRequestDispatcher(destination).forward(request, response);
 
         } catch (Exception e) {

@@ -2,6 +2,7 @@
 /workspace/web/src/main/java/servlet/DeleteProfileServlet.java
 /workspace/web/src/main/java/servlet/ListTopPassengersServlet.java
 /workspace/web/src/main/java/servlet/LoginServlet.java
+/workspace/web/src/main/java/servlet/ListallPassengersDetailServlet.java
 /workspace/web/src/main/java/servlet/SearchTripsServlet.java
 /workspace/web/src/main/java/servlet/GreetingServlet.java
 /workspace/web/src/main/java/servlet/ListAvailableTripsServlet.java
@@ -15,5 +16,6 @@
 /workspace/web/src/main/java/servlet/ReturnTicketServlet.java
 /workspace/web/src/main/java/servlet/LogoutServlet.java
 /workspace/web/src/main/java/servlet/RegisterServlet.java
+/workspace/web/src/main/java/servlet/ListAllPassengersServlet.java
 /workspace/web/src/main/java/servlet/RemoveBusTripServlet.java
 /workspace/web/src/main/java/servlet/MyServlet.java

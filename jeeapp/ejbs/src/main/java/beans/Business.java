@@ -270,6 +270,18 @@ public class Business implements IBusiness{
         return trips;
     }
 
+    public List<Users> getPassengersTrip(int tripId){
+        BusTrip b = em.find(BusTrip.class, tripId);
+        List<Ticket> t = b.getBilhetes();
+        List<Users> u = new ArrayList<>();
+        logger.info("ENTREI CICLO");
+        for (Ticket t1: t){
+            u.add(t1.getUser());
+        }
+        logger.info("SAI CICLO");
+        return u;
+    }
+
 
 
 }

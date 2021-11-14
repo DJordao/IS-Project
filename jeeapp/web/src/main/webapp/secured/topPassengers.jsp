@@ -19,6 +19,10 @@
             <div>${item.key} with ${item.value} trips</div>
         </c:forEach> <br/>
     </c:otherwise>
-</c:choose>
+</c:choose><br/><br/>
+
+<form>
+    <input type="button" value="Back" onclick="history.back()">
+</form>
 </body>
 </html>

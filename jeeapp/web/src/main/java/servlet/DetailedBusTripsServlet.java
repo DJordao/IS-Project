@@ -40,7 +40,7 @@ public class DetailedBusTripsServlet extends HttpServlet {
 
             List<BusTrip> trips = b.getDetailedBusTrips(start);
 
-            request.setAttribute("detailedTrip", trips);
+            request.getSession().setAttribute("detailedTrip", trips);
             request.getRequestDispatcher(destination).forward(request, response);
 
         } catch (Exception e) {
