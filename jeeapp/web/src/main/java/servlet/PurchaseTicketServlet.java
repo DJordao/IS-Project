@@ -2,6 +2,7 @@ package servlet;
 
 import beans.IBusiness;
 import com.sun.jdi.IntegerValue;
+import data.BusTrip;
 
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
@@ -20,24 +21,25 @@ public class PurchaseTicketServlet extends HttpServlet {
     private IBusiness b;
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        int tripId = -1;
+        int tripId;
         String result = "Invalid trip ID.";
         try {
             tripId = Integer.valueOf(request.getParameter("BusTripId"));
         } catch (Exception e) {
             response.getWriter().print(result);
+            return;
         }
 
         int userId = (Integer) request.getSession().getAttribute("auth");
-        int res = b.purchaseTicket(userId, tripId);
+        int res = b.purchaseTicket(userId, tripId, (List<BusTrip>) request.getSession().getAttribute("cache"));
 
-        if(res == -1) {
+        if(res == -3) {
             result = "No more tickets available for this trip.";
         }
-        else if(res == -2) {
+        else if(res == -4) {
             result = "You don't have enough money to purchase this ticket.";
         }
-        else {
+        else if(res == 0){
             request.getSession().setAttribute("tickets", b.getTickets(userId));
             request.getSession().setAttribute("bustrips", b.getTrips(userId));
             result = "Purchase successful.";

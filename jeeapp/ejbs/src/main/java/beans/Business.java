@@ -153,16 +153,29 @@ public class Business implements IBusiness{
 
 
     //Requisito 10
-    public int purchaseTicket(int userId, int busTripId){
+    public int purchaseTicket(int userId, int busTripId, List<BusTrip> trips){
         Users u = em.find(Users.class, userId);
         BusTrip b = em.find(BusTrip.class, busTripId);
 
+        if(b == null) {
+            return -1;
+        }
+        int check = 0;
+        for(BusTrip t : trips) {
+            if(t.getId() == busTripId) {
+                check++;
+                break;
+            }
+        }
+        if(check == 0) {
+            return -2;
+        }
         if (b.getBilhetes().size() == b.getCapacidadeMax())
             //limite maximo
-            return -1;
+            return -3;
         if (u.getCarteira() < b.getPreco())
             //sem dinheiro
-            return -2;
+            return -4;
 
         Ticket bilhete = new Ticket(u, b);
         em.persist(bilhete);
@@ -175,7 +188,16 @@ public class Business implements IBusiness{
     //Requisito 11
     public List<Ticket> getTickets(int id) {
         Users u = em.find(Users.class, id);
-        return u.getBilhetes();
+        List<Ticket> tickets = u.getBilhetes();
+        List<Ticket> futureTickets = new ArrayList<>();
+
+        for(Ticket ticket : tickets) {
+            if(ticket.getViagem().getHoraPartida().after(new Timestamp(System.currentTimeMillis()))) {
+                futureTickets.add(ticket);
+            }
+        }
+
+        return futureTickets;
     }
 
 

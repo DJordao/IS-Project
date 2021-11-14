@@ -22,7 +22,7 @@ public interface IBusiness {
     public List<BusTrip> listAvailableTrips(Timestamp dataInicio, Timestamp dataFim);
     public void chargeWallet(int id, float quantia);
     public List<BusTrip> searchTrips(String departure, String destination);
-    public int purchaseTicket(int userId, int busTripId);
+    public int purchaseTicket(int userId, int busTripId, List<BusTrip> trips);
     public List<Ticket> getTickets(int id);
     public void returnTicket(int ticketId, int userId);
     public List<BusTrip> getTrips(int id);

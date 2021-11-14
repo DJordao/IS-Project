@@ -37,18 +37,15 @@ public class ListAvailableTripsServlet extends HttpServlet {
         Timestamp departureTimestamp = Timestamp.valueOf(dateStart.replace("T", " "));
         Timestamp destinationTimestamp = Timestamp.valueOf(dateEnd.replace("T", " "));
 
-        List<BusTrip> trips = b.listAvailableTrips(departureTimestamp, destinationTimestamp);
+        if(departureTimestamp.after(destinationTimestamp)) {
+            String result = "Departure date can't be after destination date.";
+            response.getWriter().print(result);
+        }
+        else {
+            List<BusTrip> trips = b.listAvailableTrips(departureTimestamp, destinationTimestamp);
 
-        request.setAttribute("trips", trips);
-        request.getRequestDispatcher(destination).forward(request, response);
-    }
-
-    public static Date getDate(int day, int month, int year) {
-        Calendar cal = Calendar.getInstance();
-        cal.set(Calendar.YEAR, year);
-        cal.set(Calendar.MONTH, month - 1);
-        cal.set(Calendar.DAY_OF_MONTH, day);
-        Date d = cal.getTime();
-        return d;
+            request.setAttribute("trips", trips);
+            request.getRequestDispatcher(destination).forward(request, response);
+        }
     }
 }

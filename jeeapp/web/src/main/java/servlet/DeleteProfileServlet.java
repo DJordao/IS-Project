@@ -18,7 +18,7 @@ public class DeleteProfileServlet extends HttpServlet {
     private IBusiness b;
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String destination = "/web";
+        String destination = "/";
         HttpSession s = request.getSession();
         b.deleteProfile((Integer) s.getAttribute("auth"));
 
@@ -27,6 +27,7 @@ public class DeleteProfileServlet extends HttpServlet {
         s.removeAttribute("name");
         s.removeAttribute("tickets");
         s.removeAttribute("bustrips");
+        s.removeAttribute("cache");
 
         request.getRequestDispatcher(destination).forward(request, response);
     }
