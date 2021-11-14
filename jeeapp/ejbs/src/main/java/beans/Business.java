@@ -127,8 +127,8 @@ public class Business implements IBusiness{
 
 
     //Requisito 8
-    public List<BusTrip> listAvailableTrips(Date dataInicio, Date dataFim){
-        TypedQuery<BusTrip> bt = em.createQuery("from BusTrip b where b.horaPartida > :partida and b.horaChegada < :chegada", BusTrip.class); //TODO corrigir datas pls help ze
+    public List<BusTrip> listAvailableTrips(Timestamp dataInicio, Timestamp dataFim){
+        TypedQuery<BusTrip> bt = em.createQuery("from BusTrip b where b.horaPartida > current_timestamp and b.horaPartida > :partida and b.horaChegada < :chegada", BusTrip.class);
         bt.setParameter("partida", dataInicio);
         bt.setParameter("chegada", dataFim);
 
@@ -145,7 +145,7 @@ public class Business implements IBusiness{
 
     //Requisito 10
     public List<BusTrip> searchTrips(String departure, String destination){
-        TypedQuery<BusTrip> bt = em.createQuery("from BusTrip b where b.localPartida = :departure and b.destino = :destination", BusTrip.class); //TODO mais datas pls help
+        TypedQuery<BusTrip> bt = em.createQuery("from BusTrip b where b.horaPartida > current_timestamp and b.localPartida = :departure and b.destino = :destination", BusTrip.class);
         bt.setParameter("departure", departure);
         bt.setParameter("destination", destination);
 
@@ -183,7 +183,7 @@ public class Business implements IBusiness{
 
     //Requisito 11
     public void returnTicket(int ticketId, int userId){
-        TypedQuery<Ticket> q = em.createQuery("from Ticket b where user.id = :userId and b.id = :ticketId", Ticket.class); //TODO help ;_;
+        TypedQuery<Ticket> q = em.createQuery("from Ticket b where user.id = :userId and b.id = :ticketId and viagem.horaPartida > current_timestamp", Ticket.class);
         q.setParameter("userId", userId);
         q.setParameter("ticketId", ticketId);
         Ticket t = q.getSingleResult();

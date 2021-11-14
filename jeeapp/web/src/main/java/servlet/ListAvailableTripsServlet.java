@@ -10,7 +10,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.Timestamp;
 import java.util.*;
+
+import org.codehaus.plexus.util.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -26,19 +29,15 @@ public class ListAvailableTripsServlet extends HttpServlet {
         String dateEnd = request.getParameter("DateEnd");
         String destination = "/secured/listAvailableTripsScreen.jsp";
 
-        StringTokenizer st = new StringTokenizer(dateStart, "-");
-        int year = Integer.valueOf(st.nextToken());
-        int month = Integer.valueOf(st.nextToken());
-        int day = Integer.valueOf(st.nextToken());
-        Date start = getDate(day, month, year);
+        if (StringUtils.countMatches(dateStart, ":") == 1) {
+            dateStart += ":00";
+            dateEnd += ":00";
+        }
 
-        st = new StringTokenizer(dateEnd, "-");
-        year = Integer.valueOf(st.nextToken());
-        month = Integer.valueOf(st.nextToken());
-        day = Integer.valueOf(st.nextToken());
-        Date end = getDate(day, month, year);
+        Timestamp departureTimestamp = Timestamp.valueOf(dateStart.replace("T", " "));
+        Timestamp destinationTimestamp = Timestamp.valueOf(dateEnd.replace("T", " "));
 
-        List<BusTrip> trips = b.listAvailableTrips(start, end);
+        List<BusTrip> trips = b.listAvailableTrips(departureTimestamp, destinationTimestamp);
 
         request.setAttribute("trips", trips);
         request.getRequestDispatcher(destination).forward(request, response);

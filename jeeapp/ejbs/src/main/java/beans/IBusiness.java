@@ -19,7 +19,7 @@ public interface IBusiness {
     public int getUserId(String email);
     public void editUserInfo(int id, String email, String nome, String password) throws EJBTransactionRolledbackException;
     public void deleteProfile(int id);
-    public List<BusTrip> listAvailableTrips(Date dataInicio, Date dataFim);
+    public List<BusTrip> listAvailableTrips(Timestamp dataInicio, Timestamp dataFim);
     public void chargeWallet(int id, float quantia);
     public List<BusTrip> searchTrips(String departure, String destination);
     public int purchaseTicket(int userId, int busTripId);
