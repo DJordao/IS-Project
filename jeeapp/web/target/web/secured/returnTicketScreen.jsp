@@ -24,4 +24,9 @@ Your tickets:
     </c:otherwise>
 </c:choose>
 </body>
+<footer>
+    <form action="logout" method="post">
+        <input type="submit" value="Logout">
+    </form>
+</footer>
 </html>

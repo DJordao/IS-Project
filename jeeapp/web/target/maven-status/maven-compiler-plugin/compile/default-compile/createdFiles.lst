@@ -1,4 +1,5 @@
 servlet/EditUserInfoServlet.class
+servlet/LogoutServlet.class
 servlet/GreetingServlet.class
 servlet/ListAvailableTripsServlet.class
 servlet/RemoveBusTripServlet.class
@@ -11,5 +12,6 @@ servlet/LoginServlet.class
 servlet/RegisterServlet.class
 servlet/PurchaseTicketServlet.class
 servlet/ReturnTicketServlet.class
+servlet/DeleteProfileServlet.class
 servlet/ChargeWalletServlet.class
 servlet/SearchTripsServlet.class

@@ -17,6 +17,7 @@ public interface IBusiness {
     public List<String> authenticate(String email, String password);
     public int getUserId(String email);
     public void editUserInfo(int id, String email, String nome, String password);
+    public void deleteProfile(int id);
     public List<BusTrip> listAvailableTrips(Date dataInicio, Date dataFim);
     public void chargeWallet(int id, float quantia);
     public List<BusTrip> searchTrips(String departure, String destination);
