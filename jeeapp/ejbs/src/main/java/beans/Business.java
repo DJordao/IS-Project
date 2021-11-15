@@ -10,22 +10,17 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
-
-
 import data.BusTrip;
 import data.Ticket;
 import data.Users;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-
 import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.*;
 
 @Stateless
-//@RolesAllowed({ "guest" })
-//@SecurityDomain("other")
 @Remote(IBusiness.class)
 public class Business implements IBusiness{
     Logger logger = LoggerFactory.getLogger(Business.class);
@@ -360,4 +355,3 @@ public class Business implements IBusiness{
     }
 
 }
-

@@ -2,10 +2,7 @@ package data;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.sql.Time;
 import java.sql.Timestamp;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -19,7 +16,6 @@ public class BusTrip implements Serializable{
     private String localPartida;
 
     private Timestamp horaChegada;
-    //private String duracao;
     private String destino;
     private int capacidadeMax;
     private float preco;

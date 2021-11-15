@@ -2,12 +2,10 @@ package data;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-
 public class Users implements Serializable{
     private static final long serialVersionUID = 1L;
     @Id
@@ -18,7 +16,6 @@ public class Users implements Serializable{
     private String nome;
     private String password;
     private String tipoUser; //Normal ou admin
-    //private String sessão; //loggedIn ou logedOut
     private float carteira;
 
     @OneToMany(mappedBy = "user", fetch = FetchType.EAGER, orphanRemoval = true)
