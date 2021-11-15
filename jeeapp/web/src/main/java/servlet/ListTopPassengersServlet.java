@@ -21,7 +21,6 @@ public class ListTopPassengersServlet extends HttpServlet {
     String result = "";
     Logger logger = LoggerFactory.getLogger(ListTopPassengersServlet.class);
 
-
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
         try{

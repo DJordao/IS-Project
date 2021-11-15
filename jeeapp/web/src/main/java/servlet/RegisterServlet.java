@@ -26,13 +26,11 @@ public class RegisterServlet extends HttpServlet {
         String name = request.getParameter("Name");
         String password = request.getParameter("Password");
         String email = request.getParameter("Email");
-        String destination = "/error.html";
+        String destination;
         logger.info("Cheguei aqui!");
 
         //Ver o conteúdo dos campos
         if (!(name.charAt(0) == ' ') && !email.contains(" ") && !password.contains(" ")){
-
-
             EncryptData encryptData = new EncryptData();
             String passwordEncrypted = encryptData.encrypt(password);
             String passwordDecrypted = encryptData.decrypt(passwordEncrypted);

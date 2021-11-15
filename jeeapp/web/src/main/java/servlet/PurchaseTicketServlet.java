@@ -1,7 +1,6 @@
 package servlet;
 
 import beans.IBusiness;
-import com.sun.jdi.IntegerValue;
 import data.BusTrip;
 
 import javax.ejb.EJB;
@@ -11,7 +10,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 @WebServlet("/secured/purchaseTicket")

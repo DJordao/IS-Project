@@ -40,6 +40,5 @@ public class EditUserInfoServlet extends HttpServlet {
         logger.info(result);
 
         response.getWriter().print(result);
-        //request.getRequestDispatcher(destination).forward(request, response);
     }
 }

@@ -5,7 +5,6 @@ servlet/GreetingServlet.class
 servlet/ListAvailableTripsServlet.class
 servlet/RemoveBusTripServlet.class
 servlet/ListTopPassengersServlet.class
-servlet/MyServlet.class
 servlet/MainServlet.class
 filter/SecurityFilter.class
 servlet/CreateBusTripsServlet.class

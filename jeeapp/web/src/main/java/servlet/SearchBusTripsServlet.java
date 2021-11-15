@@ -61,6 +61,4 @@ public class SearchBusTripsServlet extends HttpServlet {
         }
 
     }
-
-
 }

@@ -13,11 +13,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.Timestamp;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
 
 @WebServlet("/secured/createBusTrips")
 public class CreateBusTripsServlet extends HttpServlet {
@@ -86,9 +81,5 @@ public class CreateBusTripsServlet extends HttpServlet {
             request.getRequestDispatcher(destinationScreen).forward(request, response);
             e.printStackTrace();
         }
-
-
-
-
     }
 }

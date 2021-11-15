@@ -18,6 +18,7 @@
         <element id="archive" name="jpa.jar">
           <element id="module-output" name="jpa" />
         </element>
+        <element id="file-copy" path="$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/1.7.30/slf4j-api-1.7.30.jar" output-file-name="slf4j-api.jar" />
         <element id="file-copy" path="$MAVEN_REPOSITORY$/org/wildfly/core/wildfly-cli/9.0.1.Final/wildfly-cli-9.0.1.Final.jar" output-file-name="wildfly-cli.jar" />
         <element id="file-copy" path="$MAVEN_REPOSITORY$/org/aesh/aesh-readline/1.17/aesh-readline-1.17.jar" output-file-name="aesh-readline.jar" />
         <element id="file-copy" path="$MAVEN_REPOSITORY$/org/fusesource/jansi/jansi/1.18/jansi-1.18.jar" output-file-name="jansi.jar" />
@@ -71,7 +72,6 @@
         <element id="file-copy" path="$MAVEN_REPOSITORY$/org/codehaus/plexus/plexus-component-annotations/1.5.5/plexus-component-annotations-1.5.5.jar" output-file-name="plexus-component-annotations.jar" />
         <element id="file-copy" path="$MAVEN_REPOSITORY$/org/sonatype/plexus/plexus-sec-dispatcher/1.3/plexus-sec-dispatcher-1.3.jar" output-file-name="plexus-sec-dispatcher.jar" />
         <element id="file-copy" path="$MAVEN_REPOSITORY$/org/sonatype/plexus/plexus-cipher/1.4/plexus-cipher-1.4.jar" output-file-name="plexus-cipher.jar" />
-        <element id="file-copy" path="$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/1.7.30/slf4j-api-1.7.30.jar" output-file-name="slf4j-api.jar" />
         <element id="file-copy" path="$MAVEN_REPOSITORY$/org/jboss/ejb3/jboss-ejb3-ext-api/2.3.0.Final/jboss-ejb3-ext-api-2.3.0.Final.jar" output-file-name="jboss-ejb3-ext-api.jar" />
         <element id="file-copy" path="$MAVEN_REPOSITORY$/javax/mail/mail/1.4/mail-1.4.jar" output-file-name="mail.jar" />
         <element id="file-copy" path="$MAVEN_REPOSITORY$/javax/activation/activation/1.1/activation-1.1.jar" output-file-name="activation.jar" />

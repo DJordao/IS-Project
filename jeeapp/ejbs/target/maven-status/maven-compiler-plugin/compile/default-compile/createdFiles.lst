@@ -1,5 +1,3 @@
 beans/EncryptData.class
-beans/IManageStudents.class
 beans/IBusiness.class
-beans/ManageStudents.class
 beans/Business.class

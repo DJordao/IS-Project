@@ -5,37 +5,82 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9f827455-07e9-4844-9e16-9a4b8a70d3a0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_activation_activation_1_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_mail_mail_1_4.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/ear_ear_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/ear_ear_exploded.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jeeapp/ear/ear.iml" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/ear/ear.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/jeeapp/ear/target/ear.ear" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/ear/target/ear.ear" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/jeeapp/ear/target/ear/ejbs.jar" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/ear/target/ear/ejbs.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/jeeapp/ear/target/ear/lib/jpa.jar" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/ear/target/ear/lib/jpa.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/jeeapp/ear/target/ear/web.war" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/ear/target/ear/web.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jeeapp/ear/target/temp/ejbs.jar/beans/Business.class" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/ear/target/temp/ejbs.jar/beans/Business.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jeeapp/ear/target/temp/ejbs.jar/beans/IBusiness.class" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/ear/target/temp/ejbs.jar/beans/IBusiness.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jeeapp/ejbs/ejbs.iml" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/ejbs/ejbs.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jeeapp/ejbs/src/main/java/beans/Business.java" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/ejbs/src/main/java/beans/Business.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jeeapp/ear/target/temp/ejbs.jar/beans/IManageStudents.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jeeapp/ear/target/temp/ejbs.jar/beans/ManageStudents.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/jeeapp/ejbs/src/main/java/beans/IBusiness.java" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/ejbs/src/main/java/beans/IBusiness.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jeeapp/ejbs/target/classes/beans/Business.class" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/ejbs/target/classes/beans/Business.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jeeapp/ejbs/target/classes/beans/IBusiness.class" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/ejbs/target/classes/beans/IBusiness.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jeeapp/ejbs/src/main/java/beans/IManageStudents.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jeeapp/ejbs/src/main/java/beans/ManageStudents.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jeeapp/ejbs/target/classes/beans/IManageStudents.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jeeapp/ejbs/target/classes/beans/ManageStudents.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/jeeapp/ejbs/target/ejbs.jar" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/ejbs/target/ejbs.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jeeapp/ejbs/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/ejbs/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jeeapp/ejbs/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/ejbs/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/jeeapp/ejbs/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/jeeapp/jeeapp.iml" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/jeeapp.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jeeapp/jpa/jpa.iml" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/jpa/jpa.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jeeapp/jpa/src/main/java/ManagerScript.java" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/jpa/src/main/java/ManagerScript.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jeeapp/jpa/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/jpa/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jeeapp/jpa/src/main/java/ManagerScript.java" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/ejbs/src/main/java/beans/ManagerScript.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jeeapp/jpa/src/main/java/data/Student.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/jeeapp/jpa/target/classes/ManagerScript.class" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/jpa/target/classes/ManagerScript.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jeeapp/jpa/target/classes/data/Student.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/jeeapp/jpa/target/jpa.jar" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/jpa/target/jpa.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/jeeapp/jpa/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/jpa/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/jeeapp/jpa/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/jpa/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jeeapp/web/src/main/webapp/secured/purchaseTicketScreen.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/web/src/main/webapp/secured/purchaseTicketScreen.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jeeapp/web/src/main/java/filter/SecurityFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/web/src/main/java/filter/SecurityFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jeeapp/web/src/main/java/servlet/AdminLogoutServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/web/src/main/java/servlet/AdminLogoutServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jeeapp/web/src/main/java/servlet/ChargeWalletServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/web/src/main/java/servlet/ChargeWalletServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jeeapp/web/src/main/java/servlet/CreateBusTripsServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/web/src/main/java/servlet/CreateBusTripsServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jeeapp/web/src/main/java/servlet/DeleteProfileServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/web/src/main/java/servlet/DeleteProfileServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jeeapp/web/src/main/java/servlet/DetailedBusTripsServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/web/src/main/java/servlet/DetailedBusTripsServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jeeapp/web/src/main/java/servlet/EditUserInfoServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/web/src/main/java/servlet/EditUserInfoServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jeeapp/web/src/main/java/servlet/ListAllPassengersServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/web/src/main/java/servlet/ListAllPassengersServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jeeapp/web/src/main/java/servlet/ListAvailableTripsServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/web/src/main/java/servlet/ListAvailableTripsServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jeeapp/web/src/main/java/servlet/ListTopPassengersServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/web/src/main/java/servlet/ListTopPassengersServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jeeapp/web/src/main/java/servlet/ListallPassengersDetailServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/web/src/main/java/servlet/ListallPassengersDetailServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jeeapp/web/src/main/java/servlet/MyServlet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jeeapp/web/src/main/java/servlet/PurchaseTicketServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/web/src/main/java/servlet/PurchaseTicketServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jeeapp/web/src/main/java/servlet/RegisterServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/web/src/main/java/servlet/RegisterServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jeeapp/web/src/main/java/servlet/RemoveBusTripServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/web/src/main/java/servlet/RemoveBusTripServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jeeapp/web/src/main/java/servlet/ReturnTicketServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/web/src/main/java/servlet/ReturnTicketServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jeeapp/web/src/main/java/servlet/SearchBusTripsServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/web/src/main/java/servlet/SearchBusTripsServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jeeapp/web/src/main/java/servlet/SearchTicketsServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/web/src/main/java/servlet/SearchTicketsServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jeeapp/web/src/main/java/servlet/SearchTripsServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/web/src/main/java/servlet/SearchTripsServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jeeapp/web/src/main/java/servlet/UserLogoutServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/web/src/main/java/servlet/UserLogoutServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jeeapp/web/target/classes/filter/SecurityFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/web/target/classes/filter/SecurityFilter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jeeapp/web/target/classes/servlet/ChargeWalletServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/web/target/classes/servlet/ChargeWalletServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jeeapp/web/target/classes/servlet/CreateBusTripsServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/web/target/classes/servlet/CreateBusTripsServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jeeapp/web/target/classes/servlet/DetailedBusTripsServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/web/target/classes/servlet/DetailedBusTripsServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jeeapp/web/target/classes/servlet/EditUserInfoServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/web/target/classes/servlet/EditUserInfoServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jeeapp/web/target/classes/servlet/ListAllPassengersServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/web/target/classes/servlet/ListAllPassengersServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jeeapp/web/target/classes/servlet/ListTopPassengersServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/web/target/classes/servlet/ListTopPassengersServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jeeapp/web/target/classes/servlet/ListallPassengersDetailServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/web/target/classes/servlet/ListallPassengersDetailServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jeeapp/web/target/classes/servlet/MyServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jeeapp/web/target/classes/servlet/PurchaseTicketServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/web/target/classes/servlet/PurchaseTicketServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jeeapp/web/target/classes/servlet/RegisterServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/web/target/classes/servlet/RegisterServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jeeapp/web/target/classes/servlet/RemoveBusTripServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/web/target/classes/servlet/RemoveBusTripServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jeeapp/web/target/classes/servlet/ReturnTicketServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/web/target/classes/servlet/ReturnTicketServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jeeapp/web/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/web/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jeeapp/web/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/web/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/jeeapp/web/target/web.war" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/web/target/web.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jeeapp/web/target/web/secured/purchaseTicketScreen.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/web/target/web/secured/purchaseTicketScreen.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jeeapp/web/web.iml" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/web/web.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jeeapp/web/target/web/WEB-INF/classes/filter/SecurityFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/web/target/web/WEB-INF/classes/filter/SecurityFilter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jeeapp/web/target/web/WEB-INF/classes/servlet/ChargeWalletServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/web/target/web/WEB-INF/classes/servlet/ChargeWalletServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jeeapp/web/target/web/WEB-INF/classes/servlet/CreateBusTripsServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/web/target/web/WEB-INF/classes/servlet/CreateBusTripsServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jeeapp/web/target/web/WEB-INF/classes/servlet/DetailedBusTripsServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/web/target/web/WEB-INF/classes/servlet/DetailedBusTripsServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jeeapp/web/target/web/WEB-INF/classes/servlet/EditUserInfoServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/web/target/web/WEB-INF/classes/servlet/EditUserInfoServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jeeapp/web/target/web/WEB-INF/classes/servlet/ListAllPassengersServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/web/target/web/WEB-INF/classes/servlet/ListAllPassengersServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jeeapp/web/target/web/WEB-INF/classes/servlet/ListTopPassengersServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/web/target/web/WEB-INF/classes/servlet/ListTopPassengersServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jeeapp/web/target/web/WEB-INF/classes/servlet/ListallPassengersDetailServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/web/target/web/WEB-INF/classes/servlet/ListallPassengersDetailServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jeeapp/web/target/web/WEB-INF/classes/servlet/MyServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/jeeapp/web/target/web/WEB-INF/classes/servlet/PurchaseTicketServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/web/target/web/WEB-INF/classes/servlet/PurchaseTicketServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jeeapp/web/target/web/WEB-INF/classes/servlet/RegisterServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/web/target/web/WEB-INF/classes/servlet/RegisterServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jeeapp/web/target/web/WEB-INF/classes/servlet/RemoveBusTripServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/web/target/web/WEB-INF/classes/servlet/RemoveBusTripServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jeeapp/web/target/web/WEB-INF/classes/servlet/ReturnTicketServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/jeeapp/web/target/web/WEB-INF/classes/servlet/ReturnTicketServlet.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,14 +116,16 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="jdk.selected.JAVA_MODULE" value="17" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/jeeapp" />
-    <property name="project.structure.last.edited" value="Artifacts" />
-    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
@@ -92,11 +139,20 @@
       <recent name="C:\Users\diogo\Documents\GitHub\IS-Project\jeeapp\web\src\main\java\servlet" />
       <recent name="C:\Users\diogo\Documents\GitHub\IS-Project\jeeapp\web\src\main\webapp" />
     </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="book" />
+    </key>
   </component>
-  <component name="RunManager" selected="Application.ManagerScript">
-    <configuration name="ManagerScript" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="ManagerScript" />
-      <module name="jpa" />
+  <component name="RunManager" selected="Application.ManagerScript ">
+    <configuration name="ManagerScript " type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="book.ManagerScript" />
+      <module name="managerScript" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="book.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -109,9 +165,13 @@
       </deployment>
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Application.ManagerScript " />
+      <item itemvalue="Docker.devcontainer: Compose Deployment" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.ManagerScript" />
+        <item itemvalue="Application.ManagerScript " />
         <item itemvalue="Docker.devcontainer: Compose Deployment" />
       </list>
     </recent_temporary>
@@ -139,6 +199,8 @@
       <workItem from="1636976906970" duration="62000" />
       <workItem from="1636982892812" duration="128000" />
       <workItem from="1636983078697" duration="5769000" />
+      <workItem from="1637002905953" duration="4039000" />
+      <workItem from="1637011471410" duration="444000" />
     </task>
     <servers />
   </component>
@@ -156,5 +218,8 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>

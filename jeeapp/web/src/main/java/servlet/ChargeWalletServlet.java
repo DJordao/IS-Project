@@ -39,6 +39,5 @@ public class ChargeWalletServlet extends HttpServlet {
         }
         logger.info("Charged wallet done successfully!");
         response.getWriter().print(result);
-        //request.getRequestDispatcher(destination).forward(request, response);
     }
 }

@@ -18,6 +18,8 @@
       <module name="jeeapp" target="15" />
       <module name="jpa" target="15" />
       <module name="jpa (1)" target="15" />
+      <module name="managerScript" target="1.7" />
+      <module name="untitled" target="15" />
       <module name="web" target="15" />
     </bytecodeTargetLevel>
   </component>

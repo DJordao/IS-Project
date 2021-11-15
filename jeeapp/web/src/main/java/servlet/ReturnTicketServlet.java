@@ -1,7 +1,6 @@
 package servlet;
 
 import beans.IBusiness;
-import data.BusTrip;
 import data.Ticket;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

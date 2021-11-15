@@ -48,10 +48,8 @@ public class ListallPassengersDetailServlet extends HttpServlet {
         else{
             result = "Error while searching for user tickets on a given trip";
             logger.info(result);
-            destination = "/error.html";
             result = "Error getting the users for the chosen trip";
             response.getWriter().print(result);
         }
-
     }
 }

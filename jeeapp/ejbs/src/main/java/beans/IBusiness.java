@@ -30,10 +30,8 @@ public interface IBusiness {
     public String deleteTrip(int tripId);
     public HashMap<String, String> topPasssengers();
     public List<BusTrip> listAllBusTrips(Timestamp dataInicio, Timestamp dataFim);
-
     public List<BusTrip> getDetailedBusTrips(Date start);
     public List<Users> getPassengersTrip(int tripId);
-
     public void sendEmail(String to, String subject, String content);
     public void dailySummary();
 }

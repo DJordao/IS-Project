@@ -20,8 +20,6 @@ public class RemoveBusTripServlet extends HttpServlet {
     String result = "";
     Logger logger = LoggerFactory.getLogger(RemoveBusTripServlet.class);
 
-
-
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
         try{
@@ -39,7 +37,6 @@ public class RemoveBusTripServlet extends HttpServlet {
 
             logger.info(result);
             result = "Return successful.";
-            //TODO falta enviar o email aos utilizadores - configuração do wildfly
             request.getRequestDispatcher(destination).forward(request, response);
 
         }catch (Exception e) {

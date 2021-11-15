@@ -20,4 +20,3 @@
 /workspace/web/src/main/java/servlet/RegisterServlet.java
 /workspace/web/src/main/java/servlet/ListAllPassengersServlet.java
 /workspace/web/src/main/java/servlet/RemoveBusTripServlet.java
-/workspace/web/src/main/java/servlet/MyServlet.java
