@@ -1,3 +1,4 @@
 beans/EncryptData.class
 beans/IBusiness.class
+beans/ManagerScript.class
 beans/Business.class
