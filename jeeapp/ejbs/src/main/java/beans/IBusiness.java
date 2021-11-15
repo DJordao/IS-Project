@@ -4,7 +4,6 @@ import data.BusTrip;
 import data.Ticket;
 import data.Users;
 
-import javax.ejb.EJBTransactionRolledbackException;
 import javax.ejb.Remote;
 import java.sql.Timestamp;
 import java.util.Date;

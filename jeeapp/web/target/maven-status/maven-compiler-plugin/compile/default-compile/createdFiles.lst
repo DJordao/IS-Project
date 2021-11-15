@@ -1,6 +1,6 @@
 servlet/EditUserInfoServlet.class
-servlet/LogoutServlet.class
 servlet/SearchTicketsServlet.class
+servlet/UserLogoutServlet.class
 servlet/GreetingServlet.class
 servlet/ListAvailableTripsServlet.class
 servlet/RemoveBusTripServlet.class
@@ -20,3 +20,4 @@ servlet/DetailedBusTripsServlet.class
 servlet/ListallPassengersDetailServlet.class
 servlet/ChargeWalletServlet.class
 servlet/SearchTripsServlet.class
+servlet/AdminLogoutServlet.class

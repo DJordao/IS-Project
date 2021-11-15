@@ -1,4 +1,5 @@
 package beans;
+
 import javax.ejb.EJBTransactionRolledbackException;
 import javax.ejb.Stateless;
 import javax.ejb.Remote;
@@ -9,8 +10,6 @@ import data.Users;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import javax.persistence.*;
-import javax.xml.registry.BusinessQueryManager;
-import java.sql.Time;
 import java.sql.Timestamp;
 import java.util.*;
 

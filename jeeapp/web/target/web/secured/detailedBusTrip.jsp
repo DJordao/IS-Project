@@ -50,8 +50,11 @@ Insert a date to search trips:
     </c:otherwise>
 </c:choose><br/><br/>
 
-<form>
-    <input type="button" value="Back" onclick="history.back()">
-</form>
 </body>
+<footer>
+    <br>
+    <a href="/web/secured/display.jsp"> Back </a>
+    <br>
+    <br>
+</footer>
 </html>

@@ -22,7 +22,7 @@ public class ListTopPassengersServlet extends HttpServlet {
     Logger logger = LoggerFactory.getLogger(ListTopPassengersServlet.class);
 
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
         try{
             HashMap<String, String> topPassengers;

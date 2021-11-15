@@ -22,7 +22,7 @@
         <form action="deleteProfile" method="post">
             <input type="submit" value="Delete profile">
         </form>
-        <form action="logout" method="post">
+        <form action="userLogout" method="post">
             <input type="submit" value="Logout">
         </form>
     </ul>
@@ -32,15 +32,13 @@
         <ul>
             <li> <a href="/web/secured/createBusTrips.html"> Create Bus Trips </a></li>
             <li> <a href="/web/secured/deleteFutureTrips.jsp"> Delete Bus Trips </a></li>
-
-            <form action="/web/secured/listTopPassengers" method="post">
-                <input type="submit" value="List Top Passengers"/>
-            </form>
+            <li> <a href="/web/secured/listTopPassengers"> List Top Passengers </a></li>
             <li> <a href="/web/secured/searchBusTrips.jsp"> Search Bus Trips </a></li>
             <li> <a href="/web/secured/detailedBusTrip.jsp"> Search Detailed Bus Trip </a></li>
-
         </ul>
-
+         <form action="adminLogout" method="post">
+             <input type="submit" value="Logout">
+         </form>
      </c:otherwise>
 </c:choose>
 </nav>

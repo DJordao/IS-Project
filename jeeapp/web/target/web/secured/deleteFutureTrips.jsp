@@ -33,4 +33,10 @@
     </c:otherwise>
 </c:choose>
 </body>
+<footer>
+    <br>
+    <a href="/web/secured/display.jsp"> Back </a>
+    <br>
+    <br>
+</footer>
 </html>

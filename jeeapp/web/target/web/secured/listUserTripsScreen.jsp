@@ -26,7 +26,11 @@ Your trips:
 </c:choose>
 </body>
 <footer>
-    <form action="logout" method="post">
+    <br>
+    <a href="/web/secured/display.jsp"> Back </a>
+    <br>
+    <br>
+    <form action="userLogout" method="post">
         <input type="submit" value="Logout">
     </form>
 </footer>
