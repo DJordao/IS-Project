@@ -1,11 +1,9 @@
 servlet/EditUserInfoServlet.class
 servlet/SearchTicketsServlet.class
 servlet/UserLogoutServlet.class
-servlet/GreetingServlet.class
 servlet/ListAvailableTripsServlet.class
 servlet/RemoveBusTripServlet.class
 servlet/ListTopPassengersServlet.class
-servlet/MainServlet.class
 filter/SecurityFilter.class
 servlet/CreateBusTripsServlet.class
 servlet/LoginServlet.class
