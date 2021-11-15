@@ -1,10 +1,7 @@
 package beans;
 
 import javax.annotation.Resource;
-import javax.ejb.EJBTransactionRolledbackException;
-import javax.ejb.Stateless;
-import javax.ejb.Remote;
-import javax.ejb.Asynchronous;
+import javax.ejb.*;
 
 import javax.mail.Message;
 import javax.mail.MessagingException;
@@ -343,7 +340,25 @@ public class Business implements IBusiness{
             logger.error("Erro a enviar o email : " + e.getMessage());        }
     }
 
+    @Schedule(hour = "*/24", persistent = false)
+    public void dailySummary() {
+        logger.info("DAILY SUMMARY");
+        TypedQuery<String> u = em.createQuery("select email from Users u where tipoUser = 'Manager'", String.class);
+        List<String> emails = u.getResultList();
 
+        TypedQuery<BusTrip> bt = em.createQuery("from BusTrip bt where date(bt.horaPartida) = current_date ", BusTrip.class);
+        List<BusTrip> busTrips = bt.getResultList();
+        int total = 0;
+
+        for(BusTrip busTrip : busTrips) {
+            total += busTrip.getBilhetes().size() * busTrip.getPreco();
+        }
+
+        String revenue = String.valueOf(total);
+        for(String email : emails) {
+            sendEmail(email, "Daily Summary", "Today's revenue: " + revenue + '.');
+        }
+    }
 
 }
 

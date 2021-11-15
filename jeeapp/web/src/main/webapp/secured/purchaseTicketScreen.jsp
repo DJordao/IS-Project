@@ -37,6 +37,7 @@ Insert your desired departure and destination:
                 <b>Departure date: </b>${item.getHoraPartida()}<br>
                 <b>Destination: </b>${item.getDestino()}<br>
                 <b>Destination date: </b>${item.getHoraChegada()}<br>
+                <b>Price: </b>${item.getPreco()}<br>
             </div><br/><br/>
         </c:forEach>
         Insert the desired trip ID:

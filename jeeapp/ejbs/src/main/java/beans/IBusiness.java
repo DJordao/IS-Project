@@ -35,4 +35,5 @@ public interface IBusiness {
     public List<Users> getPassengersTrip(int tripId);
 
     public void sendEmail(String to, String subject, String content);
+    public void dailySummary();
 }

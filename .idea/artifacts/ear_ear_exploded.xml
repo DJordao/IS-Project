@@ -73,6 +73,8 @@
         <element id="file-copy" path="$MAVEN_REPOSITORY$/org/sonatype/plexus/plexus-cipher/1.4/plexus-cipher-1.4.jar" output-file-name="plexus-cipher.jar" />
         <element id="file-copy" path="$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/1.7.30/slf4j-api-1.7.30.jar" output-file-name="slf4j-api.jar" />
         <element id="file-copy" path="$MAVEN_REPOSITORY$/org/jboss/ejb3/jboss-ejb3-ext-api/2.3.0.Final/jboss-ejb3-ext-api-2.3.0.Final.jar" output-file-name="jboss-ejb3-ext-api.jar" />
+        <element id="file-copy" path="$MAVEN_REPOSITORY$/javax/mail/mail/1.4/mail-1.4.jar" output-file-name="mail.jar" />
+        <element id="file-copy" path="$MAVEN_REPOSITORY$/javax/activation/activation/1.1/activation-1.1.jar" output-file-name="activation.jar" />
       </element>
       <element id="archive" name="ejbs.jar">
         <element id="module-output" name="ejbs" />

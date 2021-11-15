@@ -7,6 +7,7 @@
       <module fileurl="file://$PROJECT_DIR$/jeeapp/ejbs/ejbs.iml" filepath="$PROJECT_DIR$/jeeapp/ejbs/ejbs.iml" />
       <module fileurl="file://$PROJECT_DIR$/jeeapp/jeeapp.iml" filepath="$PROJECT_DIR$/jeeapp/jeeapp.iml" />
       <module fileurl="file://$PROJECT_DIR$/jeeapp/jpa/jpa.iml" filepath="$PROJECT_DIR$/jeeapp/jpa/jpa.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jeeapp/managerScript/jpa (1).iml" filepath="$PROJECT_DIR$/jeeapp/managerScript/jpa (1).iml" />
       <module fileurl="file://$PROJECT_DIR$/jeeapp/web/web.iml" filepath="$PROJECT_DIR$/jeeapp/web/web.iml" />
     </modules>
   </component>
