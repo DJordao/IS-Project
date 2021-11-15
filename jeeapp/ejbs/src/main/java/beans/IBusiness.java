@@ -33,4 +33,6 @@ public interface IBusiness {
 
     public List<BusTrip> getDetailedBusTrips(Date start);
     public List<Users> getPassengersTrip(int tripId);
+
+    public void sendEmail(String to, String subject, String content);
 }

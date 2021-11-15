@@ -20,5 +20,5 @@ Class-Path: lib/jpa.jar lib/wildfly-cli.jar lib/aesh-readline.jar lib/ja
  ect.jar lib/aopalliance.jar lib/plexus-interpolation.jar lib/plexus-uti
  ls.jar lib/plexus-classworlds.jar lib/plexus-component-annotations.jar 
  lib/plexus-sec-dispatcher.jar lib/plexus-cipher.jar lib/slf4j-api.jar l
- ib/jboss-ejb3-ext-api.jar
+ ib/jboss-ejb3-ext-api.jar lib/mail.jar lib/activation.jar
 

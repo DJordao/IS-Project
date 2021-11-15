@@ -7,9 +7,19 @@
 <body>
 Insert your desired departure and destination:
 <form action="searchTrips" method="get">
-    <input name="Departure" type="text" required/>
+    <select name="Departure" required>
+        <option value="Coimbra">Coimbra</option>
+        <option value="Lisboa">Lisboa</option>
+        <option value="Leiria">Leiria</option>
+        <option value="Porto">Porto</option>
+    </select>
     to
-    <input name="Destination" type="text" required/>
+    <select name="Destination" required>
+        <option value="Coimbra">Coimbra</option>
+        <option value="Lisboa">Lisboa</option>
+        <option value="Leiria">Leiria</option>
+        <option value="Porto">Porto</option>
+    </select>
     <input type="submit" value="Confirmar">
 </form>
 

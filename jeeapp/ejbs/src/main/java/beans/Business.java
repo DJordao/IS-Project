@@ -1,14 +1,27 @@
 package beans;
 
+import javax.annotation.Resource;
 import javax.ejb.EJBTransactionRolledbackException;
 import javax.ejb.Stateless;
 import javax.ejb.Remote;
+import javax.ejb.Asynchronous;
+
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
+
+
 
 import data.BusTrip;
 import data.Ticket;
 import data.Users;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+
 import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.*;
@@ -248,9 +261,13 @@ public class Business implements IBusiness{
         BusTrip b = em.find(BusTrip.class, tripId);
         List<Ticket> t = b.getBilhetes();
         float preco = b.getPreco();
+        String subject = "Cancelation of a trip";
+        String content = "Your bustrip to ";
+
 
         for(Ticket ticket: t){
             ticket.getUser().adicionaQuantia(preco);
+            sendEmail(ticket.getUser().getEmail(), subject, content + ticket.getViagem().getDestino() + " was canceled!");
             em.remove(ticket);
         }
         em.remove(b);
@@ -301,6 +318,29 @@ public class Business implements IBusiness{
         }
         logger.info("SAI CICLO");
         return u;
+    }
+
+    @Resource(mappedName = "java:jboss/mail/Projeto") //Nome do Recurso que criamos no Wildfly
+    private Session mailSession; //Objecto que vai reprensentar uma sessão de email
+    @Asynchronous //Metodo Assíncrono para que a aplicação continue normalmente sem ficar bloqueada até que o email seja enviado
+    public void sendEmail(String to, String subject, String content) {
+        String from = "jose.miguel.gomes2000@gmail.com";
+        logger.info("Email enviado por " + from + " para " + to + " : " + subject);
+        try {
+            //Criação de uma mensagem simples
+            Message message = new MimeMessage(mailSession);
+            //Cabeçalho do Email
+            message.setFrom(new InternetAddress(from));
+            message.setRecipients(Message.RecipientType.TO,InternetAddress.parse(to));
+            message.setSubject(subject);
+            //Corpo do email
+            message.setText(content);
+
+            //Envio da mensagem
+            Transport.send(message);
+            logger.debug("Email enviado");
+        } catch (MessagingException e) {
+            logger.error("Erro a enviar o email : " + e.getMessage());        }
     }
 
 
