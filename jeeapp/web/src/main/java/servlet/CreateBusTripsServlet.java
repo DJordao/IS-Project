@@ -38,14 +38,14 @@ public class CreateBusTripsServlet extends HttpServlet {
         String capacity = request.getParameter("Capacity");
         String price = request.getParameter("Price");
 
-        logger.info("############################################");
-        logger.info("DEPARTURE: " + departure);
-        logger.info("Departure_time: " + departure_time);
-        logger.info("Destination: " + destination);
-        logger.info("Destination_time: " + destination_time);
-        logger.info("capacity: " + capacity);
-        logger.info("price: " + price);
-        logger.info("############################################");
+        logger.debug("############################################");
+        logger.debug("DEPARTURE: " + departure);
+        logger.debug("Departure_time: " + departure_time);
+        logger.debug("Destination: " + destination);
+        logger.debug("Destination_time: " + destination_time);
+        logger.debug("capacity: " + capacity);
+        logger.debug("price: " + price);
+        logger.debug("############################################");
 
         String destinationScreen = "/error.html";
         try{
@@ -62,8 +62,8 @@ public class CreateBusTripsServlet extends HttpServlet {
                 response.getWriter().print(result);
                 destinationScreen = "/secured/createBusTrips.html";
             }else{
-                logger.info("DEPARTURE TIME: " + departureTimestamp);
-                logger.info("DESTINATION TIME: " + destinationTimestamp);
+                logger.debug("DEPARTURE TIME: " + departureTimestamp);
+                logger.debug("DESTINATION TIME: " + destinationTimestamp);
 
                 float priceFloat = Float.valueOf(price);
                 int capacityInt = Integer.parseInt(capacity);
@@ -81,6 +81,7 @@ public class CreateBusTripsServlet extends HttpServlet {
 
         } catch (Exception e) {
             result = "Invalid field(s).";
+            logger.info("Error creating trip!");
             destinationScreen = "/error.html";
             request.getRequestDispatcher(destinationScreen).forward(request, response);
             e.printStackTrace();

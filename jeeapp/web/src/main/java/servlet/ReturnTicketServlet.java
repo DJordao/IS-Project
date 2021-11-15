@@ -3,6 +3,8 @@ package servlet;
 import beans.IBusiness;
 import data.BusTrip;
 import data.Ticket;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
@@ -18,6 +20,8 @@ public class ReturnTicketServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
     @EJB
     private IBusiness b;
+    Logger logger = LoggerFactory.getLogger(ReturnTicketServlet.class);
+
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         int ticketId;
@@ -39,8 +43,10 @@ public class ReturnTicketServlet extends HttpServlet {
             b.returnTicket(ticketId, userId);
             request.getSession().setAttribute("tickets", b.getTickets(userId));
             request.getSession().setAttribute("bustrips", b.getTrips(userId));
+            logger.info(result);
         } catch (Exception e) {
             result = "Invalid ticket ID.";
+            logger.info(result);
         }
 
         response.getWriter().print(result);

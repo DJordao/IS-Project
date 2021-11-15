@@ -47,6 +47,7 @@ public class SearchBusTripsServlet extends HttpServlet {
 
                 request.getSession().setAttribute("allTrips", trips);
                 request.getRequestDispatcher(destination).forward(request, response);
+                logger.info("search successfully!");
             }
 
 

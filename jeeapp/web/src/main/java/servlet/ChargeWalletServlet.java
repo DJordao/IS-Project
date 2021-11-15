@@ -1,6 +1,8 @@
 package servlet;
 
 import beans.IBusiness;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
@@ -15,6 +17,8 @@ public class ChargeWalletServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
     @EJB
     private IBusiness b;
+    Logger logger = LoggerFactory.getLogger(ChargeWalletServlet.class);
+
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         String value = request.getParameter("Value");
@@ -31,8 +35,9 @@ public class ChargeWalletServlet extends HttpServlet {
             b.chargeWallet((Integer)request.getSession().getAttribute("auth"), val);
         } catch (Exception e) {
             result = "Invalid value.";
+            logger.info("Error while charging wallet!");
         }
-
+        logger.info("Charged wallet done successfully!");
         response.getWriter().print(result);
         //request.getRequestDispatcher(destination).forward(request, response);
     }

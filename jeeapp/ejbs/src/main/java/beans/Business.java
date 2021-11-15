@@ -35,8 +35,7 @@ public class Business implements IBusiness{
 
 
     public Business() {
-        logger.info("Created Calculator");
-        logger.debug("Debug!! Created Calculator");
+        logger.info("Created Business layer");
     }
 
     //Requisito 1
@@ -64,8 +63,8 @@ public class Business implements IBusiness{
             String passwordEncrypted = users.getPassword();
             String passwordDecrypted = encryptData.decrypt(passwordEncrypted);
             //result = password + " " + passwordDecrypted;
-            logger.info("PASSWORD: " + password);
-            logger.info("DECRYPTED: " + passwordDecrypted);
+            logger.debug("PASSWORD: " + password);
+            logger.debug("DECRYPTED: " + passwordDecrypted);
 
             Query q = em.createQuery("FROM Users u WHERE u.email = :email AND :passwordDb = :password");
             q.setParameter("email", email);

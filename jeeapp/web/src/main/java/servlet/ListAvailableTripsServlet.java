@@ -39,11 +39,12 @@ public class ListAvailableTripsServlet extends HttpServlet {
 
         if(departureTimestamp.after(destinationTimestamp)) {
             String result = "Departure date can't be after destination date.";
+            logger.info(result);
             response.getWriter().print(result);
         }
         else {
             List<BusTrip> trips = b.listAvailableTrips(departureTimestamp, destinationTimestamp);
-
+            logger.info("List available trips done!");
             request.setAttribute("trips", trips);
             request.getRequestDispatcher(destination).forward(request, response);
         }

@@ -31,14 +31,14 @@ public class RegisterServlet extends HttpServlet {
 
         //Ver o conteúdo dos campos
         if (!(name.charAt(0) == ' ') && !email.contains(" ") && !password.contains(" ")){
-            //TODO encriptar password
+
 
             EncryptData encryptData = new EncryptData();
             String passwordEncrypted = encryptData.encrypt(password);
             String passwordDecrypted = encryptData.decrypt(passwordEncrypted);
-            logger.info("PASSWORD: " + password);
-            logger.info("ENCRYPTED: " + passwordEncrypted);
-            logger.info("DECRYPTED: " + passwordDecrypted);
+            logger.debug("PASSWORD: " + password);
+            logger.debug("ENCRYPTED: " + passwordEncrypted);
+            logger.debug("DECRYPTED: " + passwordDecrypted);
 
             logger.info("ENCRYPTION DONE!!");
             try {
@@ -56,7 +56,7 @@ public class RegisterServlet extends HttpServlet {
 
         }else{
             destination = "/error.html";
-            logger.error("Error creating user!");
+            logger.info("Error creating user!");
             logger.error("Error creating user!");
         }
 

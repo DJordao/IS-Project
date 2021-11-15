@@ -21,10 +21,10 @@ public class SecurityFilter implements Filter {
         HttpSession session = httpReq.getSession(false);
 
         Logger logger = LoggerFactory.getLogger(SecurityFilter.class);
-        logger.info("#############################");
-        logger.info("AUTH VALUE: " + session.getAttribute("auth"));
-        logger.info("SESSION : " + session);
-        logger.info("#############################");
+        logger.debug("#############################");
+        logger.debug("AUTH VALUE: " + session.getAttribute("auth"));
+        logger.debug("SESSION : " + session);
+        logger.debug("#############################");
 
 
         if (session != null && session.getAttribute("auth") != null)
