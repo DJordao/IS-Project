@@ -30,5 +30,14 @@ public class Streams {
         lines.to(resultTopic, Produced.with(Serdes.String(), Serdes.String()));
         KafkaStreams streams = new KafkaStreams(builder.build(), props);
         streams.start();
+
+        /*StreamsBuilder builder2 = new StreamsBuilder();
+        KStream<String, String> lines2 = builder2.stream(paymentsTopic);
+        //KTable<String, Long> outlines = lines.groupByKey().count();
+        //outlines.mapValues(v -> "" + v).toStream().to(resultTopic, Produced.with(Serdes.String(), Serdes.String()));
+        lines2.to(resultTopic, Produced.with(Serdes.String(), Serdes.String()));
+        KafkaStreams streams2 = new KafkaStreams(builder2.build(), props);
+        streams2.start();
+        System.out.println("end");*/
     }
 }

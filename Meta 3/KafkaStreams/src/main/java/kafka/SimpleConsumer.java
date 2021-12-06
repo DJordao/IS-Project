@@ -32,10 +32,12 @@ public class SimpleConsumer {
                 "org.apache.kafka.common.serialization.StringDeserializer");
         Consumer<String, String> consumer = new KafkaConsumer<>(props);
         consumer.subscribe(Collections.singletonList(topicName));
+        int i = 0;
         while (true) {
             ConsumerRecords<String, String> records = consumer.poll(Long.MAX_VALUE);
             for (ConsumerRecord<String, String> record : records) {
-                System.out.println(record.key() + " => " + record.value());
+                i = i++;
+                System.out.println(i + "  " + record.key() + " => " + record.value());
             }
         }
 //consumer.close();

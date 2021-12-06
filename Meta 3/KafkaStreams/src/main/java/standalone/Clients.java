@@ -10,7 +10,7 @@ import java.util.Random;
 
 public class Clients {
     public static void main(String[] args) {
-        for (int i = 0; i < 50; i++){
+        for (int i = 0; i < 10; i++){
             Random r = new Random();
 
             float rCurC = 0.5f + r.nextFloat() * (10.0f - 0.5f);
