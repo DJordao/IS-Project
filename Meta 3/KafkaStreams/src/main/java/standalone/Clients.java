@@ -9,18 +9,20 @@ import java.util.Properties;
 import java.util.Random;
 
 public class Clients {
-    public static void main(String[] args) {
-        for (int i = 0; i < 10; i++){
-            Random r = new Random();
+    public static void main(String[] args) throws InterruptedException {
+        Random rC = new Random();
+        Random rP = new Random();
+        Random rT = new Random();
 
-            float rCurC = 0.5f + r.nextFloat() * (10.0f - 0.5f);
-            float rPriceC = 0.99f + r.nextFloat() * (500.0f - 0.99f);
+        while(true){
+            float rCurC = 0.5f + rC.nextFloat() * (10.0f - 0.5f);
+            float rPriceC = 0.99f + rC.nextFloat() * (500.0f - 0.99f);
             JSONObject credit = new JSONObject();
             credit.put("currency", rCurC);
             credit.put("price", rPriceC);
 
-            float rCurP = 0.5f + r.nextFloat() * (10.0f - 0.5f);
-            float rPriceP = 0.99f + r.nextFloat() * (500.0f - 0.99f);
+            float rCurP = 0.5f + rP.nextFloat() * (10.0f - 0.5f);
+            float rPriceP = 0.99f + rP.nextFloat() * (500.0f - 0.99f);
             JSONObject payment = new JSONObject();
             payment.put("currency", rCurP);
             payment.put("price", rPriceP);
@@ -41,6 +43,8 @@ public class Clients {
 
             producer.send(new ProducerRecord<>(creditsTopic, "credit", credit.toString()));
             producer.send(new ProducerRecord<>(paymentsTopic, "payment", payment.toString()));
+
+            Thread.sleep(rT.nextInt(10) * 1000);
         }
 
     }
