@@ -36,11 +36,11 @@ public class Clients {
             props.put("linger.ms", 1);
             props.put("buffer.memory", 33554432);
             props.put("key.serializer", "org.apache.kafka.common.serialization.StringSerializer");
-            props.put("value.serializer", "org.apache.kafka.common.serialization.LongSerializer");
-            Producer<String, JSONObject> producer = new KafkaProducer<>(props);
+            props.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
+            Producer<String, String> producer = new KafkaProducer<>(props);
 
-            producer.send(new ProducerRecord<>(creditsTopic, "credit", credit));
-            producer.send(new ProducerRecord<>(paymentsTopic, "payment", payment));
+            producer.send(new ProducerRecord<>(creditsTopic, "credit", credit.toString()));
+            producer.send(new ProducerRecord<>(paymentsTopic, "payment", payment.toString()));
         }
 
     }

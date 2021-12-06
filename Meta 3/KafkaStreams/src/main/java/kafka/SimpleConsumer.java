@@ -29,12 +29,12 @@ public class SimpleConsumer {
         props.put("key.deserializer",
                 "org.apache.kafka.common.serialization.StringDeserializer");
         props.put("value.deserializer",
-                "org.apache.kafka.common.serialization.LongDeserializer");
-        Consumer<String, Long> consumer = new KafkaConsumer<>(props);
+                "org.apache.kafka.common.serialization.StringDeserializer");
+        Consumer<String, String> consumer = new KafkaConsumer<>(props);
         consumer.subscribe(Collections.singletonList(topicName));
         while (true) {
-            ConsumerRecords<String, Long> records = consumer.poll(Long.MAX_VALUE);
-            for (ConsumerRecord<String, Long> record : records) {
+            ConsumerRecords<String, String> records = consumer.poll(Long.MAX_VALUE);
+            for (ConsumerRecord<String, String> record : records) {
                 System.out.println(record.key() + " => " + record.value());
             }
         }
