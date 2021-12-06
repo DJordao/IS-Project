@@ -1,0 +1,19 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-ear" name="rest:ear exploded">
+    <output-path>$PROJECT_DIR$/jeeapp/rest/target/rest</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <exploded>true</exploded>
+        <module>rest</module>
+        <packaging>ear</packaging>
+      </options>
+    </properties>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="rest/javaeeApplication/JavaEE" />
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/jeeapp/rest/target/rest/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="file-copy" path="$MAVEN_REPOSITORY$/javax/javaee-api/6.0/javaee-api-6.0.jar" output-file-name="javax-javaee-api-6.0.jar" />
+    </root>
+  </artifact>
+</component>
