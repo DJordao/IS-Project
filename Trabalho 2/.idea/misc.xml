@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="javaeeApplication" url="file://$PROJECT_DIR$/jeeapp/ear" />
+    <file type="web" url="file://$PROJECT_DIR$/jeeapp/web" />
+  </component>
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/jeeapp/pom.xml" />
+      </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/jeeapp/ear/pom.xml" />
+        <option value="$PROJECT_DIR$/jeeapp/ejbs/pom.xml" />
+        <option value="$PROJECT_DIR$/jeeapp/jpa/pom.xml" />
+        <option value="$PROJECT_DIR$/jeeapp/managerScript/pom.xml" />
+        <option value="$PROJECT_DIR$/jeeapp/untitled/pom.xml" />
+        <option value="$PROJECT_DIR$/jeeapp/web/pom.xml" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="17" project-jdk-type="JavaSDK" />
+</project>
