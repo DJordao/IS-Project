@@ -1,6 +1,7 @@
+standalone/JSONSchema.class
+book/App.class
 kafka/SimpleConsumer.class
 kafka/SimpleProducer.class
 streams/SimpleStreamsExercisesa.class
 standalone/Clients.class
-book/App.class
 standalone/Streams.class
