@@ -3,10 +3,8 @@
     <output-path>$PROJECT_DIR$/jeeapp/servlets/servlet/target</output-path>
     <properties id="maven-jee-properties">
       <options>
-        <exploded>false</exploded>
         <module>servlet</module>
         <packaging>war</packaging>
-        <unpackNestedArchives>false</unpackNestedArchives>
       </options>
     </properties>
     <root id="archive" name="${project.artifactId}-${project.version}.war">
