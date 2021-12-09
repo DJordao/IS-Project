@@ -64,7 +64,8 @@ RUN sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/inst
 CMD [ "zsh" ]
 
 #Configurar connectors
-ADD --chmod=0755 connect-jdbc-source.properties /opt/kafka_2.13-2.8.1/config
+ADD --chmod=0755 connect-jdbc-source-client.properties /opt/kafka_2.13-2.8.1/config
+ADD --chmod=0755 connect-jdbc-source-currency.properties /opt/kafka_2.13-2.8.1/config
 ADD --chmod=0755 connect-jdbc-sink.properties /opt/kafka_2.13-2.8.1/config
 
 #Iniciar zookeeper e server

@@ -11,6 +11,7 @@ http://maven.apache.org/xsd/maven-4.0.0.xsd">
   </parent>
   <artifactId>rest</artifactId>
   <packaging>war</packaging>
+  <version>1</version>
   <name>rest services</name>
   <dependencies>
     <dependency>
