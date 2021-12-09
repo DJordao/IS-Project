@@ -1,24 +1,22 @@
 package book;
 
-import java.sql.Time;
-import java.util.Calendar;
-import javax.enterprise.context.RequestScoped;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.core.MediaType;
 
-@RequestScoped
+
+import data.Manager;
+
+import java.sql.*;
+import java.util.Calendar;
+import javax.ws.rs.*;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+
+
+
 @Path("/myservice")
 @Produces(MediaType.APPLICATION_JSON)
 public class MyService {
+    //SERVER
 
-    @GET
-    @Path("/test")
-    public String method1() {
-        System.out.println("M1 executing....");
-        return "M1 executed...";
-    }
     @GET
     @Path("/add")
     public String method2() {
@@ -26,4 +24,36 @@ public class MyService {
         String name = "name_" + new Time(Calendar.getInstance().getTimeInMillis());
         return name;
     }
+
+    @GET
+    @Path("/person")
+    public String person() {
+        String value = "Test";
+        System.out.println("M3 executing... args=" + value);
+        return value;
+    }
+
+
+
+    @POST
+    @Path("/managerAdd")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public String managerAdd(Manager m) {
+        System.out.println("ENTREI NO SERVER!");
+
+        DBConnection app = new DBConnection();
+        System.out.println("1-Adding manager");
+        app.connectDB();
+
+        System.out.println("2-Adding manager");
+        String str = "Person received : " + m.getName();
+
+        if(app.addManager(m.getName()))
+            System.out.println("Manager adicionado com sucesso");
+        else
+            System.out.println("Erro a adicionar o manager");
+
+        return m.getName();
+    }
+
 }

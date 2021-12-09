@@ -1,2 +1,4 @@
 book/ApplicationConfig.class
+data/Manager.class
+book/DBConnection.class
 book/MyService.class

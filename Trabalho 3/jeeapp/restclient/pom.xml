@@ -24,6 +24,7 @@ http://maven.apache.org/xsd/maven-4.0.0.xsd">
       <artifactId>resteasy-jackson2-provider</artifactId>
       <version>3.13.2.Final</version>
     </dependency>
+
   </dependencies>
   <build>
     <finalName>${project.artifactId}</finalName>
