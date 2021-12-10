@@ -17,7 +17,7 @@ public class Streams {
     public static void main(String[] args) throws InterruptedException {
         String creditsTopic = "CreditsTopic";
         String paymentsTopic = "PaymentsTopic";
-        String resultTopic = "ResultTopic";
+        String resultTopic = "client";
         String dbInfoTopicClient = "DBInfoTopicClient";
         ArrayList<Client> clients = new ArrayList<>();
         Client client;
@@ -74,7 +74,7 @@ public class Streams {
         consumer.subscribe(Collections.singletonList(dbInfoTopicClient));
 
         while (true) {
-            ConsumerRecords<String, String> records = consumer.poll(5000);
+            ConsumerRecords<String, String> records = consumer.poll(Long.MAX_VALUE);
             for (ConsumerRecord<String, String> record : records) {
                 client = JSONSchema.deserializeClient(record.value());
                 int check = 0;
@@ -86,9 +86,9 @@ public class Streams {
                 }
                 if(check == 0) {
                     clients.add(client);
-                    System.out.println(client);
                 }
             }
+            //System.out.println("Clients: " + clients);
         }
     }
 

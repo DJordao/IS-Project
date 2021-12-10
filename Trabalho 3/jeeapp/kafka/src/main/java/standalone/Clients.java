@@ -67,7 +67,6 @@ public class Clients {
         consumerCurrency.subscribe(Collections.singletonList(dbInfoTopicCurrency));
 
         while (true) {
-            System.out.println("Entrei");
             ConsumerRecords<String, String> recordsClient = consumerClient.poll(5000);
             for (ConsumerRecord<String, String> record : recordsClient) {
                 client = JSONSchema.getClientId(record.value());
@@ -75,14 +74,11 @@ public class Clients {
                     clients.add(client);
                 }
             }
-            System.out.println("Passei clientes");
+            //System.out.println("Clients: " + clients);
 
             ConsumerRecords<String, String> recordsCurrency = consumerCurrency.poll(5000);
-            System.out.println("1");
             for (ConsumerRecord<String, String> record : recordsCurrency) {
-                System.out.println("2");
                 currency = JSONSchema.deserializeCurrency(record.value());
-                System.out.println("3");
                 int check = 0;
                 for(int i = 0; i < currencies.size(); i++) {
                     if(currencies.get(i).getInitials().equals(currency.getInitials())) {
@@ -94,21 +90,27 @@ public class Clients {
                     currencies.add(currency);
                 }
             }
-            System.out.println("Passei currencies");
-            float rPriceC = 0.99f + rC.nextFloat() * (500.0f - 0.99f);
-            JSONObject credit = new JSONObject();
-            credit.put("id", clients.get(rC.nextInt(clients.size())));
-            credit.put("price", rPriceC);
-            credit.put("rate", currencies.get(rC.nextInt(currencies.size())).getRate());
+            //System.out.println("Currencies: " + currencies);
+            try {
+                System.out.println("Entrei");
+                float rPriceC = 0.99f + rC.nextFloat() * (100.0f - 0.99f);
+                JSONObject credit = new JSONObject();
+                credit.put("id", clients.get(rC.nextInt(clients.size())));
+                credit.put("price", rPriceC);
+                credit.put("rate", currencies.get(rC.nextInt(currencies.size())).getRate());
 
-            float rPriceP = 0.99f + rP.nextFloat() * (500.0f - 0.99f);
-            JSONObject payment = new JSONObject();
-            payment.put("id", clients.get(rP.nextInt(clients.size())));
-            payment.put("price", rPriceP);
-            payment.put("rate", currencies.get(rP.nextInt(currencies.size())).getRate());
+                float rPriceP = 0.99f + rP.nextFloat() * (100.0f - 0.99f);
+                JSONObject payment = new JSONObject();
+                payment.put("id", clients.get(rP.nextInt(clients.size())));
+                payment.put("price", rPriceP);
+                payment.put("rate", currencies.get(rP.nextInt(currencies.size())).getRate());
 
-            producer.send(new ProducerRecord<>(creditsTopic, "credit", credit.toString()));
-            producer.send(new ProducerRecord<>(paymentsTopic, "payment", payment.toString()));
+                producer.send(new ProducerRecord<>(creditsTopic, "credit", credit.toString()));
+                producer.send(new ProducerRecord<>(paymentsTopic, "payment", payment.toString()));
+            } catch (java.lang.IllegalArgumentException e) {
+                System.out.println("Reading clients and currencies...");
+            }
+
             System.out.println("Enviado");
             Thread.sleep(rT.nextInt(10) * 1000);
         }
