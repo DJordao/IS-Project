@@ -1,6 +1,7 @@
 package standalone;
 
 import data.Client;
+import data.Currency;
 import org.apache.kafka.clients.consumer.*;
 import org.apache.kafka.common.serialization.Serdes;
 import org.apache.kafka.streams.KafkaStreams;
@@ -19,8 +20,11 @@ public class Streams {
         String paymentsTopic = "PaymentsTopic";
         String resultTopic = "client";
         String dbInfoTopicClient = "DBInfoTopicClient";
+        String dbInfoTopicCurrency = "DBInfoTopicCurrency";
         ArrayList<Client> clients = new ArrayList<>();
         Client client;
+        ArrayList<Currency> currencies = new ArrayList<>();
+        Currency currency;
 
         Properties props = new Properties();
         props.put(StreamsConfig.APPLICATION_ID_CONFIG, "credit-topic");
@@ -45,6 +49,17 @@ public class Streams {
         propsConsumer.put("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
         propsConsumer.put("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
 
+        Properties propsConsumer2 = new Properties();
+        propsConsumer2.put("bootstrap.servers", "localhost:9092");
+        propsConsumer2.put("acks", "all");
+        propsConsumer2.put("retries", 0);
+        propsConsumer2.put("batch.size", 16384);
+        propsConsumer2.put("linger.ms", 1);
+        propsConsumer2.put("buffer.memory", 33554432);
+        propsConsumer2.put(ConsumerConfig.GROUP_ID_CONFIG, "StreamsConsumer2");
+        propsConsumer2.put("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
+        propsConsumer2.put("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
+
         StreamsBuilder builder = new StreamsBuilder();
         KStream<String, String> lines = builder.stream(creditsTopic);
         //KTable<String, Long> outlines = lines.groupByKey().count();
@@ -55,7 +70,7 @@ public class Streams {
             System.out.println("sai");
         });*/
         lines.peek((key, value) -> System.out.println("Key: " + key + " --- Value: " + value));
-        lines.mapValues((key, value) -> JSONSchema.serializeClient(clients, key, value))
+        lines.mapValues((key, value) -> JSONSchema.serializeClient(clients, currencies, key, value))
                 .to(resultTopic, Produced.with(Serdes.String(), Serdes.String()));
         KafkaStreams streams = new KafkaStreams(builder.build(), props);
         streams.start();
@@ -65,17 +80,20 @@ public class Streams {
         //KTable<String, Long> outlines = lines.groupByKey().count();
         //outlines.mapValues(v -> "" + v).toStream().to(resultTopic, Produced.with(Serdes.String(), Serdes.String()));
         lines2.peek((key, value) -> System.out.println("Key: " + key + " --- Value: " + value));
-        lines2.mapValues((key, value) -> JSONSchema.serializeClient(clients, key, value))
+        lines2.mapValues((key, value) -> JSONSchema.serializeClient(clients, currencies, key, value))
                 .to(resultTopic, Produced.with(Serdes.String(), Serdes.String()));
         KafkaStreams streams2 = new KafkaStreams(builder2.build(), props2);
         streams2.start();
 
-        Consumer<String, String> consumer = new KafkaConsumer<>(propsConsumer);
-        consumer.subscribe(Collections.singletonList(dbInfoTopicClient));
+        Consumer<String, String> consumerClient = new KafkaConsumer<>(propsConsumer);
+        consumerClient.subscribe(Collections.singletonList(dbInfoTopicClient));
+
+        Consumer<String, String> consumerCurrency = new KafkaConsumer<>(propsConsumer2);
+        consumerCurrency.subscribe(Collections.singletonList(dbInfoTopicCurrency));
 
         while (true) {
-            ConsumerRecords<String, String> records = consumer.poll(Long.MAX_VALUE);
-            for (ConsumerRecord<String, String> record : records) {
+            ConsumerRecords<String, String> recordsClient = consumerClient.poll(Long.MAX_VALUE);
+            for (ConsumerRecord<String, String> record : recordsClient) {
                 client = JSONSchema.deserializeClient(record.value());
                 int check = 0;
                 for(int i = 0; i < clients.size(); i++) {
@@ -89,6 +107,21 @@ public class Streams {
                 }
             }
             //System.out.println("Clients: " + clients);
+
+            ConsumerRecords<String, String> recordsCurrency = consumerCurrency.poll(Long.MAX_VALUE);
+            for (ConsumerRecord<String, String> record : recordsCurrency) {
+                currency = JSONSchema.deserializeCurrency(record.value());
+                int check = 0;
+                for(int i = 0; i < currencies.size(); i++) {
+                    if(currencies.get(i).getInitials().equals(currency.getInitials())) {
+                        check = 1;
+                        break;
+                    }
+                }
+                if(check == 0) {
+                    currencies.add(currency);
+                }
+            }
         }
     }
 

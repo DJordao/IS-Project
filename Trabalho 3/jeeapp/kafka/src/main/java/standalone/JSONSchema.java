@@ -9,7 +9,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 class JSONSchema {
-    public static String serializeClient(ArrayList<Client> clients, String operation, String data) {
+    public static String serializeClient(ArrayList<Client> clients, ArrayList<Currency> currencies, String operation, String data) {
         String clientSchema = "{\"schema\":{\"type\":\"struct\",\"fields\":" +
                 "[{\"type\":\"int64\",\"optional\":false,\"field\":\"id\"}, " +
                 "{\"type\":\"string\",\"optional\":true,\"field\":\"name\"}, " +
@@ -24,27 +24,34 @@ class JSONSchema {
 
         String id = op.getId();
         String price = op.getPrice();
-        String rate = op.getRate();
+        String currency = op.getCurrency();
 
         for(Client c : clients) {
             if(id.equals(c.getId())) {
-                String name = c.getName();
-                String balance = c.getBalance();
-                String credit = c.getCredit();
-                String payment = c.getPayment();
-                String manager_id = c.getManager_id();
+                for(Currency cur : currencies) {
+                    if(currency.equals(cur.getInitials())) {
+                        String name = c.getName();
+                        String balance = c.getBalance();
+                        String credit = c.getCredit();
+                        String payment = c.getPayment();
+                        String manager_id = c.getManager_id();
+                        String rate = cur.getRate();
 
-                if(operation.equals("credit")) {
-                    balance = Float.toString(Float.parseFloat(balance) + Float.parseFloat(price) * Float.parseFloat(rate));
-                    credit = Float.toString(Float.parseFloat(credit) + Float.parseFloat(price) * Float.parseFloat(rate));
+                        if(operation.equals("credit")) {
+                            balance = Float.toString(Float.parseFloat(balance) + Float.parseFloat(price) * Float.parseFloat(rate));
+                            credit = Float.toString(Float.parseFloat(credit) + Float.parseFloat(price) * Float.parseFloat(rate));
+                        }
+                        else if(operation.equals("payment")){
+                            balance = Float.toString(Float.parseFloat(balance) - Float.parseFloat(price) * Float.parseFloat(rate));
+                            payment = Float.toString(Float.parseFloat(payment) + Float.parseFloat(price) * Float.parseFloat(rate));
+                        }
+
+                        payload = "\"payload\":{\"id\":" + id +",\"name\":\"" + name + "\",\"balance\":" + balance + ",\"credit\":" + credit + ",\"payment\":" + payment + ",\"manager_id\":" + manager_id + "}}";
+
+                        return clientSchema + payload;
+                    }
+
                 }
-                else {
-                    balance = Float.toString(Float.parseFloat(balance) - Float.parseFloat(price) * Float.parseFloat(rate));
-                    payment = Float.toString(Float.parseFloat(payment) + Float.parseFloat(price) * Float.parseFloat(rate));
-                }
-
-                payload = "\"payload\":{\"id\":" + id +",\"name\":\"" + name + "\",\"balance\":" + balance + ",\"credit\":" + credit + ",\"payment\":" + payment + ",\"manager_id\":" + manager_id + "}}";
-
                 break;
             }
         }

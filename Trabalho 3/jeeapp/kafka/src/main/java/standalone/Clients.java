@@ -97,13 +97,13 @@ public class Clients {
                 JSONObject credit = new JSONObject();
                 credit.put("id", clients.get(rC.nextInt(clients.size())));
                 credit.put("price", rPriceC);
-                credit.put("rate", currencies.get(rC.nextInt(currencies.size())).getRate());
+                credit.put("currency", currencies.get(rC.nextInt(currencies.size())).getInitials());
 
                 float rPriceP = 0.99f + rP.nextFloat() * (100.0f - 0.99f);
                 JSONObject payment = new JSONObject();
                 payment.put("id", clients.get(rP.nextInt(clients.size())));
                 payment.put("price", rPriceP);
-                payment.put("rate", currencies.get(rP.nextInt(currencies.size())).getRate());
+                payment.put("currency", currencies.get(rP.nextInt(currencies.size())).getInitials());
 
                 producer.send(new ProducerRecord<>(creditsTopic, "credit", credit.toString()));
                 producer.send(new ProducerRecord<>(paymentsTopic, "payment", payment.toString()));
@@ -112,7 +112,7 @@ public class Clients {
             }
 
             System.out.println("Enviado");
-            Thread.sleep(rT.nextInt(10) * 1000);
+            Thread.sleep(/*rT.nextInt(1) **/ 10000);
         }
 
     }

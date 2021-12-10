@@ -3,12 +3,12 @@ package data;
 public class Operation {
     private String id;
     private String price;
-    private String rate;
+    private String currency;
 
     public Operation(String id, String price, String rate) {
         this.id = id;
         this.price = price;
-        this.rate = rate;
+        this.currency = rate;
     }
 
     public String getId() {
@@ -27,12 +27,12 @@ public class Operation {
         this.price = price;
     }
 
-    public String getRate() {
-        return rate;
+    public String getCurrency() {
+        return currency;
     }
 
-    public void setRate(String rate) {
-        this.rate = rate;
+    public void setCurrency(String rate) {
+        this.currency = rate;
     }
 
     @Override
@@ -40,7 +40,7 @@ public class Operation {
         return "Operation{" +
                 "id='" + id + '\'' +
                 ", price='" + price + '\'' +
-                ", rate='" + rate + '\'' +
+                ", currency='" + currency + '\'' +
                 '}';
     }
 }
