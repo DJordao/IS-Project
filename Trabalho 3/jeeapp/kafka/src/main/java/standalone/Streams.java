@@ -7,10 +7,10 @@ import org.apache.kafka.common.serialization.Serdes;
 import org.apache.kafka.streams.KafkaStreams;
 import org.apache.kafka.streams.StreamsBuilder;
 import org.apache.kafka.streams.StreamsConfig;
-import org.apache.kafka.streams.kstream.KStream;
-import org.apache.kafka.streams.kstream.KTable;
-import org.apache.kafka.streams.kstream.Produced;
+import org.apache.kafka.streams.kstream.*;
+import org.json.JSONObject;
 
+import java.time.Duration;
 import java.util.Properties;
 
 public class Streams {
@@ -46,16 +46,12 @@ public class Streams {
             oldOp.setCredit(credit.toString());
 
             oldval = g.toJson(oldOp);
+            //System.out.println(oldval);
             return oldval;
                 });
-                outlines.mapValues((value) -> JSONSchema.serializeClient(value))
-                        .toStream().to(resultTopic, Produced.with(Serdes.String(), Serdes.String()));
-
-        KafkaStreams streams = new KafkaStreams(builder.build(), props);
-        streams.cleanUp();
-        streams.start();
-
-
+        outlines.toStream().foreach((k, v) -> {
+            System.out.println(k + " outlines " + v);
+        });
         StreamsBuilder builder2 = new StreamsBuilder();
         KStream<String, String> lines2 = builder2.stream(paymentsTopic);
         KTable<String, String> outlines2 = lines2.groupByKey().reduce((oldval, newval) -> {
@@ -67,18 +63,37 @@ public class Streams {
             Float balance = Float.parseFloat(oldOp.getBalance()) - Float.parseFloat(newOp.getPrice()) * Float.parseFloat(newOp.getCurrency());
             oldOp.setBalance(balance.toString());
 
-            Float credit = Float.parseFloat(oldOp.getPayment()) + Float.parseFloat(newOp.getPrice()) * Float.parseFloat(newOp.getCurrency());
-            oldOp.setPayment(credit.toString());
+            Float payment = Float.parseFloat(oldOp.getPayment()) + Float.parseFloat(newOp.getPrice()) * Float.parseFloat(newOp.getCurrency());
+            oldOp.setPayment(payment.toString());
 
             oldval = g.toJson(oldOp);
+            //System.out.println(oldval);
             return oldval;
         });
-        outlines2.mapValues((value) -> JSONSchema.serializeClient(value))
+
+        outlines2.toStream().foreach((k, v) -> {
+            System.out.println(k + " outlines2 " + v);
+        });
+        KTable<String, String> outlines3 = outlines.join(outlines2, (leftValue, rightValue) -> {
+            System.out.println("Left: " + leftValue);
+            System.out.println("Right: " + rightValue);
+
+            return "";
+        });
+
+        /*outlines.mapValues((value) -> JSONSchema.serializeClient(value))
                 .toStream().to(resultTopic, Produced.with(Serdes.String(), Serdes.String()));
+        outlines2.mapValues((value) -> JSONSchema.serializeClient(value))
+                .toStream().to(resultTopic, Produced.with(Serdes.String(), Serdes.String()));*/
+
+        KafkaStreams streams = new KafkaStreams(builder.build(), props);
+        streams.cleanUp();
+        streams.start();
 
         KafkaStreams streams2 = new KafkaStreams(builder2.build(), props2);
         streams2.cleanUp();
         streams2.start();
+
 
         while(true) {
             Thread.sleep(10000);
@@ -87,18 +102,3 @@ public class Streams {
 
 
 }
-
-//{"schema":{"type":"struct","fields":[{"type":"int64","optional":false,"field":"id"},
-// {"type":"string","optional":true,"field":"name"},{"type":"float","optional":true,"field":"balance"},
-// {"type":"float","optional":true,"field":"credit"},{"type":"float","optional":true,"field":"payment"},
-// {"type":"int64","optional":false,"field":"manager_id"}],"optional":false},
-// "payload":{"id":1,"name":"client","balance":1.0,"credit":1.0,"payment":0.0,"manager_id":1}}
-
-//{"schema":{"type":"struct","fields":[{"type":"int64","optional":false,"field":"id"},
-// {"type":"string","optional":true,"field":"name"}, {"type":"float","optional":true,"field":"balance"},
-// {"type":"float","optional":true,"field":"credit"}, {"type":"float","optional":true,"field":"payment"},
-// {"type":"int64","optional":false,"field":"manager_id"}],"optional":false},
-// "payload":{"id":999,"name":"error","balance":0.0,"credit":0.0,"payment":0.0,"manager_id":1}}
-
-//bin/connect-standalone.sh config/connect-standalone.properties config/connect-jdbc-source.properties config/connect-jdbc-sink.properties
-

@@ -112,6 +112,7 @@ public class Clients {
                 credit.put("manager_id", client.getManager_id());
                 credit.put("price", rPriceC);
                 credit.put("currency", currencies.get(rC.nextInt(currencies.size())).getRate());
+                credit.put("type", "credit");
 
                 producer.send(new ProducerRecord<>(creditsTopic, client.getId(), credit.toString()));
 
@@ -126,6 +127,7 @@ public class Clients {
                 payment.put("manager_id", client.getManager_id());
                 payment.put("price", rPriceP);
                 payment.put("currency", currencies.get(rP.nextInt(currencies.size())).getRate());
+                payment.put("type", "payment");
 
                 producer.send(new ProducerRecord<>(paymentsTopic, client.getId(), payment.toString()));
             } catch (java.lang.IllegalArgumentException e) {

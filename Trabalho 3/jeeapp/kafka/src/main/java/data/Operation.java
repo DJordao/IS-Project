@@ -9,8 +9,9 @@ public class Operation {
     private String manager_id;
     private String price;
     private String currency;
+    private String type;
 
-    public Operation(String id, String name, String balance, String credit, String payment, String manager_id, String price, String currency) {
+    public Operation(String id, String name, String balance, String credit, String payment, String manager_id, String price, String currency, String type) {
         this.id = id;
         this.name = name;
         this.balance = balance;
@@ -19,6 +20,7 @@ public class Operation {
         this.manager_id = manager_id;
         this.price = price;
         this.currency = currency;
+        this.type = type;
     }
 
     public String getId() {
@@ -85,9 +87,17 @@ public class Operation {
         this.currency = currency;
     }
 
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
     @Override
     public String toString() {
-        return "ClientOperation{" +
+        return "Operation{" +
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
                 ", balance='" + balance + '\'' +
@@ -96,6 +106,7 @@ public class Operation {
                 ", manager_id='" + manager_id + '\'' +
                 ", price='" + price + '\'' +
                 ", currency='" + currency + '\'' +
+                ", type='" + type + '\'' +
                 '}';
     }
 }
