@@ -3,13 +3,9 @@ package standalone;
 import com.google.gson.Gson;
 import data.Client;
 import data.Currency;
-import data.Operation;
-import org.json.JSONObject;
-
-import java.util.ArrayList;
 
 class JSONSchema {
-    public static String serializeClient(ArrayList<Client> clients, ArrayList<Currency> currencies, String operation, String data) {
+    public static String serializeClient(String data) {
         String clientSchema = "{\"schema\":{\"type\":\"struct\",\"fields\":" +
                 "[{\"type\":\"int64\",\"optional\":false,\"field\":\"id\"}, " +
                 "{\"type\":\"string\",\"optional\":true,\"field\":\"name\"}, " +
@@ -17,44 +13,14 @@ class JSONSchema {
                 "{\"type\":\"float\",\"optional\":true,\"field\":\"credit\"}, " +
                 "{\"type\":\"float\",\"optional\":true,\"field\":\"payment\"}, " +
                 "{\"type\":\"int64\",\"optional\":false,\"field\":\"manager_id\"}],\"optional\":false}, ";
-        String payload = "\"payload\":{\"id\":999,\"name\":\"error\",\"balance\":0.0,\"credit\":0.0,\"payment\":0.0,\"manager_id\":1}}";
 
         Gson g = new Gson();
-        Operation op = g.fromJson(data, Operation.class);
+        Client client = g.fromJson(data, Client.class);
 
-        String id = op.getId();
-        String price = op.getPrice();
-        String currency = op.getCurrency();
+        String payload = "\"payload\":{\"id\":" + client.getId() +",\"name\":\"" + client.getName() + "\",\"balance\":"
+                + client.getBalance() + ",\"credit\":" + client.getCredit() + ",\"payment\":" + client.getPayment()
+                + ",\"manager_id\":" + client.getManager_id() + "}}";
 
-        for(Client c : clients) {
-            if(id.equals(c.getId())) {
-                for(Currency cur : currencies) {
-                    if(currency.equals(cur.getInitials())) {
-                        String name = c.getName();
-                        String balance = c.getBalance();
-                        String credit = c.getCredit();
-                        String payment = c.getPayment();
-                        String manager_id = c.getManager_id();
-                        String rate = cur.getRate();
-
-                        if(operation.equals("credit")) {
-                            balance = Float.toString(Float.parseFloat(balance) + Float.parseFloat(price) * Float.parseFloat(rate));
-                            credit = Float.toString(Float.parseFloat(credit) + Float.parseFloat(price) * Float.parseFloat(rate));
-                        }
-                        else if(operation.equals("payment")){
-                            balance = Float.toString(Float.parseFloat(balance) - Float.parseFloat(price) * Float.parseFloat(rate));
-                            payment = Float.toString(Float.parseFloat(payment) + Float.parseFloat(price) * Float.parseFloat(rate));
-                        }
-
-                        payload = "\"payload\":{\"id\":" + id +",\"name\":\"" + name + "\",\"balance\":" + balance + ",\"credit\":" + credit + ",\"payment\":" + payment + ",\"manager_id\":" + manager_id + "}}";
-
-                        return clientSchema + payload;
-                    }
-
-                }
-                break;
-            }
-        }
         System.out.println(payload);
         return clientSchema + payload;
     }

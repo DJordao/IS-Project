@@ -1,5 +1,6 @@
 package standalone;
 
+import data.Client;
 import data.Currency;
 import org.apache.kafka.clients.consumer.*;
 import org.apache.kafka.clients.producer.KafkaProducer;
@@ -14,8 +15,8 @@ import java.util.Random;
 
 public class Clients {
     public static void main(String[] args) throws InterruptedException {
-        ArrayList<String> clients = new ArrayList<>();
-        String client;
+        ArrayList<Client> clients = new ArrayList<>();
+        Client client;
         ArrayList<Currency> currencies = new ArrayList<>();
         Currency currency;
         String dbInfoTopicClient = "DBInfoTopicClient";
@@ -69,8 +70,15 @@ public class Clients {
         while (true) {
             ConsumerRecords<String, String> recordsClient = consumerClient.poll(5000);
             for (ConsumerRecord<String, String> record : recordsClient) {
-                client = JSONSchema.getClientId(record.value());
-                if(!clients.contains(client)) {
+                client = JSONSchema.deserializeClient(record.value());
+                int check = 0;
+                for(int i = 0; i < clients.size(); i++) {
+                    if(clients.get(i).getId().equals(client.getId())) {
+                        check = 1;
+                        break;
+                    }
+                }
+                if(check == 0) {
                     clients.add(client);
                 }
             }
@@ -95,18 +103,31 @@ public class Clients {
                 System.out.println("Entrei");
                 float rPriceC = 0.99f + rC.nextFloat() * (100.0f - 0.99f);
                 JSONObject credit = new JSONObject();
-                credit.put("id", clients.get(rC.nextInt(clients.size())));
+                client = clients.get(rC.nextInt(clients.size()));
+                credit.put("id", client.getId());
+                credit.put("name", client.getName());
+                credit.put("balance", client.getBalance());
+                credit.put("credit", client.getCredit());
+                credit.put("payment", client.getPayment());
+                credit.put("manager_id", client.getManager_id());
                 credit.put("price", rPriceC);
-                credit.put("currency", currencies.get(rC.nextInt(currencies.size())).getInitials());
+                credit.put("currency", currencies.get(rC.nextInt(currencies.size())).getRate());
+
+                producer.send(new ProducerRecord<>(creditsTopic, client.getId(), credit.toString()));
 
                 float rPriceP = 0.99f + rP.nextFloat() * (100.0f - 0.99f);
                 JSONObject payment = new JSONObject();
-                payment.put("id", clients.get(rP.nextInt(clients.size())));
+                client = clients.get(rP.nextInt(clients.size()));
+                payment.put("id", client.getId());
+                payment.put("name", client.getName());
+                payment.put("balance", client.getBalance());
+                payment.put("credit", client.getCredit());
+                payment.put("payment", client.getPayment());
+                payment.put("manager_id", client.getManager_id());
                 payment.put("price", rPriceP);
-                payment.put("currency", currencies.get(rP.nextInt(currencies.size())).getInitials());
+                payment.put("currency", currencies.get(rP.nextInt(currencies.size())).getRate());
 
-                producer.send(new ProducerRecord<>(creditsTopic, "credit", credit.toString()));
-                producer.send(new ProducerRecord<>(paymentsTopic, "payment", payment.toString()));
+                producer.send(new ProducerRecord<>(paymentsTopic, client.getId(), payment.toString()));
             } catch (java.lang.IllegalArgumentException e) {
                 System.out.println("Reading clients and currencies...");
             }

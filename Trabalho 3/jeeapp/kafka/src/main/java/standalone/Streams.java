@@ -1,17 +1,16 @@
 package standalone;
 
+import com.google.gson.Gson;
 import data.Client;
-import data.Currency;
-import org.apache.kafka.clients.consumer.*;
+import data.Operation;
 import org.apache.kafka.common.serialization.Serdes;
 import org.apache.kafka.streams.KafkaStreams;
 import org.apache.kafka.streams.StreamsBuilder;
 import org.apache.kafka.streams.StreamsConfig;
 import org.apache.kafka.streams.kstream.KStream;
+import org.apache.kafka.streams.kstream.KTable;
 import org.apache.kafka.streams.kstream.Produced;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Properties;
 
 public class Streams {
@@ -19,12 +18,6 @@ public class Streams {
         String creditsTopic = "CreditsTopic";
         String paymentsTopic = "PaymentsTopic";
         String resultTopic = "client";
-        String dbInfoTopicClient = "DBInfoTopicClient";
-        String dbInfoTopicCurrency = "DBInfoTopicCurrency";
-        ArrayList<Client> clients = new ArrayList<>();
-        Client client;
-        ArrayList<Currency> currencies = new ArrayList<>();
-        Currency currency;
 
         Properties props = new Properties();
         props.put(StreamsConfig.APPLICATION_ID_CONFIG, "credit-topic");
@@ -38,90 +31,57 @@ public class Streams {
         props2.put(StreamsConfig.DEFAULT_KEY_SERDE_CLASS_CONFIG, Serdes.String().getClass());
         props2.put(StreamsConfig.DEFAULT_VALUE_SERDE_CLASS_CONFIG, Serdes.String().getClass());
 
-        Properties propsConsumer = new Properties();
-        propsConsumer.put("bootstrap.servers", "localhost:9092");
-        propsConsumer.put("acks", "all");
-        propsConsumer.put("retries", 0);
-        propsConsumer.put("batch.size", 16384);
-        propsConsumer.put("linger.ms", 1);
-        propsConsumer.put("buffer.memory", 33554432);
-        propsConsumer.put(ConsumerConfig.GROUP_ID_CONFIG, "StreamsConsumer");
-        propsConsumer.put("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
-        propsConsumer.put("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
-
-        Properties propsConsumer2 = new Properties();
-        propsConsumer2.put("bootstrap.servers", "localhost:9092");
-        propsConsumer2.put("acks", "all");
-        propsConsumer2.put("retries", 0);
-        propsConsumer2.put("batch.size", 16384);
-        propsConsumer2.put("linger.ms", 1);
-        propsConsumer2.put("buffer.memory", 33554432);
-        propsConsumer2.put(ConsumerConfig.GROUP_ID_CONFIG, "StreamsConsumer2");
-        propsConsumer2.put("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
-        propsConsumer2.put("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
-
         StreamsBuilder builder = new StreamsBuilder();
         KStream<String, String> lines = builder.stream(creditsTopic);
-        //KTable<String, Long> outlines = lines.groupByKey().count();
-        //outlines.mapValues(v -> "" + v).toStream().to(resultTopic, Produced.with(Serdes.String(), Serdes.String()));
-        /*lines.foreach((key, value) -> {
-            System.out.println("entrei");
-            JSONSchema.serializeClient(clients, value);
-            System.out.println("sai");
-        });*/
-        lines.peek((key, value) -> System.out.println("Key: " + key + " --- Value: " + value));
-        lines.mapValues((key, value) -> JSONSchema.serializeClient(clients, currencies, key, value))
-                .to(resultTopic, Produced.with(Serdes.String(), Serdes.String()));
+        KTable<String, String> outlines = lines.groupByKey().reduce((oldval, newval) -> {
+            System.out.println(oldval + "-" + newval);
+            Gson g = new Gson();
+            Operation oldOp = g.fromJson(oldval, Operation.class);
+            Operation newOp = g.fromJson(newval, Operation.class);
+
+            Float balance = Float.parseFloat(oldOp.getBalance()) + Float.parseFloat(newOp.getPrice()) * Float.parseFloat(newOp.getCurrency());
+            oldOp.setBalance(balance.toString());
+
+            Float credit = Float.parseFloat(oldOp.getCredit()) + Float.parseFloat(newOp.getPrice()) * Float.parseFloat(newOp.getCurrency());
+            oldOp.setCredit(credit.toString());
+
+            oldval = g.toJson(oldOp);
+            return oldval;
+                });
+                outlines.mapValues((value) -> JSONSchema.serializeClient(value))
+                        .toStream().to(resultTopic, Produced.with(Serdes.String(), Serdes.String()));
+
         KafkaStreams streams = new KafkaStreams(builder.build(), props);
+        streams.cleanUp();
         streams.start();
+
 
         StreamsBuilder builder2 = new StreamsBuilder();
         KStream<String, String> lines2 = builder2.stream(paymentsTopic);
-        //KTable<String, Long> outlines = lines.groupByKey().count();
-        //outlines.mapValues(v -> "" + v).toStream().to(resultTopic, Produced.with(Serdes.String(), Serdes.String()));
-        lines2.peek((key, value) -> System.out.println("Key: " + key + " --- Value: " + value));
-        lines2.mapValues((key, value) -> JSONSchema.serializeClient(clients, currencies, key, value))
-                .to(resultTopic, Produced.with(Serdes.String(), Serdes.String()));
+        KTable<String, String> outlines2 = lines2.groupByKey().reduce((oldval, newval) -> {
+            System.out.println(oldval + "-" + newval);
+            Gson g = new Gson();
+            Operation oldOp = g.fromJson(oldval, Operation.class);
+            Operation newOp = g.fromJson(newval, Operation.class);
+
+            Float balance = Float.parseFloat(oldOp.getBalance()) - Float.parseFloat(newOp.getPrice()) * Float.parseFloat(newOp.getCurrency());
+            oldOp.setBalance(balance.toString());
+
+            Float credit = Float.parseFloat(oldOp.getPayment()) + Float.parseFloat(newOp.getPrice()) * Float.parseFloat(newOp.getCurrency());
+            oldOp.setPayment(credit.toString());
+
+            oldval = g.toJson(oldOp);
+            return oldval;
+        });
+        outlines2.mapValues((value) -> JSONSchema.serializeClient(value))
+                .toStream().to(resultTopic, Produced.with(Serdes.String(), Serdes.String()));
+
         KafkaStreams streams2 = new KafkaStreams(builder2.build(), props2);
+        streams2.cleanUp();
         streams2.start();
 
-        Consumer<String, String> consumerClient = new KafkaConsumer<>(propsConsumer);
-        consumerClient.subscribe(Collections.singletonList(dbInfoTopicClient));
-
-        Consumer<String, String> consumerCurrency = new KafkaConsumer<>(propsConsumer2);
-        consumerCurrency.subscribe(Collections.singletonList(dbInfoTopicCurrency));
-
-        while (true) {
-            ConsumerRecords<String, String> recordsClient = consumerClient.poll(Long.MAX_VALUE);
-            for (ConsumerRecord<String, String> record : recordsClient) {
-                client = JSONSchema.deserializeClient(record.value());
-                int check = 0;
-                for(int i = 0; i < clients.size(); i++) {
-                    if(clients.get(i).getId().equals(client.getId())) {
-                        check = 1;
-                        break;
-                    }
-                }
-                if(check == 0) {
-                    clients.add(client);
-                }
-            }
-            //System.out.println("Clients: " + clients);
-
-            ConsumerRecords<String, String> recordsCurrency = consumerCurrency.poll(Long.MAX_VALUE);
-            for (ConsumerRecord<String, String> record : recordsCurrency) {
-                currency = JSONSchema.deserializeCurrency(record.value());
-                int check = 0;
-                for(int i = 0; i < currencies.size(); i++) {
-                    if(currencies.get(i).getInitials().equals(currency.getInitials())) {
-                        check = 1;
-                        break;
-                    }
-                }
-                if(check == 0) {
-                    currencies.add(currency);
-                }
-            }
+        while(true) {
+            Thread.sleep(10000);
         }
     }
 
