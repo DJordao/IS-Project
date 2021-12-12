@@ -80,6 +80,8 @@ public class Clients {
                 }
                 if(check == 0) {
                     clients.add(client);
+                    System.out.println(client);
+                    //initClient(client, producer, creditsTopic, paymentsTopic);
                 }
             }
             //System.out.println("Clients: " + clients);
@@ -103,8 +105,10 @@ public class Clients {
                 System.out.println("Entrei");
                 float rPriceC = 0.99f + rC.nextFloat() * (100.0f - 0.99f);
                 JSONObject credit = new JSONObject();
-                client = clients.get(rC.nextInt(clients.size()));
+                //client = clients.get(rC.nextInt(clients.size()));
+                client = clients.get(0);
                 credit.put("id", client.getId());
+                System.out.println(client.getId());
                 credit.put("name", client.getName());
                 credit.put("balance", client.getBalance());
                 credit.put("credit", client.getCredit());
@@ -119,24 +123,65 @@ public class Clients {
                 float rPriceP = 0.99f + rP.nextFloat() * (100.0f - 0.99f);
                 JSONObject payment = new JSONObject();
                 client = clients.get(rP.nextInt(clients.size()));
+                client = clients.get(0);
+                currency = currencies.get(rP.nextInt(currencies.size()));
                 payment.put("id", client.getId());
+                System.out.println(client.getId());
                 payment.put("name", client.getName());
                 payment.put("balance", client.getBalance());
                 payment.put("credit", client.getCredit());
                 payment.put("payment", client.getPayment());
                 payment.put("manager_id", client.getManager_id());
                 payment.put("price", rPriceP);
-                payment.put("currency", currencies.get(rP.nextInt(currencies.size())).getRate());
+                payment.put("currency", currency.getRate());
                 payment.put("type", "payment");
+                payment.put("flag", "false");
 
                 producer.send(new ProducerRecord<>(paymentsTopic, client.getId(), payment.toString()));
-            } catch (java.lang.IllegalArgumentException e) {
+
+                JSONObject revenue = new JSONObject();
+                revenue.put("id", client.getManager_id());
+                revenue.put("balance", "0.0");
+                revenue.put("price", rPriceP);
+                revenue.put("currency", currency.getRate());
+                revenue.put("flag", "true");
+
+                producer.send(new ProducerRecord<>(paymentsTopic, client.getId(), revenue.toString()));
+
+            } catch (Exception e) {
                 System.out.println("Reading clients and currencies...");
             }
 
             System.out.println("Enviado");
-            Thread.sleep(/*rT.nextInt(1) **/ 10000);
+            Thread.sleep(/*rT.nextInt(1) **/ 19000);
         }
 
+    }
+
+    private static void initClient(Client client, Producer<String, String> producer, String creditsTopic, String paymentsTopic) {
+        JSONObject credit = new JSONObject();
+        JSONObject payment;
+        JSONObject revenue = new JSONObject();
+        credit.put("id", client.getId());
+        credit.put("name", client.getName());
+        credit.put("balance", client.getBalance());
+        credit.put("credit", client.getCredit());
+        credit.put("payment", client.getPayment());
+        credit.put("manager_id", client.getManager_id());
+        credit.put("price", "0.0");
+        credit.put("currency", "0.0");
+        payment = credit;
+        credit.put("type", "credit");
+        payment.put("type", "payment");
+        payment.put("flag", "false");
+        revenue.put("id", client.getManager_id());
+        revenue.put("balance", "0.0");
+        payment.put("price", "0.0");
+        payment.put("currency", "0.0");
+        revenue.put("flag", "true");
+
+        producer.send(new ProducerRecord<>(creditsTopic, client.getId(), credit.toString()));
+        producer.send(new ProducerRecord<>(paymentsTopic, client.getId(), payment.toString()));
+        producer.send(new ProducerRecord<>(paymentsTopic, client.getId(), revenue.toString()));
     }
 }

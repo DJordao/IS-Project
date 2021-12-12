@@ -10,8 +10,9 @@ public class Operation {
     private String price;
     private String currency;
     private String type;
+    private String flag;
 
-    public Operation(String id, String name, String balance, String credit, String payment, String manager_id, String price, String currency, String type) {
+    public Operation(String id, String name, String balance, String credit, String payment, String manager_id, String price, String currency, String type, String flag) {
         this.id = id;
         this.name = name;
         this.balance = balance;
@@ -21,6 +22,7 @@ public class Operation {
         this.price = price;
         this.currency = currency;
         this.type = type;
+        this.flag = flag;
     }
 
     public String getId() {
@@ -93,6 +95,14 @@ public class Operation {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public String getFlag() {
+        return flag;
+    }
+
+    public void setFlag(String flag) {
+        this.flag = flag;
     }
 
     @Override
