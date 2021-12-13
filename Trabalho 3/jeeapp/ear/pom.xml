@@ -20,9 +20,10 @@ http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <groupId>book</groupId>
     <artifactId>jeeapp</artifactId>
     <version>1</version>
-  </parent>
+    </parent>
   <artifactId>ear</artifactId>
   <packaging>ear</packaging>
+    <version>1</version>
   <name>ear assembly</name>
   <dependencies>
     <dependency>

@@ -9,9 +9,7 @@ import org.apache.kafka.streams.KeyValue;
 import org.apache.kafka.streams.StreamsBuilder;
 import org.apache.kafka.streams.StreamsConfig;
 import org.apache.kafka.streams.kstream.*;
-import org.json.JSONObject;
 
-import java.time.Duration;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
@@ -39,8 +37,8 @@ public class Streams {
         KStream<String, String> streamCredits = builder.stream(creditsTopic);
         KStream<String, String> streamPayments = builder.stream(paymentsTopic);
 
+        // Credit table
         KTable<String, String> tableCredits = streamCredits.groupByKey().reduce((oldval, newval) -> {
-            //System.out.println(oldval + "-" + newval);
             Gson g = new Gson();
             Operation oldOp = g.fromJson(oldval, Operation.class);
             Operation newOp = g.fromJson(newval, Operation.class);
@@ -49,12 +47,11 @@ public class Streams {
             oldOp.setCredit(credit.toString());
 
             oldval = g.toJson(oldOp);
-            //System.out.println(oldval);
             return oldval;
         });
 
+        // Payment table
         KTable<String, String> tablePayments = streamPayments.filterNot((k, v) -> JSONSchema.deserializeFlag(v)).groupByKey().reduce((oldval, newval) -> {
-            //System.out.println(oldval + "-" + newval);
             Gson g = new Gson();
             Operation oldOp = g.fromJson(oldval, Operation.class);
             Operation newOp = g.fromJson(newval, Operation.class);
@@ -63,12 +60,11 @@ public class Streams {
             oldOp.setPayment(payment.toString());
 
             oldval = g.toJson(oldOp);
-            //System.out.println(oldval);
             return oldval;
         });
 
+        // Revenue talbe
         KTable<String, String> tableRevenues = streamPayments.filter((k, v) -> JSONSchema.deserializeFlag(v)).groupByKey().reduce((oldval, newval) -> {
-            //System.out.println("revenue");
             Gson g = new Gson();
             Operation oldOp = g.fromJson(oldval, Operation.class);
             Operation newOp = g.fromJson(newval, Operation.class);
@@ -77,12 +73,11 @@ public class Streams {
             oldOp.setBalance(payment.toString());
 
             oldval = g.toJson(oldOp);
-            //System.out.println(oldval);
             return oldval;
         });
-
         tableRevenues.toStream().mapValues((k, v) -> JSONSchema.serializeManager(v)).to(managerTopic, Produced.with(Serdes.String(), Serdes.String()));
 
+        // Balance table
         KTable<String, String> tableBalance = tableCredits.join(tablePayments, (leftValue, rightValue) -> {
             Gson g = new Gson();
             Client left = g.fromJson(leftValue, Client.class);
@@ -95,11 +90,10 @@ public class Streams {
 
             return g.toJson(left);
         });
-
         tableBalance.toStream().mapValues((k, v) -> JSONSchema.serializeClient(v)).to(clientTopic, Produced.with(Serdes.String(), Serdes.String()));
 
+        // Windowed credit table
         KTable<Windowed<String>, String> tableCreditsW = streamCredits.groupByKey().windowedBy(TimeWindows.of(TimeUnit.MINUTES.toMillis(1))).reduce((oldval, newval) -> {
-            //System.out.println(oldval + "-" + newval);
             Gson g = new Gson();
             Operation oldOp = g.fromJson(oldval, Operation.class);
             Operation newOp = g.fromJson(newval, Operation.class);
@@ -108,16 +102,14 @@ public class Streams {
             oldOp.setCredit(credit.toString());
 
             oldval = g.toJson(oldOp);
-            //System.out.println(oldval);
             return oldval;
         });
-
         KStream<String, String> streamCreditsS = tableCreditsW.toStream().map((key, value) -> KeyValue.pair(key.key(), value));
         KTable<String, String> tableCreditsS = streamCreditsS.groupByKey().reduce((oldval, newval) -> newval);
         tableCreditsS.toStream().mapValues((k, v) -> JSONSchema.serializeClientWindow(v)).to(clientWindowTopic, Produced.with(Serdes.String(), Serdes.String()));
 
+        // Windowed payment table
         KTable<Windowed<String>, String> tablePaymentsW = streamPayments.filterNot((k, v) -> JSONSchema.deserializeFlag(v)).groupByKey().windowedBy(TimeWindows.of(TimeUnit.MINUTES.toMillis(1))).reduce((oldval, newval) -> {
-            //System.out.println(oldval + "-" + newval);
             Gson g = new Gson();
             Operation oldOp = g.fromJson(oldval, Operation.class);
             Operation newOp = g.fromJson(newval, Operation.class);
@@ -126,14 +118,13 @@ public class Streams {
             oldOp.setPayment(payment.toString());
 
             oldval = g.toJson(oldOp);
-            //System.out.println(oldval);
             return oldval;
         });
-
         KStream<String, String> streamPaymentsS = tablePaymentsW.toStream().map((key, value) -> KeyValue.pair(key.key(), value));
         KTable<String, String> tablePaymentsS = streamPaymentsS.groupByKey().reduce((oldval, newval) -> newval);
         tablePaymentsS.toStream().mapValues((k, v) -> JSONSchema.serializeClientWindow(v)).to(clientWindowTopic, Produced.with(Serdes.String(), Serdes.String()));
 
+        // Windowed balance table
         KTable<Windowed<String>, String> tableBalanceW = tableCreditsW.join(tablePaymentsW, (leftValue, rightValue) -> {
             Gson g = new Gson();
             Client left = g.fromJson(leftValue, Client.class);
@@ -150,20 +141,19 @@ public class Streams {
         KTable<String, String> tableBalanceS = streamBalanceS.groupByKey().reduce((oldval, newval) -> newval);
         tableBalanceS.toStream().mapValues((k, v) -> JSONSchema.serializeClientWindow(v)).to(clientWindowTopic, Produced.with(Serdes.String(), Serdes.String()));
 
-
+        // Credit stream
         KafkaStreams streams = new KafkaStreams(builder.build(), props);
         streams.cleanUp();
         streams.start();
 
+        // Payment stream
         KafkaStreams streams2 = new KafkaStreams(builder.build(), props2);
         streams2.cleanUp();
         streams2.start();
 
 
         while(true) {
-            //Thread.sleep(10000);
+
         }
     }
-
-
 }

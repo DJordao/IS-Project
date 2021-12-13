@@ -117,6 +117,7 @@ public class Operation {
                 ", price='" + price + '\'' +
                 ", currency='" + currency + '\'' +
                 ", type='" + type + '\'' +
+                ", flag='" + flag + '\'' +
                 '}';
     }
 }
