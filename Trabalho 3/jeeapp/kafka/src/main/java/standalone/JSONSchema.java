@@ -67,18 +67,26 @@ class JSONSchema {
     public static String serializeClientWindow(String data) {
         String clientWindowSchema = "{\"schema\":{\"type\":\"struct\",\"fields\":" +
                 "[{\"type\":\"int64\",\"optional\":false,\"field\":\"id\"}, " +
-                "{\"type\":\"float\",\"optional\":true,\"field\":\"bill\"}, " +
-                "{\"type\":\"float\",\"optional\":true,\"field\":\"credit\"}, " +
-                "{\"type\":\"float\",\"optional\":true,\"field\":\"payment\"}],\"optional\":false}, ";
+                "{\"type\":\"float\",\"optional\":true,\"field\":\"bill\"}],\"optional\":false}, ";
 
         Gson g = new Gson();
         Client client  = g.fromJson(data, Client.class);
 
-        String payload = "\"payload\":{\"id\":" + client.getId() + ",\"bill\":"
-                + client.getBalance() + ",\"credit\":"
-                + client.getCredit() +",\"payment\":"
-                + client.getPayment() + "}}";
+        String payload = "\"payload\":{\"id\":" + client.getId() + ",\"bill\":" + client.getBalance() + "}}";
 
         return clientWindowSchema + payload;
+    }
+
+    public static String serializeClientPaymentsMonth(String data) {
+        String clientPaymentsMonth = "{\"schema\":{\"type\":\"struct\",\"fields\":" +
+                "[{\"type\":\"int64\",\"optional\":false,\"field\":\"id\"}, " +
+                "{\"type\":\"int32\",\"optional\":true,\"field\":\"n_payments\"}],\"optional\":false}, ";
+
+        String id = data.split(" ")[0];
+        String count = data.split(" ")[1];
+
+        String payload = "\"payload\":{\"id\":" + id + ",\"n_payments\":" + count + "}}";
+
+        return clientPaymentsMonth + payload;
     }
 }

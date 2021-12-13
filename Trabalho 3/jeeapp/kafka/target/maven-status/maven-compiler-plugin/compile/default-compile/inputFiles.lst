@@ -1,11 +1,9 @@
 /workspace/jeeapp/kafka/src/main/java/standalone/Streams.java
 /workspace/jeeapp/kafka/src/main/java/data/Currency.java
 /workspace/jeeapp/kafka/src/main/java/data/Operation.java
-/workspace/jeeapp/kafka/src/main/java/book/App.java
 /workspace/jeeapp/kafka/src/main/java/standalone/JSONSchema.java
 /workspace/jeeapp/kafka/src/main/java/kafka/SimpleProducer.java
 /workspace/jeeapp/kafka/src/main/java/data/Client.java
 /workspace/jeeapp/kafka/src/main/java/data/Manager.java
 /workspace/jeeapp/kafka/src/main/java/kafka/SimpleConsumer.java
 /workspace/jeeapp/kafka/src/main/java/standalone/Clients.java
-/workspace/jeeapp/kafka/src/main/java/streams/SimpleStreamsExercisesa.java

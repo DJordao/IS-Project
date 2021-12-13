@@ -20,6 +20,7 @@ public class Streams {
         String clientTopic = "client";
         String managerTopic = "manager";
         String clientWindowTopic = "client_window";
+        String clientPaymentsMonth = "client_payments_month";
 
         Properties props = new Properties();
         props.put(StreamsConfig.APPLICATION_ID_CONFIG, "credit-topic");
@@ -140,6 +141,13 @@ public class Streams {
         KStream<String, String> streamBalanceS = tableBalanceW.toStream().map((key, value) -> KeyValue.pair(key.key(), value));
         KTable<String, String> tableBalanceS = streamBalanceS.groupByKey().reduce((oldval, newval) -> newval);
         tableBalanceS.toStream().mapValues((k, v) -> JSONSchema.serializeClientWindow(v)).to(clientWindowTopic, Produced.with(Serdes.String(), Serdes.String()));
+
+        // Windowed payment table by month
+        KTable<Windowed<String>, String> tablePaymentsMW = streamPayments.filterNot((k, v) -> JSONSchema.deserializeFlag(v)).groupByKey().windowedBy(TimeWindows.of(TimeUnit.MINUTES.toMillis(1))).count().mapValues((k, v) -> v + "");
+        KStream<String, String> streamPaymentsMS = tablePaymentsMW.toStream().map((key, value) -> KeyValue.pair(key.key(), value));
+        KTable<String, String> tablePaymentsMS = streamPaymentsMS.groupByKey().reduce((oldval, newval) -> newval);
+        tablePaymentsMS.toStream().mapValues((k, v) -> JSONSchema.serializeClientPaymentsMonth(k + " " + v)).to(clientPaymentsMonth, Produced.with(Serdes.String(), Serdes.String()));
+
 
         // Credit stream
         KafkaStreams streams = new KafkaStreams(builder.build(), props);

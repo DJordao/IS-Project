@@ -1,11 +1,9 @@
 standalone/JSONSchema.class
-book/App.class
 data/Currency.class
 kafka/SimpleConsumer.class
 kafka/SimpleProducer.class
 data/Manager.class
 data/Operation.class
-streams/SimpleStreamsExercisesa.class
 standalone/Clients.class
 data/Client.class
 standalone/Streams.class
