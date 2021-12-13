@@ -83,7 +83,7 @@ public class Streams {
             Gson g = new Gson();
             Client left = g.fromJson(leftValue, Client.class);
             Client right = g.fromJson(rightValue, Client.class);
-            System.out.println("join");
+            System.out.println("Join: " + right);
             left.setPayment(right.getPayment());
 
             Float balance = Float.parseFloat(left.getCredit()) - Float.parseFloat(right.getPayment());
@@ -94,7 +94,7 @@ public class Streams {
         tableBalance.toStream().mapValues((k, v) -> JSONSchema.serializeClient(v)).to(clientTopic, Produced.with(Serdes.String(), Serdes.String()));
 
         // Windowed credit table
-        KTable<Windowed<String>, String> tableCreditsW = streamCredits.groupByKey().windowedBy(TimeWindows.of(TimeUnit.MINUTES.toMillis(1))).reduce((oldval, newval) -> {
+        KTable<Windowed<String>, String> tableCreditsW = streamCredits.groupByKey().windowedBy(TimeWindows.of(TimeUnit.DAYS.toMillis(30))).reduce((oldval, newval) -> {
             Gson g = new Gson();
             Operation oldOp = g.fromJson(oldval, Operation.class);
             Operation newOp = g.fromJson(newval, Operation.class);
@@ -110,7 +110,7 @@ public class Streams {
         tableCreditsS.toStream().mapValues((k, v) -> JSONSchema.serializeClientWindow(v)).to(clientWindowTopic, Produced.with(Serdes.String(), Serdes.String()));
 
         // Windowed payment table
-        KTable<Windowed<String>, String> tablePaymentsW = streamPayments.filterNot((k, v) -> JSONSchema.deserializeFlag(v)).groupByKey().windowedBy(TimeWindows.of(TimeUnit.MINUTES.toMillis(1))).reduce((oldval, newval) -> {
+        KTable<Windowed<String>, String> tablePaymentsW = streamPayments.filterNot((k, v) -> JSONSchema.deserializeFlag(v)).groupByKey().windowedBy(TimeWindows.of(TimeUnit.DAYS.toMillis(30))).reduce((oldval, newval) -> {
             Gson g = new Gson();
             Operation oldOp = g.fromJson(oldval, Operation.class);
             Operation newOp = g.fromJson(newval, Operation.class);
@@ -130,7 +130,7 @@ public class Streams {
             Gson g = new Gson();
             Client left = g.fromJson(leftValue, Client.class);
             Client right = g.fromJson(rightValue, Client.class);
-            System.out.println("Left: " + left + " Right: " + right);
+            System.out.println("Windowed join: " + right);
             left.setPayment(right.getPayment());
 
             Float balance = Float.parseFloat(left.getCredit()) - Float.parseFloat(right.getPayment());
@@ -143,7 +143,7 @@ public class Streams {
         tableBalanceS.toStream().mapValues((k, v) -> JSONSchema.serializeClientWindow(v)).to(clientWindowTopic, Produced.with(Serdes.String(), Serdes.String()));
 
         // Windowed payment table by month
-        KTable<Windowed<String>, String> tablePaymentsMW = streamPayments.filterNot((k, v) -> JSONSchema.deserializeFlag(v)).groupByKey().windowedBy(TimeWindows.of(TimeUnit.MINUTES.toMillis(1))).count().mapValues((k, v) -> v + "");
+        KTable<Windowed<String>, String> tablePaymentsMW = streamPayments.filterNot((k, v) -> JSONSchema.deserializeFlag(v)).groupByKey().windowedBy(TimeWindows.of(TimeUnit.DAYS.toMillis(60))).count().mapValues((k, v) -> v + "");
         KStream<String, String> streamPaymentsMS = tablePaymentsMW.toStream().map((key, value) -> KeyValue.pair(key.key(), value));
         KTable<String, String> tablePaymentsMS = streamPaymentsMS.groupByKey().reduce((oldval, newval) -> newval);
         tablePaymentsMS.toStream().mapValues((k, v) -> JSONSchema.serializeClientPaymentsMonth(k + " " + v)).to(clientPaymentsMonth, Produced.with(Serdes.String(), Serdes.String()));

@@ -23,7 +23,7 @@ class JSONSchema {
         String payload = "\"payload\":{\"id\":" + client.getId() +",\"name\":\"" + client.getName() + "\",\"balance\":"
                 + client.getBalance() + ",\"credit\":" + client.getCredit() + ",\"payment\":" + client.getPayment()
                 + ",\"manager_id\":" + client.getManager_id() + "}}";
-
+        System.out.println("Updated client");
         return clientSchema + payload;
     }
 
@@ -53,7 +53,7 @@ class JSONSchema {
 
         String payload = "\"payload\":{\"id\":" + manager.getId() + ",\"revenue\":"
                 + manager.getBalance() + "}}";
-
+        System.out.println("Updated manager");
         return managerSchema + payload;
     }
 
@@ -73,7 +73,7 @@ class JSONSchema {
         Client client  = g.fromJson(data, Client.class);
 
         String payload = "\"payload\":{\"id\":" + client.getId() + ",\"bill\":" + client.getBalance() + "}}";
-
+        System.out.println("Updated client_window");
         return clientWindowSchema + payload;
     }
 
@@ -86,7 +86,7 @@ class JSONSchema {
         String count = data.split(" ")[1];
 
         String payload = "\"payload\":{\"id\":" + id + ",\"n_payments\":" + count + "}}";
-
+        System.out.println("Updated client_payments_month");
         return clientPaymentsMonth + payload;
     }
 }
